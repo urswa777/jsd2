@@ -16,8 +16,6 @@ function calcLongestSide(pyA,pyB) {
     return pyC;
 }
 
-
-
 function calcCircumference(r) {
     c = 2 * Math.PI * r;
     return c;
