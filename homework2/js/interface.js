@@ -6,7 +6,7 @@ pyB.addEventListener('keyup', calcPy);
 
 function calcPy(event) {
   if (pyA.value.length > 0 && pyB.value.length > 0) {
-    pyC.value = calcLongestSide(pyA.value, pyB.value)
+         pyC.value = calcLongestSide(pyA.value, pyB.value)
   } else {
     pyC.value = '';
   }
@@ -16,14 +16,22 @@ function calcPy(event) {
 
 var r = document.querySelector('.circum-r');
 var c = document.querySelector('.circum-c');
-
 r.addEventListener('keyup', calcC);
+c.addEventListener('keyup', calcR);
 
 function calcC(event) {
   if (r.value.length > 0) {
     c.value = calcCircumference(r.value)
   } else {
     c.value = '';
+  }
+}
+
+function calcR(event) {
+  if (c.value.length > 0) {
+    r.value = calcRadius(c.value)
+  } else {
+    r.value = '';
   }
 }
 

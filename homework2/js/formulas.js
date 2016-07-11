@@ -9,16 +9,18 @@
 
 
 function calcLongestSide(pyA,pyB) {
-	if (pyA !=0 && pyB != 0) {
-         pyC = math.sqrt(Math.pow(pyA,2) + Math.pow(pyB,2) )
-        } 	
-    else pyC=0;
+	pyC = math.sqrt( pyA*pyA  + pyB*pyB  )
     return pyC;
 }
 
 function calcCircumference(r) {
     c = 2 * Math.PI * r;
     return c;
+}
+
+function calcRadius(c) {
+    r = (c / 2) / Math.PI
+    return r;
 }
 
 function calcFahrenheitToCelcius (F) {
