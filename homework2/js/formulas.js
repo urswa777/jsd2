@@ -14,23 +14,23 @@ function calcLongestSide(pyA,pyB) {
 }
 
 //-----------------------------------------------------------
-function calcCircumference(r) {
+function calc_R2C(r) {
     c = 2 * Math.PI * r;
     return c;
 }
 
-function calcRadius(c) {
+function calc_C2R(c) {
     r = (c / 2.0) / Math.PI;
     return r;
 }
 
 //-----------------------------------------------------------
-function calcFahrenheitToCelcius (F) {
+function calc_F2C (F) {
   C = (F - 32) * 5/9;
   return C;
 }
 
-function calcCelciusToFarenheit(C) {
+function calc_C2F (C) {
   F = C * (9/5) + 32;
   return F;
  }

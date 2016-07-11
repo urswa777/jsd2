@@ -20,20 +20,20 @@ function calcPy(event) {
 //-------------------------------------------------------------------
 var r = document.querySelector('.circum-r');
 var c = document.querySelector('.circum-c');
-r.addEventListener('keyup', calcC);
-c.addEventListener('keyup', calcR);
+r.addEventListener('keyup', calcCtoR);
+c.addEventListener('keyup', calcRtoC);
 
-function calcC(event) {
+function calcCtoR(event) {
   if (r.value.length > 0) {
-    c.value = calcCircumference(r.value)
+    c.value = calc_R2C(r.value)
   } else {
     c.value = '';
   }
 }
 
-function calcR(event) {
+function calcRtoC(event) {
   if (c.value.length > 0) {
-    r.value = calcRadius(c.value)
+    r.value = calc_C2R(c.value)
   } else {
     r.value = '';
   }
@@ -49,7 +49,7 @@ tempC.addEventListener('keyup', calcCtoF);
 
 function calcFtoC(event) {
   if (tempF.value.length > 0) {
-    tempC.value = calcFahrenheitToCelcius(tempF.value)
+    tempC.value = calc_F2C(tempF.value)
   } else {
     tempC.value = '';
   }
@@ -57,7 +57,7 @@ function calcFtoC(event) {
 
 function calcCtoF(event) {
   if (tempC.value.length > 0) {
-    tempF.value = calcCelciusToFarenheit(tempC.value)
+    tempF.value = calc_C2F(tempC.value)
   } else {
     tempF.value = '';
   }
