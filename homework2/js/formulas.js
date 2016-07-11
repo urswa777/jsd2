@@ -9,7 +9,7 @@
 
 
 function calcLongestSide(pyA,pyB) {
-	pyC = math.sqrt( pyA*pyA  + pyB*pyB  )
+	pyC = Math.sqrt( pyA*pyA  + pyB*pyB  );
     return pyC;
 }
 
@@ -19,7 +19,7 @@ function calcCircumference(r) {
 }
 
 function calcRadius(c) {
-    r = (c / 2) / Math.PI
+    r = (c / 2.0) / Math.PI;
     return r;
 }
 
