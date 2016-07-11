@@ -13,7 +13,6 @@ function calcLongestSide(pyA,pyB) {
          pyC = math.sqrt(Math.pow(pyA,2) + Math.pow(pyB,2);  
     else pyC=0;
     return pyC;
-  }
 }
 
 
