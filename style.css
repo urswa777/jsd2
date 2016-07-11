@@ -1,0 +1,44 @@
+
+.column { color:green;
+	      float: left;
+	      width:25%;
+}
+
+#JSD2 {
+  font-size:25px;
+  color:#999999;
+  padding-left:30px;
+}
+
+#topbar {
+	background-color:gray;
+}
+
+
+#MyTitle {
+    display: block;
+}
+
+#MyName {
+    font-size:2em;
+    color:#3A5A8B;
+}
+
+#MyJob {
+    font-size:1em;
+    color:#80A0D0;
+}
+
+.profile_btn{
+	color:#000000;
+}
+
+span {
+	font-size:7px;
+	color:#CFD0D8;
+}
+
+.homework:hover{
+   background-color:#CC0000;
+   color:#FFFFFF;
+}
