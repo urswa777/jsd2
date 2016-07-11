@@ -1,3 +1,6 @@
+//-------------------------------------------------------------------
+//----------- For Pyth Theory ---------------------------------------
+//-------------------------------------------------------------------
 var pyA = document.querySelector('.py-a');
 var pyB = document.querySelector('.py-b');
 var pyC = document.querySelector('.py-c');
@@ -13,7 +16,8 @@ function calcPy(event) {
 }
 
 //-------------------------------------------------------------------
-
+//----------- For Radius/Circumfence conv.  -------------------------
+//-------------------------------------------------------------------
 var r = document.querySelector('.circum-r');
 var c = document.querySelector('.circum-c');
 r.addEventListener('keyup', calcC);
@@ -36,7 +40,8 @@ function calcR(event) {
 }
 
 //-------------------------------------------------------------------
-
+//----------- For F/C conversion  -----------------------------------
+//-------------------------------------------------------------------
 var tempF = document.querySelector('.temp-f');
 var tempC = document.querySelector('.temp-c');
 tempF.addEventListener('keyup', calcFtoC);
