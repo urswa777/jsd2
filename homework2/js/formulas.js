@@ -10,7 +10,7 @@
 
 function calcLongestSide(pyA,pyB) {
 	if (pyA !=0 && pyB != 0) {
-         pyC = math.sqrt(Math.pow(pyA,2) + Math.pow(pyB,2) 
+         pyC = math.sqrt(Math.pow(pyA,2) + Math.pow(pyB,2) )
         } 	
     else pyC=0;
     return pyC;
