@@ -20,10 +20,10 @@ function calcPy(event) {
 //-------------------------------------------------------------------
 var r = document.querySelector('.circum-r');
 var c = document.querySelector('.circum-c');
-r.addEventListener('keyup', calcCtoR);
-c.addEventListener('keyup', calcRtoC);
+r.addEventListener('keyup', calcRtoC);
+c.addEventListener('keyup', calcCtoR);
 
-function calcCtoR(event) {
+function calcRtoC(event) {
   if (r.value.length > 0) {
     c.value = calc_R2C(r.value)
   } else {
@@ -31,7 +31,7 @@ function calcCtoR(event) {
   }
 }
 
-function calcRtoC(event) {
+function calcCtoR(event) {
   if (c.value.length > 0) {
     r.value = calc_C2R(c.value)
   } else {
