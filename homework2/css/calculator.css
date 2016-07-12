@@ -82,3 +82,16 @@ input[disabled] {
 .temp {
   padding-left: 150px;
 }
+.home_link{
+  font-size:10px;
+  text-decoration: none;
+  color:#B1B2B7;
+}
+
+.home_link:hover{
+  font-size:10px;
+  text-decoration: none;
+  color:#F2D3FC;
+  background-color:#CC0000;
+}
+
