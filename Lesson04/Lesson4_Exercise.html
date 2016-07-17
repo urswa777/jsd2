@@ -52,18 +52,27 @@
 
 
     <p>Question 8 - Technique #2 for looping over an array - using the traditional "for loop" technique<br><br>
-        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question8.png" style="width:627px; height:267px;"></img>
+        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question8a.png" style="width:436px; height:127px;"></img><br>
+        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question8b.png" style="width:612px; height:174px;"></img>
         </p>
 
+   <!-- 2 Looping Technique  : forEach + for-loop 
     <script>
        var days=["Mon", "Tue", "Wed", "Thu", "Fri"];
        days.push("Sat");
        console.log ("------- Technique1: forEach -------")
        days.forEach(printDay); // setting up a callback
-       function printDay(item, index) {
-       console.log(index, item)  ;       
-     }
+       function printDay(item, index) { console.log(index, item)  ;   }
+    -->
 
+    <script>
+     var days=["Mon", "Tue", "Wed", "Thu", "Fri"];
+     console.log ("------- Technique2: forLoop -------")
+     for (var i=0; i< days.length; i++) {
+       console.log( i + "==> " + days[i] );
+       }
     </script>
+
+
  </body>
  </html>
