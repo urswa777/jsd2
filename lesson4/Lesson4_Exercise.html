@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>        <title>Arrays</title> </head>
+ <body>    <h1> Arrays</h1>
+    <script>
+     var q1 = ["image1.png", "image2.png", "image3.png"];
+     console.log("Question 1  : ", q1);
+     q2 = q1[0];
+     console.log("Question 2  : ", q2);
+     q3 = q1.length;
+     console.log("Question 3  : ", q3);
+     //q4 = q1.splice(2,1);
+     //console.log("Question 4  : ", q4);
+     var q4 = q1[ q1.length-1 ];
+     console.log("Question 4  : ", q4);
+
+    console.log("=============================================");
+     q1.forEach(print);
+     function print(item){
+        console.log(item + ' sucks !!');
+     }
+
+     var x = [1,2,3,4];
+     console.log("Question 5  (before) : ", x);
+     var q5=[];
+     x.forEach(whateverthe);
+
+     function  whateverthe(num) {
+         var z = num + 1;
+         q5.push(z);
+     }
+     console.log("Question 5  (after ) : " + q5);
+
+     var no_of_items = q5.length ;
+     var sum_of_q5 =0;
+     q5.forEach(sum_up);
+ 
+     function sum_up(num) {
+         sum_of_q5 = sum_of_q5 + num;
+     }
+    console.log("Question 6 : ", sum_of_q5 / no_of_items);  
+    </script>    
+
+ </body>
+ </html>
