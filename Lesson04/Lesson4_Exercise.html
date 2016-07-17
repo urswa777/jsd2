@@ -37,7 +37,6 @@
         <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question5.png" style="width:615px; height:208px;"></img>
   </p>
 
-
   <p> <span style="color:#FFFFFF">XXXXXXX</span>* Remark: method "<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" style="text-decoration:none">forEach()</a>" </p>
 
     <p>Question 6 - Using the array from Question 5, find the average of the numbers in the array
@@ -45,10 +44,26 @@
         <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question6.png" style="width:627px; height:267px;"></img>
   </p>
 
-    <p>Question 7 - Technique #1 for looping over an array - using forEach method with callback function</p>
 
-    <p>Question 8 - Technique #2 for looping over an array - using the traditional "for loop" technique</p>
+    <p>Question 7 - Technique #1 for looping over an array - using forEach method with callback function<br><br>
+        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question7a.png" style="width:457px; height:158px;"></img>
+        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question7b.png" style="width:607px; height:191px;"></img>
+        </p>
 
-    <script src="arrays.js"></script>
+
+    <p>Question 8 - Technique #2 for looping over an array - using the traditional "for loop" technique<br><br>
+        <span style="color:#FFFFFF">XXXXXXX</span><img src="Lesson4_Exercise_answer_for_question8.png" style="width:627px; height:267px;"></img>
+        </p>
+
+    <script>
+       var days=["Mon", "Tue", "Wed", "Thu", "Fri"];
+       days.push("Sat");
+       console.log ("------- Technique1: forEach -------")
+       days.forEach(printDay); // setting up a callback
+       function printDay(item, index) {
+       console.log(index, item)  ;       
+     }
+
+    </script>
  </body>
  </html>
