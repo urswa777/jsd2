@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Diary to Learn D3</title>
+ <meta charset="UTF-8">
+
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+ <link rel="stylesheet" href="style_D3_page.css">
+ </head>
+
+
+ <body>
+     <div class="row" id='topbar'>
+            <div class="col-sm-6" id="Subject">My Diary to learn D3</div>
+            <div class="col-sm-6">
+                  <ul class="nav nav-pills pull-right">
+					  <li role="presentation" class="active"><a href="https://urswa777.github.io/jsd2/">Home</a></li>
+					  <li role="presentation" class='profile_btn'><a href="https://en.wikipedia.org/wiki/D3.js">Wiki</a></li>
+					  <li role="presentation" class='profile_btn'><a href="https://d3js.org/">D3.js</a></li>
+					  <li role="presentation" class='profile_btn'><a href="https://github.com/d3/d3/wiki/Gallery">Gallery</a></li>
+				  </ul>
+            </div>
+     </div>
+
+
+<!--     <div class="jumbotron pull-center">  -->
+     <div class="jumbotron pull-left" id='MyTitle'>
+         <div style="width:400px; height:10px; padding-left:50px">
+         </div>
+         <div style="width:400px; height:150px; padding-left:50px">
+             <h2  id='MyName'>D3 <span>(Data-Driven Document)</span></h2>
+             <p   id='MyJob'>D3.js (for Data-Driven Documents) is a JavaScript library for manipulating documents based on data and producing dynamic, interactive data visualizations in web browsers. D3 helps you bring data to life using HTML, SVG, and CSS. D3’s emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to DOM manipulation. In contrast to many other libraries, D3.js allows great control over the final visual result.
+             </p>
+         </div>    
+         <div style="width:100px; height:100px; padding-top:100px; padding-left:180px">
+             <img style="width:300px; height:300px;"
+               src='Logo_D3.svg.png'></img>
+         </div>    
+     </div>
+
+
+     <div class="row">
+            <div class="col-sm-2">
+            	
+            </div> 
+            <div class="col-sm-4">
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:20px">Here we go....<span> </span></h3>
+					  <small style="color:#9D9EA2;"><span style="font-size:11px"></span></small>
+					</div>     
+
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:15px">Week4 - Writing Javascript functions ?  <span> </span></h3>
+					  <small style="color:#9D9EA2;">
+					    I skipped this lesson since I was on PTO and having fun in Lake Tahoe, you can 
+					    see the pics in my homepage. However, i still check out the notes in SLACK.
+					    the tutor explained the reasons of using function and the relevant rules like:
+					    (1)syntax; (2)passing arguments; (2)return value; (3) logic inside the body of
+					    a function; (4) how to call it; (5) three situations to use the function name: DECLARATION, CALLING and CALLBACK (referencing for Event Listening); (6) Touch the
+					    concept of HOISTING. <br>
+					    it solved the problem from other language that you have to
+					    declare it before using it) but what is done by HOISTING ? <br> 
+					    There are 2 reads of the HTML/CSS/JS code by the parser of the
+					    browser, first read is to pick up all statements like functions or variables.
+                        So when the parser reads the 2nd round, such functions and variables are 
+                        already noticed so they can be used without any issue. <br><br>
+
+                        Other materials taught include data-types: <br>
+                        String, Number, Boolean, Array and Objects
+
+					     <br><span>2016-Jul-13</span></small>
+					</div>            	
+
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:15px">Week3 - The development Environment ?  <span> </span></h3>
+					  <small style="color:#9D9EA2;">
+					    Having used the <a href="http://getbootstrap.com/css/" 
+					        style="text-decoration:none">Bootstrap</a> 
+					    to jump start my Homepage, it saved me lot of time to get
+					    a pretty PROFESSIONAL look. With the new CSS skills picked up from the other GA class, I can further customize my Github Homepage to the current look. So 
+					    I have the placeholder environment ready for storing my work from this class.<br><br>
+
+					    Then, the most important 'Development Environment' I am talking about is the 
+					    'DevTools' in the Chrome (the browser). It is a pretty powerful tool but it did take time to 
+                        understand how to fully utilitize its full potential. I need to check out the 
+                        <a href="https://developers.google.com/web/tools/setup/?hl=en">tutorial</a> frequently. Without familizing this environment, the debugging can be tough and inefficient.
+                        Here is another URL: <a href="https://developer.chrome.com/devtools">https://developer.chrome.com/devtools</a><br><br>
+
+					    btw, using GITHUB is to attain the benefits of version control although my
+					    project is just one person. Still, it does provide me a peace of mind that I have a copy of code backup on the web. And it's easy to share any code which is still in progress. 
+					    And the 5 key GIT commands are: <br>
+
+					    (1) git status<br>
+					    (2) git add file123.html<br>
+					    (3) git commit -m 'message here'<br>
+					    (4) git push<br>
+					    (5) git pull<br>
+                        <br>
+					     <span>2016-Jun-29</span></small>
+					</div>            	
+
+
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:15px">Week2 - Deal with Javascript ?  <span> </span></h3>
+					  <small style="color:#9D9EA2;">
+					    As I used to write procedural languages like c, c++, java, PL/SQL and Unix shell-script, 
+                        I already have very sound concept of Logical Expressions, variables and functions.
+					    Javascript is not hard to pick up. Plus I learned OOP (Object Oriented Programming)
+					    in college, the syntax and theory of this language are not hard to pick up.
+					    The hard part for me is mostly on the area like: (1) How to use some JS technique; 
+					    (2) When to use technique A and not technique. <br>
+					     <span>2016-May</span></small>
+					</div>            	
+
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:15px">Week1 - How can I start to use D3 ?  <span> </span></h3>
+					  <small style="color:#9D9EA2;">
+					    D3 is a javascript library. In order to use it, I have to know how to write
+					    Javascript. However, as Javascript is to manipulate the DOM of a webpage thru
+					    HTML/CSS. I also need to be good at HTML/CSS. That's why I start this course.
+					    I also did 'Codeacdemy' and 'GA.co' to speed up the process. However, as I used
+					    to build website by typing the HTML code in a text editor, HTML and CSS are pretty easy for me. <br>
+                        This URL gives me most of the answer about DOM:
+                         <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">
+                            https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model</a><br>
+					     <span>2016-Apr</span></small>
+					</div>            	
+
+
+					<div class="page-header">
+					  <h3 style="color:#3A5A8B;font-size:15px">Week0 - Why D3 ? <span> </span></h3>
+					  <small style="color:#9D9EA2;">
+					     Using Tableau to do data visualization for four years, it's super efficient to build professional dashboards
+					     in minutes. However, at one point, if I need to further customize the visual or behavior. Tableau sucks!! Tableau is only for business people with zero IT-knowledge.  If I need to do more advanced data visualization,
+					     Tableau is a dead end road and Javascript is the answer. That's why I start to 
+					     navigate to D3.  <br>
+					     <span >2016-Mar</span></small>
+					</div>            	
+
+
+
+            </div>
+            <div class="col-sm-2">
+            	
+            </div>
+     </div>
+
+
+
+
+
+ </body>
+ </html>
