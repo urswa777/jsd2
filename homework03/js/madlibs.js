@@ -52,27 +52,47 @@ function generateStartup() {
 function flushFavorites() {
 	//favorites=no_favorite;
     len = favorites.length;
+
+  if (len == 0) {
+    list.innerHTML = "No Favorite to be flushed";
+    console.log ("No Favorite to be flushed");
+  } else {
     for (var k=0; k< len; k++) {   favorites.pop();  }
     list.innerHTML = "All Favorites are flushed";
     console.log ("All Favorites are flushed");
-    //console.log ( favorites);
+  }
 }
 
 function saveFavorite() {
     to_skip=false;
-	// TODO: add the new idea to the array
-    for (var i=0; i< favorites.length; i++) {
-             if (favorites[i] ==  startupX [X_counter] + "/" + startupY [Y_counter] ) to_skip = true;           
-       }
-    if  (to_skip==true) {
-       console.log( "the favorite was added before, so skip it" );
-       list.innerHTML = favorites[favorites.length - 1] + " was saved before.";
-    } else {
-        favorites.push(startupX [X_counter] + "/" + startupY [Y_counter]);
-        console.log ("Save a Favorite: " + startupX [X_counter]);
-        console.log ("Now here are all Favorite: " + favorites);
-    	list.innerHTML = favorites[favorites.length - 1] + " is saved.";
-     }     
+
+    if (favorites.length >= 10) {
+        console.log ("You can only have at most 10 Favorites");
+     	list.innerHTML = "You can't save any more since it is limited to 10 Favorites";
+    }
+    else {
+			// TODO: add the new idea to the array
+		    for (var i=0; i< favorites.length; i++) {
+		             if (favorites[i] ==  startupX [X_counter] + "/" + startupY [Y_counter] ) to_skip = true;           
+		       }
+
+		    if  (to_skip==true) {
+		       console.log( "the favorite was added before, so skip it" );
+		       list.innerHTML = favorites[favorites.length - 1] + " was saved before.";
+		    } else  {
+		        favorites.push(startupX [X_counter] + "/" + startupY [Y_counter]);
+		        console.log ("Save a Favorite: " + startupX [X_counter]);
+		        console.log ("Now here are all Favorite: " + favorites);
+                if (10 - favorites.length ==0) {
+     		    	list.innerHTML = favorites[favorites.length - 1] + " is saved. But you can't add more unless you flush the saved !";
+                }
+                else {
+     		    	list.innerHTML = favorites[favorites.length - 1] + " is saved. And you may add " + 
+		    	         (10 - favorites.length ) + " more !!";
+                  }
+
+		     }     
+    }
 }
 
 function printFavorites() {
@@ -86,16 +106,18 @@ function printFavorites() {
      	favoritesText = 'The favorite is ' + favorites ;
     } else if (favorites.length > 1) {
 
-//       for (var i=0; i< favorites.length; i++) {
-//               if i==0 {
-//                 favoritesBuf = favorites[0];
-//                } 
-//               else {
-//                 favoritesBuf = favoritesBuf + ", " + favorites[i];    
-//               }        
-//           }
-//     	favoritesText = 'The favorites are : '+ favoritesBuf ;
-      	favoritesText = 'The favorites are : '+ favorites ;
+       for (var i=0; i< favorites.length; i++) {
+               if (i==0) {
+                 favoritesBuf = favorites[0] ;
+                } 
+               else {
+                 favoritesBuf = favoritesBuf + "<br>" + favorites[i];    
+               }        
+           }
+     	favoritesText = 'The favorites are : <br>'+ favoritesBuf  + '<br>';
+//---------------------------------------------------------------------------------
+
+      	//favoritesText = 'The favorites are : '+ favorites ;
     }
 
 	// TODO: concatenate all the favorites into one string
