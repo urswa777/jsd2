@@ -14,6 +14,7 @@ var generate = document.querySelector('.generate');
 var save     = document.querySelector('.save');
 var print    = document.querySelector('.print');
 var flush    = document.querySelector('.flush');
+var flush1   = document.querySelector('.flush1');
 var list     = document.querySelector('.list');
 
 
@@ -23,6 +24,7 @@ generate.addEventListener('click', generateStartup);
 save.addEventListener('click', saveFavorite);
 print.addEventListener('click', printFavorites);
 flush.addEventListener('click', flushFavorites);
+flush1.addEventListener('click', flushOneFavorite);
 
 
 // other functions
@@ -61,6 +63,15 @@ function flushFavorites() {
     list.innerHTML = "All Favorites are flushed";
     console.log ("All Favorites are flushed");
   }
+}
+
+function flushOneFavorite() {
+	//favorites=no_favorite;
+    flushlast = favorites[favorites.length -1 ];
+
+    list.innerHTML = "'" + flushlast + "'' is flushed";
+    console.log ("'" + flushlast + "'' is flushed");
+    favorites.pop();    
 }
 
 function saveFavorite() {
