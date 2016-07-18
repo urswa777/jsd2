@@ -62,13 +62,13 @@ function saveFavorite() {
     to_skip=false;
 	// TODO: add the new idea to the array
     for (var i=0; i< favorites.length; i++) {
-             if (favorites[i] ==  startupX [X_counter]) to_skip = true;           
+             if (favorites[i] ==  startupX [X_counter] + "/" + startupY [Y_counter] ) to_skip = true;           
        }
     if  (to_skip==true) {
        console.log( "the favorite was added before, so skip it" );
        list.innerHTML = favorites[favorites.length - 1] + " was saved before.";
     } else {
-        favorites.push(startupX [X_counter]);
+        favorites.push(startupX [X_counter] + "/" + startupY [Y_counter]);
         console.log ("Save a Favorite: " + startupX [X_counter]);
         console.log ("Now here are all Favorite: " + favorites);
     	list.innerHTML = favorites[favorites.length - 1] + " is saved.";
