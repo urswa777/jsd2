@@ -109,6 +109,7 @@ function saveFavorite() {
 function printFavorites() {
 	var favoritesText;
 	var favoritesBuf="";
+    len = favorites.length;
 
 	// clear out favorites element
     if (favorites.length == 0) {
@@ -125,7 +126,7 @@ function printFavorites() {
                  favoritesBuf = favoritesBuf + "<br>" + favorites[i];    
                }        
            }
-     	favoritesText = 'The favorites are : <br>'+ favoritesBuf  + '<br>';
+     	favoritesText = 'The '+ len + ' favorite(s) are saved and they are: <br>'+ favoritesBuf  + '<br>';
 //---------------------------------------------------------------------------------
 
       	//favoritesText = 'The favorites are : '+ favorites ;
