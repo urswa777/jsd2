@@ -35,9 +35,9 @@ function random_num (min, max) {
 // ------------------------------------------
 function generateStartup() {
 
-// TODO: generate two random index numbers, one for each array
- X_counter =  random_num (1,6) - 1;
- Y_counter =  random_num (1,5) - 1;
+	// TODO: generate two random index numbers, one for each array
+	 X_counter =  random_num (1,6) - 1;
+	 Y_counter =  random_num (1,5) - 1;
     
 	// TODO: concatenate the fixed text with the two random values
 	//       to create a new startup idea like:
@@ -50,11 +50,11 @@ function generateStartup() {
 
 function flushFavorites() {
     len = favorites.length;
-    for (var i=0; i< len; i++) {
+    for (var k=0; k< len; k++) {
              favorites.pop();           
        }
     console.log ("All Favorites are flushed");
-    console.log ( favorites);
+    //console.log ( favorites);
 }
 
 function saveFavorite() {
@@ -65,12 +65,13 @@ function saveFavorite() {
        }
     if  (to_skip==true) {
        console.log( "the favorite was added before, so skip it" );
-     } else {
+       list.innerHTML = favorites[favorites.length - 1] + " was saved before.";
+    } else {
         favorites.push(startupX [X_counter]);
         console.log ("Save a Favorite: " + startupX [X_counter]);
         console.log ("Now here are all Favorite: " + favorites);
+    	list.innerHTML = favorites[favorites.length - 1] + " is saved.";
      }     
-	list.innerHTML = favorites[favorites.length - 1] + " is saved.";
 }
 
 function printFavorites() {
