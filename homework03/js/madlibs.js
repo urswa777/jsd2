@@ -4,6 +4,7 @@ var startupX = ['Uber', 'Google', 'Amazon', 'Apple', 'Facebook', 'Twitter'];
 var startupY = ['Slack', 'Trello', 'Tesla', 'Hyperloop', 'Harvest'];
 var startupIdea;
 var favorites = [];
+var no_favorite = [];
  
 
 // Structure
@@ -49,10 +50,9 @@ function generateStartup() {
 }
 
 function flushFavorites() {
-    len = favorites.length;
-    for (var k=0; k< len; k++) {
-             favorites.pop();           
-       }
+	favorites=no_favorite;
+    //len = favorites.length;
+    //for (var k=0; k< len; k++) {   favorites.pop();  }
     console.log ("All Favorites are flushed");
     //console.log ( favorites);
 }
