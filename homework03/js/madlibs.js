@@ -77,6 +77,7 @@ function saveFavorite() {
 
 function printFavorites() {
 	var favoritesText;
+	var favoritesBuf="";
 
 	// clear out favorites element
     if (favorites.length == 0) {
@@ -84,15 +85,23 @@ function printFavorites() {
     } else if (favorites.length == 1) {
      	favoritesText = 'The favorite is ' + favorites ;
     } else if (favorites.length > 1) {
-     	favoritesText = 'The favorites are : ' + favorites ;
+
+//       for (var i=0; i< favorites.length; i++) {
+//               if i==0 {
+//                 favoritesBuf = favorites[0];
+//                } 
+//               else {
+//                 favoritesBuf = favoritesBuf + ", " + favorites[i];    
+//               }        
+//           }
+//     	favoritesText = 'The favorites are : '+ favoritesBuf ;
+      	favoritesText = 'The favorites are : '+ favorites ;
     }
 
 	// TODO: concatenate all the favorites into one string
 	// - hint: loop through all the favorites
 	// - this should be stored in a variable named favoritesText
 	// - each favorite should have an html br element between it (EG: "<br>")
-
-
 	// update the list element with the new concatenated string
 	list.innerHTML = favoritesText;
 }
