@@ -4,7 +4,7 @@ var startupX = ['Uber', 'Google', 'Amazon', 'Apple', 'Facebook', 'Twitter'];
 var startupY = ['Slack', 'Trello', 'Tesla', 'Hyperloop', 'Harvest'];
 var startupIdea;
 var favorites = [];
-
+ 
 
 // Structure
 // ------------------------------------------
@@ -12,45 +12,78 @@ var startup  = document.querySelector('.startup');
 var generate = document.querySelector('.generate');
 var save     = document.querySelector('.save');
 var print    = document.querySelector('.print');
+var flush    = document.querySelector('.flush');
 var list     = document.querySelector('.list');
 
 
-// Events
+// Events based on the 3 buttons
 // ------------------------------------------
 generate.addEventListener('click', generateStartup);
 save.addEventListener('click', saveFavorite);
 print.addEventListener('click', printFavorites);
+flush.addEventListener('flush', flushFavorites);
 
+
+// other functions
+// ------------------------------------------
+function random_num (min, max) {
+	var num = (Math.random() * (max - min)) + min;
+	return Math.round(num);
+}
 
 // Event Listeners
 // ------------------------------------------
 function generateStartup() {
 
-	// TODO: generate two random index numbers, one for each array
-
-
+// TODO: generate two random index numbers, one for each array
+ X_counter =  random_num (1,6) - 1;
+ Y_counter =  random_num (1,5) - 1;
+    
 	// TODO: concatenate the fixed text with the two random values
 	//       to create a new startup idea like:
 	//       "A startup that is Apple, but for Trello"
-	startupIdea = 'A startup that is , but for ';
-
-
+ 	startupIdea = 'A startup that is '+ startupX [X_counter] +', but for ' + startupY [Y_counter] ;
 	// Update page with new startup idea
+    console.log ("Generate Startup: " + startupIdea);
 	startup.innerHTML = startupIdea;
 }
 
+function flushFavorites() {
+    len = favorites.length;
+    for (var i=0; i< len; i++) {
+             favorites.pop();           
+       }
+    console.log ("All Favorites are flushed");
+    console.log ( favorites);
+}
+
 function saveFavorite() {
-
+    to_skip=false;
 	// TODO: add the new idea to the array
-
-
+    for (var i=0; i< favorites.length; i++) {
+             if (favorites[i] ==  startupX [X_counter]) to_skip = true;           
+       }
+    if  (to_skip==true) {
+       console.log( "the favorite was added before, so skip it" );
+     } else {
+        favorites.push(startupX [X_counter]);
+        console.log ("Save a Favorite: " + startupX [X_counter]);
+        console.log ("Now here are all Favorite: " + favorites);
+     }     
+	list.innerHTML = favorites[favorites.length - 1] + " is saved.";
 }
 
 function printFavorites() {
 	var favoritesText;
 
 	// clear out favorites element
-	list.innerHTML = '';
+    if (favorites.length == 0) {
+     	favoritesText= 'No favorite is saved' ;    	
+    } else if (favorites.length == 1) {
+     	favoritesText = 'The favorite is ' + favorites ;
+    } else if (favorites.length > 1) {
+     	favoritesText = 'The favorites are : ' + favorites ;
+    }
 
 	// TODO: concatenate all the favorites into one string
 	// - hint: loop through all the favorites
