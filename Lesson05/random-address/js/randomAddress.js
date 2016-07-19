@@ -42,21 +42,34 @@ function addAddress(address) {
 // ------------------------------------------
 function generateAddress(e) {
 
-   st_no__counter= random_num (1, st_no.length);
-   st_name__counter= random_num (1, st_name.length);
-   city_nm__counter= random_num (1, city_nm.length);
-   state_nm__counter= random_num (1, state_nm.length);
-   postal_code__counter= random_num (1, postal_code.length);
+   st_no__counter= random_num (1, st_no.length)-1;
+   st_name__counter= random_num (1, st_name.length)-1;
+   city_nm__counter= random_num (1, city_nm.length)-1;
+   state_nm__counter= random_num (1, state_nm.length)-1;
+   postal_code__counter= random_num (1, postal_code.length)-1;
 
    
 	// TODO: randomly select one item from each of these arrays 
 	//       and then use them to construct a random address
+   console.log("--------------------------------------------------------------");
+   console.log("Street No.  - random number is : " + st_no__counter);
+   console.log("--------------------------------------------------------------");
+   console.log("Street Name - random number is : " + st_name__counter);
+   console.log("--------------------------------------------------------------");
+   console.log("City Name   - random number is : " + city_nm__counter);
+   console.log("--------------------------------------------------------------");
+   console.log("State Name  - random number is : " + state_nm__counter);
+   console.log("--------------------------------------------------------------");
+   console.log("Postal Code - random number is : " + postal_code__counter);
+   console.log("--------------------------------------------------------------");
 
    address = st_no[st_no__counter] 
                + ' ' + st_name[st_name__counter] + ','
                + ' ' + city_nm[city_nm__counter] + ','
                + ' ' + state_nm[state_nm__counter]
                + ' ' + postal_code[postal_code__counter];
+
+   console.log("The new random address is : " + address);
    addAddress(address);
 }
 
