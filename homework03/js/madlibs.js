@@ -30,7 +30,7 @@ flush1.addEventListener('click', flushOneFavorite);
 // other functions
 // ------------------------------------------
 function random_num (min, max) {
-	var num = (Math.random() * (max - min)) + min;
+	var num = (Math.random() * (max - min)) + min -1;
 	return Math.round(num);
 }
 
