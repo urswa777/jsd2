@@ -26,8 +26,10 @@ function getPrivilege(age) {
          msg="You can run for president !";
     } else if (age >=62 && age < 99) {
          msg="You collect social security benefits !";
-    } else if (age >=100 ) {
-         msg="You are too old for anything !";
+    } else if (age >=100 && age < 109) {
+         msg="You are too old for anything .... stay home & celebrate !";
+    } else if (age >=110) {
+         msg="You should be dead by now !";
     } else  
          msg="Wrong input, please try again !!";
    return msg;
