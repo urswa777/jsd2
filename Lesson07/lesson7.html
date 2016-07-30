@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Lesson 7 - Element and jQuery</title>
+ <meta charset="UTF-8">
+ 
+ </head>
+
+
+ <body>
+     <h>Element and jQuery</h>
+
+   <div>
+     <p>test 123 </p>p>
+     <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+     </li>
+    </ul>
+    </div>
+
+
+   <script>
+			//============================================================
+			//============== Modifying elements to DOM ===================
+			//============================================================
+
+			// Step a1 : Getting element from DOM    
+			// Step a2 : Storing the element content in a variable    
+			   /*-- thru Vanlila JS -----------------*/
+			     var div = document.querySelector("div");
+			     var p = document.querySelector("div p");
+
+			// Step a3 : Storing the element content in a variable    
+			     function updateParagraph(text) {
+			     	   console.log ('bad updateParagraph');
+			     	   p.innerHTML = text;
+			     }
+
+			   /*--  thru jQuery Library ----------------
+			     var $div = $("div")
+			     var $p = $("div p");
+			     function updateParagraph(text) {
+			     	   console.log ('bad updateParagraph');
+			     	   p.innerHTML = text;
+			     }
+			    --*/
+
+			//============================================================
+			//============== Adding elements to DOM ======================
+			//============================================================
+
+			// Step b1 : Locating the PARENT element to append a new element    
+			var menu = document.querySelector("#menu");
+
+			// Step b2 : Creating a new element 
+            var li = document.createElement ("li"); 
+
+			// Step b3 : Appending a new element    
+            li.innerHTML = "4";
+
+
+    </script>
+
+ </body>
+ </html>

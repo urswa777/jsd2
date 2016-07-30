@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Lesson 7 - Element and jQuery</title>
+    <meta charset="UTF-8">
+    <link rel="" >
+ </head>
+
+
+ <body>
+     <h1>Event Intro</h1>
+
+   
+   <script>
+         console.log("template loaded");
+			//============================================================
+			//============== Structure ===================================
+			//============================================================
+            var body= document.querySelector("body");
+            var me=document.createEvent("MouseEvent");
+            var counter =0;
+
+			//============================================================
+			//============== Create elements to DOM ===================
+			//============================================================
+            var h1=document.createElement('h1')
+            h1.innerHTML = "Events";
+			//============================================================================
+			//============== Adding elements to DOM thru Javascript ======================
+			//============================================================================
+            //var body= document.querySelector("body");
+            body.appendChild(h1);
+
+
+			//============================================================================
+			//============== Create Event ================================================
+			//============================================================================
+            //var me=document.createEvent("MouseEvent");
+            me.initEvent("dblclick");
+            //h1.dispatchEvent(me);  ----- manually trigger an event !!!!
+
+			//=======================================================================================================
+			//==== Create EventListener : Listen for a certain type of event dispactehd from a certain element ======
+			//=======================================================================================================
+            //h1.addEventListener("dblclick", CALLBACK_FUNCTION_NAME_HERE); 
+  
+            //h1.addEventListener("dblclick", youClickMe); 
+            //function youClickMe () {
+            //	console.log('youClickMe.');
+            //}
+
+            h1.addEventListener("dblclick", count); 
+
+            function count (event) {
+                //event.preventDefault();  //------ prevent the event to behave like default way !!!
+            	counter++;
+            	console.log('count',counter);
+            	console.log(me.type);
+            	console.log(me.target);
+            	console.log(me.target.innerHTML);
+            }
+
+
+    </script>
+
+ </body>
+ </html>
