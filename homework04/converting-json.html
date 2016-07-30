@@ -15,11 +15,15 @@
 
 <h1>Converting JSON</h1>
 
+<br><hr>
 <p>
 Part 1. Convert the string <code>`jsonString`</code> to a Javascript Object 
 and store it in a variable called <code>`flicker`</code>
 </p>
 
+<p>Answer :  <scan style ="color:#FFCCCC">var flickerObj = JSON.parse(jsonString); </scan></p>
+
+<br><hr>
 <p>
 Part 2. Iterate (this means 'use a loop') and do a console.log 
 of each of the item titles with the date the photo was taken. 
@@ -28,13 +32,30 @@ The first console.log should return the following:
 <br><code>"What a surprise in lyon. 2016-02-23T06:47:30-08:00"</code>
 </p>
 
+<p>Answer :  <br>
+   <scan style ="color:#FFCCCC">
+       for (i=0; i< flickerObj.items.length ; i++) { <br>
+	   console.log("item #" + i + " Title : " + flickerObj.items[i].title <br>
+	   + " (Date taken:" + flickerObj.items[i].date_taken) ; <br>
+	} <br></scan></p>
+
+<br><hr>
 <p>
 Part 3. Create a new array called 'links'. Iterate through the 
 items array in <code>flicker</code> and store the the links to each 
 item in the <code>'links'</code> array.
 </p>
 
+<p>Answer :  <br>
+   <scan style ="color:#FFCCCC">
 
+       var links=[];<br>
+       for (j=0; j< flickerObj.items.length ; j++) { <br>
+	   links[j] = flickerObj.items[j].link ; <br>
+	   }<br>
+   </scan></p>
+
+<br><hr>
 <p>
 Part 4. Convert the <code>'links'</code> array into a JSON string. 
 Do a console.log of that JSON string, copy the results from 

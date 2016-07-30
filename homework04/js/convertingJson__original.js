@@ -8,40 +8,25 @@ var jsonString = '{ "title": "Uploads from everyone", "link": "https://www.flick
 Part 1. Convert the string `jsonString` to a Javascript Object 
 and store it in a variable called `flickerObj`
 */
-var flickerObj = JSON.parse(jsonString);
-console.log("Answer #1 : var flickerObj = JSON.parse(jsonString);\n");
+
+
+
 
 /*
 Part 2. Iterate (this means 'use a loop') and do a console.log 
 of each of the item titles with the date the photo was taken. 
 The first console.log should return the following:
 
-            "What a surprise in lyon. 2016-02-23T06:47:30-08:00"
+"What a surprise in lyon. 2016-02-23T06:47:30-08:00"
+
 */
 
-console.log("\nResult of Answer #2 : \n\n");
-
-for (i=0; i< flickerObj.items.length ; i++) { 
-	   console.log("item #" + i + " Title : " +  flickerObj.items[i].title + " (Date taken:" + flickerObj.items[i].date_taken) ; 
-	}
-
-//console.log("Answer1 : var flickerObj = JSON.parse(jsonString);");
 
 /*
 Part 3. Create a new array called 'links'. Iterate through the 
 items array in flickerObj and store the the links to each 
 item in the 'links' array.
 */
-
-console.log("\n\nResult of Answer #3 : \n\n");
-
-var links=[];
-for (j=0; j< flickerObj.items.length ; j++) { 
-	   links[j] = flickerObj.items[j].link ; 
-	}
-for (k=0; k< links.length ; k++) { 
-	   console.log("Content in Array links[" + k + "] is : " + links[k] + "\n"); 
-	}
 
 
 
@@ -53,5 +38,4 @@ http://jsonlint.com/
 Did it create a valid JSON string?
 */ 
 
-console.log("\n\n\nThe result of Part4 is : \n\n");	
 
