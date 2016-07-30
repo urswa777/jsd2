@@ -66,6 +66,24 @@ the terminal and paste them into the input box at:
 </p>
 
 
+
+
+<p>Answer :  <br>
+   <scan style ="color:#FFCCCC">
+
+var links_json_str="{ \"items\": [ ";<br>
+for (k=0; k< links.length ; k++) { <br>
+     links_json_str= links_json_str + " { \"Link\" : \""+ links[k] + "\"}";<br>
+     if (k < links.length-1) {<br>
+        links_json_str= links_json_str + ", ";<br>
+     }<br>
+	}<br>
+links_json_str=links_json_str+ "]}";<br>	
+console.log("\nThe result of the genearted JSON string: \n"   + links_json_str + "\n"); <br>
+   </scan></p>
+
+
+
 <script src="js/convertingJson.js"></script>
 
 </body>

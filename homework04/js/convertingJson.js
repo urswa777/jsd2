@@ -55,3 +55,14 @@ Did it create a valid JSON string?
 
 console.log("\n\n\nThe result of Part4 is : \n\n");	
 
+var links_json_str="{ \"items\": [ ";
+for (k=0; k< links.length ; k++) { 
+     links_json_str= links_json_str + " { \"Link\" : \""+ links[k] + "\"}";
+     if (k < links.length-1) {
+        links_json_str= links_json_str + ", ";
+     }
+	}
+links_json_str=links_json_str+ "]}";	
+console.log("\nThe result of the genearted JSON string: \n"   + links_json_str + "\n"); 
+
+
