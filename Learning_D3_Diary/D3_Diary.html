@@ -203,24 +203,33 @@ Great recap of getting Elements out of the DOM using querySelector() </li>
 
                     <hr>
 					<div class="page-header">
-					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #7 - "Timers" and ??? <span> </span></h3>
+					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #7 - "Timers" and Timing Events <span> </span></h3>
 					  <small style="color:#9D9EA2;">
-					    <strong>Conditional Process </strong>strong><br>
+					    <strong>Purpose of Timers </strong> - The window object allows execution of code at specified time intervals. These time intervals are called timing events. <br>
+					    With these functions, behavior of different elements in a webpage can be controlled.<br>
+						<br>
+						<p><strong>The two key methods to use with JavaScript are:</strong></p>
+						<ol>
+						<li><strong>setTimeout(function, milliseconds) </strong>
+						        Executes a function, after waiting a specified number of milliseconds.</li>
+						<li><strong>setInterval(function, milliseconds) </strong>
+						        Same as setTimeout(), but repeats the execution of the function continuously.</li>
+						</ol>
 
-					    Method (1) - SWITCH.. CASE... BREAK;... DEFAULT;<br>
-					    it's designed to handle only one variable at a time. <br> 
-					    So if you need to handle a situation/scenario determined by multiple <br>
-					    variables, you should use IF...ELSE. <br>
-                        <img src="JS_Switch_statement_example.png" 
-                             style="height:496px;width:546px"> </img>
-                        <br>
-					    Method (2) - IF... ELSE IF... ELSE;<br>
-                        it's designed to handle more complicated scenarios by combination statuses <br> 
-                        multiple different variables in every scenario. <br><br>
+						<br>
+						<p><strong>Then how to stop the execution?</strong></p>
+						<ol>
+						<li>For function<strong> setTimeout() </strong>
+						        use the function <strong>window.clearTimeout()</strong> </li>
+						<li>For function<strong> setInterval() </strong>
+						        use the function <strong>window.clearInterval()</strong> </li>
+						</ol>
+
+                             <img src="Timer_JS_code_sample.png" 
+                             style="height:517px;width:590px"> </img>
 
 					     <br><span>2016-Jul-18</span></small>
 					</div>            	
-
 
 
 
