@@ -93,7 +93,7 @@
 
 
 					<div class="page-header">
-					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #9 - learning EVENTS <span> </span></h3>
+					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #9 - learning Events <span> </span></h3>
 					  <small style="color:#9D9EA2;">
 					    <strong>Events are the capability of a webpage</strong><br>
 
@@ -119,40 +119,80 @@
 
 
 
-
+                    <hr>
 					<div class="page-header">
-					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #8 - learning ELEMENTS <span> </span></h3>
+					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #8 - learning DOM and Elements <span> </span></h3>
 					  <small style="color:#9D9EA2;">
 					    <strong>DOM is the skeleton of a webpage, it's a tree of elements</strong><br>
 
-                             <ol>
-                             <li>Objects is like the most powerful datatype because it can encapsulate 
-                                 lot of information which is divided in 2 groups: (1)Property and (2) Method</li>
-                             <li>Then each pair of property is separated by a comma.
-                                  </li>
-                             <li>Each property name must be a string</li>
-                             <li>Each property value can be any data type</li>     
+                        <img src="DOM_Tree.png" 
+                             style="height:320px;width:515px"> </img>
 
-                             <li>In addition to contain multliple different ATTRIBUTES for different
-                                  data types, an object can also contain functions (or called 'Method')</li>     
-                             </ol>
+                            <p><strong>Rendering of a Webpage</strong></p>
+                            <p>First, please check out this video : <a href="https://www.youtube.com/watch?v=n1cKlKM3jYI">Introduction to Browser Rendering</a></p>
+                            <p>Then, please check out the other video : <a href="https://www.youtube.com/watch?v=a2_6bGNZ7bA">DOM - Content Tree + CSS Selector concept</a></p>
+
+                            <p><a href="https://www.youtube.com/watch?v=7fXhE5ErUCM">More ...</a></p>
+                        <br>
+                        <img src="Document_Object.png" 
+                             style="height:287px;width:519px"> </img>
+
+
+<p><strong><a href="https://www.w3.org/TR/WD-DOM/introduction.html">What is the Document Object Model?</a></strong></p>
+<p>
+The Document Object Model (DOM) is a programming API for HTML and XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated. In the DOM specification, the term "document" is used in the broad sense - increasingly, XML is being used as a way of representing many different kinds of information that may be stored in diverse systems, and much of this would traditionally be seen as data rather than as documents. Nevertheless, XML presents this data as documents, and the DOM may be used to manage this data.</p>
+
+<p>With the Document Object Model, programmers can create and build documents, navigate their structure, and add, modify, or delete elements and content. Anything found in an HTML or XML document can be accessed, changed, deleted, or added using the Document Object Model, with a few exceptions - in particular, the DOM interfaces for the internal subset and external subset have not yet been specified.</p>
+
 
                              <br>
-                             <strong>There are 3 different categories of objects</strong><br>
-                             <ul>     <li>Host Environment - Window, Document, navigator, location</li>
-                                      <li>Professional Public Utilities Library - JSON, D3, Math</li>
-                                      <li>User-defined - Real life objects like Bank, Movie</li>
-                             </ul>
+                             <strong>Here is the flowchart of the Webpage Rendering:</strong><br>
+                             <img src="Webpage_Rendering__flowchart.png" 
+                             style="height:93px;width:512px"> </img>
 
                              <br>
-                             <strong>There are 2 different ways to access the content of an object:</strong><br>
+                             <strong>There are 3 main objects in DOM:</strong><br>
                              <ol>    
-                                      <li>Dot Notation - It is mostly used for those standard objects<br>
-                                                       like Document,Window, JSON, Math</li>
-                                      <li>Bracket Notation - It is mostly used for those user-defined <br>
-                                                       objects because it may contain spaces, reserved words or <br>
-                                                       special characters. Plus it helps readers understand the difference<br></li>
+                                      <li>Window - Tab/Window info (Environment, window title</li>
+                                      <li>Document - content on the page (html, header, body, elements) </li>
+                                      <li>Navigator - browser Name, Client App </li>
                              </ol>
+
+                            <p>An HTML flat-text file is parsed into a DOM Tree structure object for JS 
+                            manipulation when a webpage is rendered by the browser</p>
+
+                             <br>
+                             <strong>Suplementary material :</strong><br>
+<ol>
+<li><a href="http://htmldog.com/guides/javascript/advanced/creatingelements/">
+- HTML Dog - great page on Creating Elements</a></li>
+
+<li><a href="http://javascript.info/tutorial/modifying-document">
+- this tutorial has a few extra bonus concepts like removing Elements and other ways to insert an Element other than appendChild()</a></li>
+
+
+<li><a href="https://www.youtube.com/watch?v=k69s-XlnVnE">Video 1 ​:  Front End TV - JavaScript: Browser - querySelector(), querySelectorAll()</a><br>
+Great recap of getting Elements out of the DOM using querySelector() </li>
+
+<li><a href="https://youtu.be/QQ79Pryj9FY?t=65">Video 2 : WebTunings - JavaScript Tutorial - How to create HTML elements?</a>
+		<ul>
+		<li>Okay, this dude has some hella crazy chicken scratch. But, the info is good.</li>
+		<li>Ignore everything before 1:05 in the video</li>
+		<li>Go ahead and code along with him to get some practice</li>
+		<li>In addition to Elements, he shows ya how to create Text Nodes, and comments (which are not really useful, but good to know!)</li>
+		<li>He shows how to use .textContent in addition to .innerHTML to set the content of an element. We shall talk about the .textContent property soon young padawan.</li>
+		</ul>
+
+
+</li>
+
+</ol>
+
+
+
+
+
+
                         <br>
 					     <br><span>2016-Jul-25</span></small>
 					</div>            	
@@ -161,6 +201,7 @@
 
 
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #7 - "Timers" and ??? <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -188,6 +229,7 @@
 
 
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #6 - learning OBJECTS <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -246,6 +288,7 @@
 
 
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #5 - "switch" and IF-ELSE statements  <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -262,6 +305,8 @@
                         it's designed to handle more complicated scenarios by combination statuses <br> 
                         multiple different variables in every scenario. <br><br>
 
+                        <img src="JS_IF_ELSEIF_statement_example.png" 
+                             style="height:171px;width:316px"> </img>
                         <br>
 					     <br><span>2016-Jul-18</span></small>
 					</div>            	
@@ -269,6 +314,7 @@
 
 
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #4 - Writing Javascript functions ?  <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -307,11 +353,13 @@
                              <li>Conditional Flow-control statement: IF-ELSE,  IF-ELSEIF-ELSE </li>
                              <li>Loop : Array.forEach(callback fx)  +  traditional for-loop statement</li> 
                         </ol>
-
-
 					     <br><span>2016-Jul-13</span></small>
 					</div>            	
 
+
+
+
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #3 - The development Environment ?  <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -341,6 +389,7 @@
 					</div>            	
 
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #2 - Deal with Javascript ?  <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -353,6 +402,7 @@
 					     <span>2016-May</span></small>
 					</div>            	
 
+                    <hr>
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #1 - How can I start to use D3 ?  <span> </span></h3>
 					  <small style="color:#9D9EA2;">
