@@ -138,7 +138,24 @@
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #8 - learning DOM and Elements <span> </span></h3>
 					  <small style="color:#9D9EA2;">
-					    <strong>DOM is the skeleton of a webpage, it's a tree of elements</strong><br>
+					    <strong>DOM is a webpage's skeleton to graph all elements together so it's a tree of elements</strong><br>
+
+
+<p>An Element's interface represents an object of a "Document". This interface describes "Methods" and "Properties" common to all kinds of elements. Specific behaviors are described in interfaces which inherit from "Element" but add additional functionality. <br>For example, the HTMLElement interface is the base interface for HTML elements, while the SVGElement interface is the basis for all SVG elements.</p>
+
+<ol>
+<li><strong>Properties</strong>
+- Inherits properties from its parents Node, and its own parent, EventTarget, and implements those of ParentNode, ChildNode, NonDocumentTypeChildNode, and Animatable.</li>
+<li><strong>Methods</strong>
+- Inherits methods from its parents Node, and its own parent, EventTarget, and implements those of ParentNode, ChildNode, NonDocumentTypeChildNode, and Animatable.</li>
+<li><strong><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers">
+         Event Handlers</a></strong>
+- The Web platform provides several ways to get notified of DOM events.  Two common styles are: the generalized addEventListener() and a set of specific on-event handlers. <br>
+The on-event handlers are a group of properties offered by DOM elements (both interactive - such as links, buttons, images, forms - and not), the base document itself, and so on, to help manage how that element reacts to events like being clicked, detecting pressed keys, getting focus, etc. -- and they are usually named accordingly, such as onclick, onkeypress, onfocus, etc. You can specify an on<...> event handler for a particular event (such as click) for a given object in different ways</li>
+</ol>
+
+<p><strong>Remarks: </strong> <br>
+Event handlers can also be set using properties on many non-element objects that generate events, including window, document, XMLHttpRequest, and others.</p>
 
                         <img src="DOM_Tree.png" 
                              style="height:320px;width:515px"> </img>
