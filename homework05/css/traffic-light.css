@@ -44,7 +44,7 @@ button {
 
 /* Traffic light */
 /* -------------------------------- */
-#traffic-light {
+.traffic-light {
 	width: 180px;
 	margin: 0 auto;
 	padding: 20px;
