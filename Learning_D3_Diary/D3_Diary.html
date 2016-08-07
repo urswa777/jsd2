@@ -126,6 +126,34 @@
                         <li><a href="https://www.sitepoint.com/use-html5-data-attributes/">How to Use HTML5 Data Attributes</a></li>
                         </ul>
 
+<div>
+Remark:<br>
+The process for building a Webpage with dynamic content is: <br>
+<ol>
+<li>Build out a static webpage with CSS style to accommodate your static data</li>
+<li>Even the eventual product will have dynamic data, hard code it at this stage to make sure it is viewable graphically</li>
+<li>Have the webpage to display the mock data in the finalized layout</li>
+<li>Draw out the DOM tree from the finalized HTML webpage layout</li>
+<li>Determine the Static part and the dynamic part from the HTML (Display) perspective</li>
+<li>Determine the CSS style for the Static part and the dynamic part from the HTML (Display) perspective</li>
+<li>Start to build the Javascript with the template which is "Setup(Global variables) /  DOM-Structure / Event handlers from DOM-structure/ Callback functions / other shared utilities functions</li>
+
+<li>Create dummy mockup data with designed data structure for the dynamic part of the HTML page</li>
+<li>Create the dynamic part of the HTML page thru Javascript by creating the DOM-branch element by element</li>
+<li>Append the newly created DOM-branch to the Webpage's actual DOM-tree</li>
+<li>Wrap up the DOM-branch creation and DOM-branch connection to the core DOM-tree as a function (without parameter)</li>
+<li>Test out all steps in DEV-Tool one by one before putting them inside a JS file</li>
+<li>Find the web JSON data source (use Postman to figure the JSON structure of the Web data source)</li>
+<li>Pick the appropriate data insde the JSON Web data source and store in a local data structure like Array 
+       so as to make it easier to be used in our webpage</li>
+<li>Test things out statement by statement in DEV TOOLS before put inside a Javascript file</li>
+<li>Usually, the web data is stored inside an array and call the 'forEach()' API to loop thru everything for inserting
+     values into those HTML elements</li>
+<li>Then upgrade the function by using parameters for handling variable numbers of data elements from the array</li>                
+<li>finally, make that function as a CALLBACK function for the event which will trigger the dynamic part of that webpage</li>
+</ol>
+</div>
+
                          <br><span>2016-Aug-03</span></small>
                     </div>              
 
@@ -174,7 +202,7 @@
 
 
 					<div class="page-header">
-					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #10 - learning Events <span> </span></h3>
+					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #10 - Learning Events <span> </span></h3>
 					  <small style="color:#9D9EA2;">
 					    <strong>What is an Event ?</strong><br>
 
@@ -206,7 +234,18 @@
 </strong>
 </div>
 
-
+<div>
+Remark:<br>
+Purpose of Javascript is to add interactivty to a webpage which is static. <br>
+Therefore, the algorithm of every Javascript is having the following workflow:<br>
+<ol>
+<li>Setup those global variables</li>
+<li>Define the data structure inside a javascript by grabbing the source/target of display-element from the DOM tree </li>
+<li>Setup event-handlers for those display elements</li>
+<li>Declare and define all Callback functions for different events</li>
+<li>Declare and define all common functions</li>
+</ol>
+</div>
                         <br>
 					     <br><span>2016-Aug-01</span></small>
 					</div>            	
