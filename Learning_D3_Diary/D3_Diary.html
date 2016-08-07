@@ -92,6 +92,87 @@
 
 
 
+
+
+                    <hr>
+                    <div class="page-header">
+                      <h3 style="color:#3A5A8B;font-size:15px">Lesson #12 - Data Attributes <span> </span></h3>
+                      <small style="color:#9D9EA2;">
+                        <strong>Purpose of Timers </strong> - The window object allows execution of code at specified time intervals. These time intervals are called timing events. <br>
+                        With these functions, behavior of different elements in a webpage can be controlled.<br>
+                        <br>
+                        <p><strong>The two key methods to use with JavaScript are:</strong></p>
+                        <ol>
+                        <li><strong>setTimeout(function, milliseconds) </strong>
+                                Executes a function, after waiting a specified number of milliseconds.</li>
+                        <li><strong>setInterval(function, milliseconds) </strong>
+                                Same as setTimeout(), but repeats the execution of the function continuously.</li>
+                        </ol>
+
+                        <br>
+                        <p><strong>Then how to stop the execution?</strong></p>
+                        <ol>
+                        <li>For function<strong> setTimeout() </strong>
+                                use the function <strong>window.clearTimeout()</strong> </li>
+                        <li>For function<strong> setInterval() </strong>
+                                use the function <strong>window.clearInterval()</strong> </li>
+                        </ol>
+
+                             <img src="Timer_JS_code_sample.png" 
+                             style="height:517px;width:659px"> </img>
+
+                        <ul>Great Reference video tutorial:
+                        <li><a href="https://www.youtube.com/watch?v=3r7dkLersKA">Tutorial of Data Attributes</a></li>
+                        <li><a href="https://www.sitepoint.com/use-html5-data-attributes/">How to Use HTML5 Data Attributes</a></li>
+                        </ul>
+
+                         <br><span>2016-Aug-03</span></small>
+                    </div>              
+
+
+
+
+
+
+                    <hr>
+                    <div class="page-header">
+                      <h3 style="color:#3A5A8B;font-size:15px">Lesson #11 - AJAX <span> </span></h3>
+                      <small style="color:#9D9EA2;">
+                        <strong>Purpose of Timers </strong> - The window object allows execution of code at specified time intervals. These time intervals are called timing events. <br>
+                        With these functions, behavior of different elements in a webpage can be controlled.<br>
+                        <br>
+                        <p><strong>The two key methods to use with JavaScript are:</strong></p>
+                        <ol>
+                        <li><strong>setTimeout(function, milliseconds) </strong>
+                                Executes a function, after waiting a specified number of milliseconds.</li>
+                        <li><strong>setInterval(function, milliseconds) </strong>
+                                Same as setTimeout(), but repeats the execution of the function continuously.</li>
+                        </ol>
+
+                        <br>
+                        <p><strong>Then how to stop the execution?</strong></p>
+                        <ol>
+                        <li>For function<strong> setTimeout() </strong>
+                                use the function <strong>window.clearTimeout()</strong> </li>
+                        <li>For function<strong> setInterval() </strong>
+                                use the function <strong>window.clearInterval()</strong> </li>
+                        </ol>
+
+                             <img src="Timer_JS_code_sample.png" 
+                             style="height:517px;width:659px"> </img>
+
+                        <ul>Great Reference video tutorial:
+                        <li><a href="https://www.youtube.com/watch?v=3r7dkLersKA">Tutorial of Data Attributes</a></li>
+                        <li><a href="https://www.sitepoint.com/use-html5-data-attributes/">How to Use HTML5 Data Attributes</a></li>
+                        </ul>
+
+                         <br><span>2016-Aug-01</span></small>
+                    </div>              
+
+
+
+
+
 					<div class="page-header">
 					  <h3 style="color:#3A5A8B;font-size:15px">Lesson #10 - learning Events <span> </span></h3>
 					  <small style="color:#9D9EA2;">
@@ -127,8 +208,15 @@
 
 
                         <br>
-					     <br><span>2016-Jul-27</span></small>
+					     <br><span>2016-Aug-01</span></small>
 					</div>            	
+
+
+
+
+
+
+
 
 
 
@@ -221,14 +309,8 @@ Great recap of getting Elements out of the DOM using querySelector() </li>
 </li>
 
 </ol>
-
-
-
-
-
-
                         <br>
-					     <br><span>2016-Jul-25</span></small>
+					     <br><span>2016-Jul-27</span></small>
 					</div>            	
 
 
@@ -262,7 +344,7 @@ Great recap of getting Elements out of the DOM using querySelector() </li>
                              <img src="Timer_JS_code_sample.png" 
                              style="height:517px;width:659px"> </img>
 
-					     <br><span>2016-Jul-18</span></small>
+					     <br><span>2016-Jul-25</span></small>
 					</div>            	
 
 
@@ -325,7 +407,7 @@ Great recap of getting Elements out of the DOM using querySelector() </li>
                         <br>
                         <img src="Console_checkout____JSON_objects_created_in_HTML_file.png" 
                              style="height:261px;width:705px"> </img>
-					     <br><span>2016-Jul-25</span></small>
+					     <br><span>2016-Jul-20</span></small>
 					</div>            	
 
 
@@ -441,10 +523,21 @@ Great recap of getting Elements out of the DOM using querySelector() </li>
                       <small style="color:#9D9EA2;">
                         <p>HTML and CSS are the fundamental of a Webpage. With a webpage, Javascript is useless.
                         However, CSS-selector can be tricky since there are so many ways to select an HTML element.</p>
-                        <p>Trick #1 : Multiple CSS class for one HTML Element ?</p>
+                        <p>Trick #1 : Multiple CSS class for one HTML Element !! And the one on the rightmost can override those on the left</p>
                           
                         <img src="Multiple_CSS_Class_for_single_HTML_element.png" 
+                             style="height:414px;width:540px"> </img>
+
+                        <p>Trick #2 : Knowing types of CSS Selectors.... that can help you write Javascript to locate elements</p>
+                        <img src="Types_of_CSS_Selectors.png" 
                              style="height:392px;width:349px"> </img>
+
+                        <p>Trick #3 : Using CLASS is more efficient than using ID to locate an element. <br>
+                           By using "classList" API's' functions add(), remove() or classname() with JS to produce <br>
+                           animation effect. <br>
+                           The classList API is a “does exactly what it says on the tin” API. It gets a list of the classes on an HTML element and uses JavaScript to manipulate it.</p>
+                        <a href="http://html5doctor.com/the-classlist-api/">Please checkout this great document !!</a>
+
                         <br>
                          <br><span>2016-Jul-13</span></small>
                     </div>              
