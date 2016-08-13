@@ -1,8 +1,8 @@
 // Setup
 // ----------------------------------------------
 var g_searchMovieTitle = ""; 
-var url_search_api   ="http://www.omdbapi.com/?s=";
-var url_oneMovie_api ="http://www.omdbapi.com/?i=";
+var url_search_api   ="https://www.omdbapi.com/?s=";
+var url_oneMovie_api ="https://www.omdbapi.com/?i=";
 var url_search   ="";
 var url_oneMovie ="";
 var one_movie_is_chosen=0;
