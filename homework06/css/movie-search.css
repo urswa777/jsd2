@@ -57,7 +57,7 @@ h1 {
 /* -------------------------------- */
 form {
 	display: flex;
-	margin: 10px;
+	margin: 12px;
 	justify-content: space-between;
 }
 input,
@@ -68,6 +68,7 @@ button {
 	outline: none;
 	-webkit-transition: all 75ms ease-in-out;
 	transition: all 75ms ease-in-out;
+	font-size: 10px;
 }
 input {
 	flex: 1;
@@ -84,7 +85,7 @@ button {
 	background: #4F565E;
 	color: #F7DEA1;
 	border: 1px solid #905B50;
-	font-size: 18px;
+	font-size: 10px;
 	line-height: 22px;
 	margin-left: 10px;
 }
@@ -108,7 +109,7 @@ button {
 	font-size: 14px;
 }
 .details p {
-	font-size: 12px;
+	font-size: 10px;
 }
 
 /* Search Results */
@@ -132,7 +133,7 @@ button {
 }
 .results p {
 	flex: 1;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 
