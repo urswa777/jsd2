@@ -98,7 +98,7 @@ function goSearch(e){
     g_searchMovieTitle = search_str_.trim();
     
     if (g_searchMovieTitle.length ==0) {
-        alert ("Please enter something to search Movie");
+        alert ("Please enter City & State or Zipcode");
     	return;
     }
 	console.log('button Submit! ');
