@@ -13,10 +13,10 @@
 <body>
 
 <main>
-    <h3>My Weather App</h3>
+    <h4>My Weather App</h4>
 
     <form class="search_form">
-    	<input class="search" placeholder="Type City &Amp; State or Zipcode...">
+    	<input class="search" placeholder="Type City & State or Zipcode...">
     	<button type="submit">Check</button>
     </form>
 <!--
@@ -27,24 +27,68 @@
         <button class="clearList">Clear List</button>
     </form>
 -->
-    <p class="Current">Currently...</p>
+    <hr><br>
+    <div class="location">For City <strong>'San Francisco, CA'</strong>
+    </div>
+    <br>
+    <p class="Current_and_next3hrs"><h6>Right now ...</h6></p>
+    <div class="details">
+        <div class="text" style="width:150px;height:150px">
+            <h2 class="Curr_Temp">Temperature</h2>
+            <h1 class="hourly_trend">68
+             <img class="temp_unit_icon" src="images/temp_unit_F.svg" style="width:70px;height:100px">
+             </h1>
+        </div>
+        <div class="image"  style="width:150px;height:150px">
+            <img class="weather_type_icon" src="images/icon_partlycloudy.svg">
+        </div>
+        <div class="more"  style="width:150px;height:150px">
+            <h2 class="Next_hours">Coming hours</h2>
+            <p class="hourly_trend"> </p>
+            <img class="trend_icon" src="images/trend_up.png" style="width:80px;height:100px">
+       </div>
+    </div>
+
+    <div class="SummaryStatement" style="font-size:10px">
+    <strong>Summary :</strong> Tomorrow will be <strong>cooler</strong> than today.
+    <br>
+    </div><br>
+    <hr><br>
+
+
+
+    <p class="Alert"><h5>Alerts...</h5></p>
     <div class="details">
         <div class="image">
-            <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BZDM2YjYwYWMtMWZlNi00ZDQxLWExMDctMDAzNzQ0OTkzZjljXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
+            <img class="poster" src="images/icon_thunderstorm.svg">
         </div>
         <div class="text">
-            <h2 class="title">Terminator 2: Judgment Day</h2>
-            <p class="plot">A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her young son, John Connor, from a more advanced cyborg, made out of liquid metal.</p>
-            <p><a class="imdb-link" href="http://www.imdb.com/title/tt0103064">View on IMDb</a></p>
+            <h2 class="title">Thunderstorm Warning is issued</h2>
+            <p class="plot">next 6 hours</p>
         </div>
     </div>
 
-    <p class="Summary" style="font-size:10px">
 
-    <strong>Summary :</strong> Tomorrow is <strong>cooler</strong> than today.
-    </p>
 
-    <ul class="results">
+
+    <p class="Tmw_Forecast"><h5>Forecast...</h5></p>
+    <div class="details">
+        <div class="text" style="width:150px;height:150px">
+            <h2 class="Curr_Temp">Temperature</h2>
+            <h1 class="hourly_trend">68
+             <img class="temp_unit_icon" src="images/temp_unit_F.svg" style="width:70px;height:100px">
+             </h1>
+            <div class="image"  style="width:150px;height:150px">
+                 <img class="weather_type_icon" src="images/icon_partlycloudy.svg">
+            </div>     
+        </div>
+    </div>
+
+
+
+
+
+    <div class="5Days_Forecast">
 
         <!-- Sample Movie Template:
                 <li id="tt0181852">
@@ -53,18 +97,20 @@
                 </li>
         -->
 
+    </div>
 
-        <li id="tt0103064">
-            <img src="http://ia.media-imdb.com/images/M/MV5BZDM2YjYwYWMtMWZlNi00ZDQxLWExMDctMDAzNzQ0OTkzZjljXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
-            <p>Terminator 2: Judgment Day</p>
-        </li>
 
-        <li id="tt0181852">
-            <img src="http://ia.media-imdb.com/images/M/MV5BMTk5NzM1ODgyN15BMl5BanBnXkFtZTcwMzA5MjAzMw@@._V1_SX300.jpg">
-            <p>Terminator 3: Rise of the Machines</p>
-        </li>
 
-    </ul>
+    <div class="5Hours_Forecast">
+
+        <!-- Sample Movie Template:
+                <li id="tt0181852">
+                    <img src="http://ia.media-imdb.com/images/M/MV5BMTk5NzM1ODgyN15BMl5BanBnXkFtZTcwMzA5MjAzMw@@._V1_SX300.jpg">
+                    <p>Terminator 3: Rise of the Machines</p>
+                </li>
+        -->
+
+    </div>
 
 </main>
 

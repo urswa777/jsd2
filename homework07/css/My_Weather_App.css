@@ -92,9 +92,9 @@ button {
 }
 
 
-/* Movie Details */
+/* Weather Details */
 /* -------------------------------- */
-.details.hide {
+.details .hide {
 	display: none;
 }
 .details {
