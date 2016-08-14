@@ -31,6 +31,7 @@ main {
 	border: 1px solid #003399;
 	position: relative;
 	margin: 15px;
+	color: #001a4d;
 }
 main::before {
 	content: "";
