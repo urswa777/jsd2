@@ -22,13 +22,13 @@ a,
 a:visited,
 a:hover,
 a:active {
-	color: #AA353B;
+	color: #6699ff;
 }
 
 /* Main section */
 /* -------------------------------- */
 main {
-	border: 1px solid #603E3B;
+	border: 1px solid #003399;
 	position: relative;
 	margin: 15px;
 }
@@ -39,7 +39,7 @@ main::before {
 	left: -5px;
 	right: -5px;
 	bottom: -5px;
-	border: 2px solid #603E3B;
+	border: 2px solid #003399;
 	pointer-events: none;
 }
 
@@ -83,7 +83,7 @@ button:focus {
 }
 button {
 	background: #4F565E;
-	color: #F7DEA1;
+	color: #eeddff;
 	border: 1px solid #905B50;
 	font-size: 10px;
 	line-height: 22px;
@@ -155,6 +155,7 @@ button {
 .questions {
 	margin: 35px 15px;
 	font-size: 14px;
+    color:#6699ff;
 }
 .questions h6 {
 	text-align: center;
