@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Movie Search</title>
+    <title>My Weather App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,8 +16,8 @@
     <h1>Movie Search</h1>
 
     <form class="search_form">
-    	<input class="search" placeholder="Movie title...">
-    	<button type="submit">Search</button>
+    	<input class="search" placeholder="Type City &Amp; State or Zipcode...">
+    	<button type="submit">Check</button>
     </form>
 <!--
     <form class="clear_DTL_form">
@@ -27,7 +27,7 @@
         <button class="clearList">Clear List</button>
     </form>
 -->
-    <p class="MovieIntro">Movie intro</p>
+    <p class="Current">Currently...</p>
     <div class="details">
         <div class="image">
             <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BZDM2YjYwYWMtMWZlNi00ZDQxLWExMDctMDAzNzQ0OTkzZjljXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
@@ -54,10 +54,6 @@
                 </li>
         -->
 
-        <li id="tt0088247">
-            <img src="http://ia.media-imdb.com/images/M/MV5BODE1MDczNTUxOV5BMl5BanBnXkFtZTcwMTA0NDQyNA@@._V1_SX300.jpg">
-            <p>The Terminator</p>
-        </li>
 
         <li id="tt0103064">
             <img src="http://ia.media-imdb.com/images/M/MV5BZDM2YjYwYWMtMWZlNi00ZDQxLWExMDctMDAzNzQ0OTkzZjljXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
@@ -73,11 +69,14 @@
 
 </main>
 
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<hr>
 <aside class="questions">
 
     <h6>My Weather App</h6>
     <p>This App is created for the homework7 for JSD2</p>
-    <p>It covers 6 features</p>
+    <p>I hope to cover 8 features</p>
 
 
     <p class="question">1. Search Weather for city</p>
@@ -93,16 +92,17 @@
    <p class="answer" >API: <a href="http://api.wunderground.com/api/b72e876654f97d6a/yesterday/q/CA/San_Francisco.json">jSON URL</a></p>
 
     <p class="question">5. Display 10 days forecast weather</p>
-   <p class="answer" >API: <a href="http://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box">jSON URL</a></p>
+   <p class="answer" >API: <a href="http://api.wunderground.com/api/b72e876654f97d6a/forecast10day/q/CA/San_Francisco.json">jSON URL</a></p>
 
     <p class="question">6. Display Hourly Weather</p>
-   <p class="answer" >API: <a href="http://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box">jSON URL</a></p>
+   <p class="answer" >API: <a href="http://api.wunderground.com/api/b72e876654f97d6a/hourly/q/CA/San_Francisco.json">jSON URL</a></p>
 
     <p class="question">7. Display History weather - same day last year</p>
-   <p class="answer" >API: <a href="http://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box">jSON URL</a></p>
+   <p class="answer" >API: <a href="http://api.wunderground.com/api/b72e876654f97d6a/history_20150813/q/CA/San_Francisco.json
+">jSON URL</a></p>
 
-    <p class="question">7. Display current Weather alert</p>
-   <p class="answer" >API: <a href="http://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box">jSON URL</a></p>
+    <p class="question">8. Display current Weather alert</p>
+   <p class="answer" >API: <a href="http://api.wunderground.com/api/b72e876654f97d6a/alerts/q/NY/New_York.json">jSON URL</a></p>
 
 
 </aside>
