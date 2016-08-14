@@ -39,7 +39,7 @@ var _poster  =    document.querySelector(".poster");
 var _title   =    document.querySelector(".title");
 var _plot    =    document.querySelector(".plot");
 var _url     =    document.querySelector(".imdb-link");
-
+var _movieIntro  =    document.querySelector(".MovieIntro");
 var _searchSummary = document.querySelector(".searchSummary");
 var _results       = document.querySelector(".results");
 
@@ -129,20 +129,32 @@ function searchMovieList(search_str){
 function showSearchResult(list){
     var searchSummary_HTML="";
     var movieList = list.Search;
+    var no_of_movies = list.totalResults ;
 	console.log('-- Trigger action  : Show search result (movie list) ');	
 	console.log(list);
 	console.log(list.totalResults + " movies returned for keyword '"+ g_searchMovieTitle + "'");
 	console.log("Here are the top 10 movies :");
+
+    clearDTLScreen();
+    clearListScreen();
+if (list.totalResults != undefined) { 
+    _movieIntro.textContent="Movie Intro";
     searchSummary_HTML="Search Summary: "+list.totalResults 
                    + " movies returned for keyword <strong>'"+ g_searchMovieTitle 
                    + "</strong>'. <br>Here are the top " 
                    + movieList.length + " movies :";
     _searchSummary.innerHTML=searchSummary_HTML;
-    clearDTLScreen();
-    clearListScreen();
-    movieList.forEach(showOneMovieHeader); //--- show list of movies' header
-    movieList.forEach(show1stMovieDetail);
-    movieCounter=0;
+	movieList.forEach(showOneMovieHeader); //--- show list of movies' header
+	movieList.forEach(show1stMovieDetail);
+	movieCounter=0;
+	 } 
+else {
+	//var  prev_Summary =   _searchSummary.innerHTML;
+    var buf="Sorry !! No movies found for keyword <strong>'"+ g_searchMovieTitle 
+                   + "</strong>'.  Please search again !! <br>";
+    _searchSummary.innerHTML=buf;
+    _movieIntro.textContent="";
+	 }  
 }
 
 
