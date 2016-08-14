@@ -98,7 +98,7 @@ function goSearch(e){
     g_searchMovieTitle = search_str_.trim();
     
     if (g_searchMovieTitle.length ==0) {
-        alert ("Please enter City & State or Zipcode");
+        alert ("Type City and State (e.g. 'Belmont, CA')");
     	return;
     }
 	console.log('button Submit! ');
