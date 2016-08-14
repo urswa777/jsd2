@@ -21,7 +21,7 @@ var url_oneMovie_api ="https://www.omdbapi.com/?i=";
 var url_search   ="";
 var url_oneMovie ="";
 var one_movie_is_chosen=0;
-var defaultMoviePoster_img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTc-k0F0Og_2TFjqrEy38pgK1-0_qnv7EVLWLCTlA_MaA7-1xI3nw";
+var defaultMoviePoster_img="css/photo_not_available.jpg";
 var DetailMovieId="";
 var movieCounter=0;
 
@@ -151,7 +151,7 @@ if (list.totalResults != undefined) {
 else {
 	//var  prev_Summary =   _searchSummary.innerHTML;
     var buf="Sorry !! No movies found for keyword <strong>'"+ g_searchMovieTitle 
-                   + "</strong>'.  Please search again !! <br>";
+                   + "</strong>'.<br>Please search again !! <br>";
     _searchSummary.innerHTML=buf;
     _movieIntro.textContent="";
 	 }  
