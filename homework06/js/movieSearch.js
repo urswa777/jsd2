@@ -1,5 +1,20 @@
 // Setup
 // ----------------------------------------------
+var today_ = Date();
+var weekday_ = today_.substring(1, 3);
+var weekday = "";
+switch (weekday) {
+  case "Mon"  : weekday="Monday"; break;
+  case "Tue"  : weekday="Tuesday"; break;
+  case "Wed"  : weekday="Wednesday"; break;
+  case "Thu"  : weekday="Thurday"; break;
+  case "Fri"  : weekday="Friday"; break;
+  case "Sat"  : weekday="Saturday"; break;
+  case "Sun"  : weekday="Sunday"; break;
+  default : weekday="Sunday";
+} 
+var event = new Event('submit');
+
 var g_searchMovieTitle = ""; 
 var url_search_api   ="https://www.omdbapi.com/?s=";
 var url_oneMovie_api ="https://www.omdbapi.com/?i=";
@@ -9,6 +24,7 @@ var one_movie_is_chosen=0;
 var defaultMoviePoster_img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTc-k0F0Og_2TFjqrEy38pgK1-0_qnv7EVLWLCTlA_MaA7-1xI3nw";
 var DetailMovieId="";
 var movieCounter=0;
+
 
 // Structure
 // ----------------------------------------------
@@ -246,8 +262,28 @@ function showOneMovieDetail(OneMovieJson) {
     _plot.textContent= moviePlot ;
     _url.textContent= movieURL_desc;
     _url.href= movieURL ;
+
+
+/*
+  "Year": "2002",
+  "Rated": "PG-13",
+  "Released": "17 May 2002",
+  "Runtime": "101 min",
+  "Genre": "Comedy, Drama, Romance",
+  "Director": "Chris Weitz, Paul Weitz",
+  "Actors": "Hugh Grant, Nicholas Hoult, Sharon Small, Madison Cook",
+  "Language": "English",
+  "Country": "UK, USA, France, Germany",
+  "Awards": "Nominated for 1 Oscar. Another 11 wins & 28 nominations.",
+  "imdbRating": "7.1",
+*/
     
 }
 
 // Update page
 // ----------------------------------------------
+    _search.value=weekday;
+    _form.dispatchEvent(event);
+
+
+
