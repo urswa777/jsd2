@@ -33,10 +33,27 @@ var _results       = document.querySelector(".results");
 _form.addEventListener('submit',goSearch);
 //_form2.addEventListener('submit',clearDTLScreen);
 //_form3.addEventListener('submit',clearListScreen);
+_results.addEventListener("click",grabSelectedMoive);
 
 
 // Event handlers
 // ----------------------------------------------
+function grabSelectedMoive(e){
+    console.log('Trigger function : grabSelectedMovie');
+    console.log('What you clicked is : ' + e.target);
+    var target = e.target;
+
+    if (target.TagName != "LI") {
+        console.log("you missed it, loser !!");
+    	target = target.closest("LI");
+    }
+    console.log('What you got is : ' + target);
+    console.log('IMDB id is : ' + target.id);
+    console.log("Finally, you got it  !! ");
+    searchMovieDetail(target.id);
+}
+
+
 function clearDTLScreen(e){
 	event.preventDefault();
     
