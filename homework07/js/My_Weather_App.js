@@ -1,5 +1,6 @@
 // Setup
 // ----------------------------------------------
+var replace_char = / /gi;
 var today_ = Date();
 var weekday_ = today_.substring(1, 3);
 var weekday = "";
@@ -14,12 +15,16 @@ switch (weekday) {
   default : weekday="Sunday";
 } 
 var event = new Event('submit');
+var tempInputStr = new Array();
 
-var g_searchMovieTitle = ""; 
-var url_search_api   ="https://www.omdbapi.com/?s=";
-var url_oneMovie_api ="https://www.omdbapi.com/?i=";
+var c_searchstatus ="Search result: city found";
+var g_searchCity = ""; 
+var g_searchState = "";
+var c_url_search_api   ="http://api.wunderground.com/api/b72e876654f97d6a/conditions/q/";
+   // =="http://api.wunderground.com/api/b72e876654f97d6a/conditions/q/CA/San_Francisco.json";
+var c_url_oneDay_api ="https://www.omdbapi.com/?i=";
 var url_search       ="";
-var url_oneMovie     ="";
+var url_oneDay       ="";
 var one_movie_is_chosen=0;
 var defaultMoviePoster_img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTc-k0F0Og_2TFjqrEy38pgK1-0_qnv7EVLWLCTlA_MaA7-1xI3nw";
 var DetailMovieId    ="";
@@ -96,8 +101,8 @@ _fc_seven_days.addEventListener("click",grab_OneDay_fc_details);
 
 // Event handlers
 // ----------------------------------------------
-function grabSelectedMoive(e){
-    console.log('Trigger function : grabSelectedMovie');
+function grab_OneDay_fc_details(e){
+    console.log('Trigger function : grab_OneDay_fc_details');
     console.log('What you clicked is : ' + e.target);
     var target = e.target;
 
@@ -106,9 +111,9 @@ function grabSelectedMoive(e){
     	target = target.closest("LI");
     }
     console.log('What you got is : ' + target);
-    console.log('IMDB id is : ' + target.id);
+    console.log('the DATE you clicked is : ' + target.id);
     console.log("Finally, you got it  !! ");
-    searchMovieDetail(target.id);
+    //searchMovieDetail(target.id);
 }
 
 
@@ -121,7 +126,6 @@ function clearDTLScreen(e){
     _plot.textContent= "" ;
     _url.textContent= "" ;
     _url.href= "" ;
-
     //--- clear LIST portion
 }
 
@@ -137,20 +141,23 @@ function clearListScreen(e){
 function goSearch(e){
 	event.preventDefault();
     var search_str_ = _search.value;
-    g_searchMovieTitle = search_str_.trim();
-    
-    if (g_searchMovieTitle.length ==0) {
+    tempInputStr = search_str_.split(",");
+    g_searchCity = tempInputStr[0].trim();
+    g_searchState = tempInputStr[1].trim();
+    g_searchCity = g_searchCity.replace(replace_char,'_');
+    if (g_searchCity.length ==0 || g_searchState.length ==0) {
         alert ("Enter City and State (e.g. 'Belmont, CA')");
     	return;
     }
 	console.log('button Submit! ');
 	//------------------------------------------------------------
-	console.log('Step1 - Search movie from web! ');	
-	console.log( 'Search Movie:'+ g_searchMovieTitle ); 
-    searchMovieList(g_searchMovieTitle);
-
+  console.log( 'Search City: '+ g_searchCity ); 
+  console.log( 'Search State: '+ g_searchState); 
+	console.log('Step1 - Search city & state from web! ');	
+    searchCityWeather(g_searchCity, g_searchState);
+debugger
 	//------------------------------------------------------------
-	console.log('Step4 - Display List of movies! ');	
+	console.log('Step4 - Display Weather ! ');	
     _search.value="";
 }
 
@@ -158,33 +165,39 @@ function goSearch(e){
 // Supporting Functions
 // ----------------------------------------------
 
-function searchMovieList(search_str){
-	console.log("Trigger action : Search Movies with string '"+search_str+"'");	
-    url_search = url_search_api + search_str;
+function searchCityWeather(search_str1,search_str2){
+	console.log("Trigger action : Search City with strings '"+search_str1+", "+search_str2);	
+    url_search = c_url_search_api + "/"+ search_str2 + "/" + search_str1 + ".json";
 	console.log("URL >> "+ url_search);	
 	$.getJSON(url_search, showSearchResult);
+  console.log("done");
 }
 
 
 
 
-function showSearchResult(list){
+function showSearchResult(curr_weather){
     var searchSummary_HTML="";
-    var movieList = list.Search;
-    var no_of_movies = list.totalResults ;
-	console.log('-- Trigger action  : Show search result (movie list) ');	
-	console.log(list);
-	console.log(list.totalResults + " movies returned for keyword '"+ g_searchMovieTitle + "'");
-	console.log("Here are the top 10 movies :");
+    var x = curr_weather;
+    var return_status = x.current_observation ;
+    //var x_loc = x.current_observation.display_location.full ;
+    var x_curr_weather_icon = x.current_observation.estimated.weather ;
+    var x_lat = x.current_observation.observation_location.latitude;
+    var x_long = x.current_observation.observation_location.longitude;
+    var x_curr_temp = x.current_observation.estimated.temp_f ;
+
+	console.log('-- Trigger action  : Show weather of search city ');	
+	console.log(x);
+debugger
 
     clearDTLScreen();
     clearListScreen();
-if (list.totalResults != undefined) { 
-    _movieIntro.textContent="Movie Intro";
-    searchSummary_HTML="Search Summary: "+list.totalResults 
-                   + " movies returned for keyword <strong>'"+ g_searchMovieTitle 
-                   + "</strong>'. <br>Here are the top " 
-                   + movieList.length + " movies :";
+if (x.current_observation != undefined) { 
+    _search_status.textContent= c_searchstatus;
+    //searchSummary_HTML="Search Summary: "+list.totalResults 
+    //               + " movies returned for keyword <strong>'"+ g_searchCity 
+    //               + "</strong>'. <br>Here are the top " 
+    //               + movieList.length + " movies :";
     _searchSummary.innerHTML=searchSummary_HTML;
 	movieList.forEach(showOneMovieHeader); //--- show list of movies' header
 	movieList.forEach(show1stMovieDetail);
@@ -192,7 +205,7 @@ if (list.totalResults != undefined) {
 	 } 
 else {
 	//var  prev_Summary =   _searchSummary.innerHTML;
-    var buf="Sorry !! No movies found for keyword <strong>'"+ g_searchMovieTitle 
+    var buf="Sorry !! No movies found for keyword <strong>'"+ g_searchCity 
                    + "</strong>'.  Please search again !! <br>";
     _searchSummary.innerHTML=buf;
     _movieIntro.textContent="";
@@ -336,7 +349,7 @@ function showOneMovieDetail(OneMovieJson) {
 
 // Update page
 // ----------------------------------------------
-    _search.value="San Francisoc, CA";
+    _search.value="San Francisco, CA";
     _form.dispatchEvent(event);
 
 
