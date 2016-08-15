@@ -117,27 +117,76 @@ function grab_OneDay_fc_details(e){
 }
 
 
-function clearDTLScreen(e){
+function clearDetailScreen(e){
 	event.preventDefault();
     
     //--- clear DETAIL portion
-    _poster.src="";
-    _title.textContent= "" ;
-    _plot.textContent= "" ;
-    _url.textContent= "" ;
-    _url.href= "" ;
-    //--- clear LIST portion
-}
-
-function clearListScreen(e){
-	event.preventDefault();
-    
-    //--- clear DETAIL portion
-    _results.innerHTML= "" ;
 
     //--- clear LIST portion
 }
 
+
+
+function clearTopScreen(e){
+	event.preventDefault();
+    
+//--- clear Header portion
+  _loc_city.textContent="";
+  _loc_state.textContent="";
+
+
+//--- clear Header portion
+  _curr_temp.textContent="";
+  _curr_weather_type_icon="";
+  _curr_hourly_trend_icon.src="";
+  _weather_forecast_keyword .textContent="";
+
+//--- clear Alert portion
+  _alert_icon.src="";
+  _alert_subject.textContent=""
+  _alert_details.textContent=""
+
+//--- clear Forecast portion
+  _weekday1.textContent="";
+  _hi_temp1.textContent="";
+  _lo_temp1.textContent="";
+  _weather_type_icon1.src="";
+
+  _weekday2.textContent="";
+  _hi_temp2.textContent="";
+  _lo_temp2.textContent="";
+  _weather_type_icon2.src="";
+
+  _weekday3.textContent="";
+  _hi_temp3.textContent="";
+  _lo_temp3.textContent="";
+  _weather_type_icon3.src="";
+
+  _weekday4.textContent="";
+  _hi_temp4.textContent="";
+  _lo_temp4.textContent="";
+  _weather_type_icon4.src="";
+
+  _weekday5.textContent="";
+  _hi_temp5.textContent="";
+  _lo_temp5.textContent="";
+  _weather_type_icon5.src="";
+
+  _weekday6.textContent="";
+  _hi_temp6.textContent="";
+  _lo_temp6.textContent="";
+  _weather_type_icon6.src="";
+
+  _weekday7.textContent="";
+  _hi_temp7.textContent="";
+  _lo_temp7.textContent="";
+  _weather_type_icon7.src="";
+
+    //--- clear DETAIL (on-demand) portion
+}
+
+
+//----------------------------------------------------------------------
 function goSearch(e){
 	event.preventDefault();
     var search_str_ = _search.value;
@@ -162,6 +211,8 @@ debugger
 }
 
 
+
+
 // Supporting Functions
 // ----------------------------------------------
 
@@ -181,7 +232,7 @@ function showSearchResult(curr_weather){
     var x = curr_weather;
     var return_status = x.current_observation ;
     //var x_loc = x.current_observation.display_location.full ;
-    var x_curr_weather_icon = x.current_observation.estimated.weather ;
+    var x_curr_weather_icon = x.current_observation.estimated.icon ;
     var x_lat = x.current_observation.observation_location.latitude;
     var x_long = x.current_observation.observation_location.longitude;
     var x_curr_temp = x.current_observation.estimated.temp_f ;
@@ -190,25 +241,33 @@ function showSearchResult(curr_weather){
 	console.log(x);
 debugger
 
-    clearDTLScreen();
-    clearListScreen();
+    clearTopScreen();
+    clearDetailScreen();
 if (x.current_observation != undefined) { 
     _search_status.textContent= c_searchstatus;
     //searchSummary_HTML="Search Summary: "+list.totalResults 
     //               + " movies returned for keyword <strong>'"+ g_searchCity 
     //               + "</strong>'. <br>Here are the top " 
     //               + movieList.length + " movies :";
-    _searchSummary.innerHTML=searchSummary_HTML;
-	movieList.forEach(showOneMovieHeader); //--- show list of movies' header
-	movieList.forEach(show1stMovieDetail);
-	movieCounter=0;
+
+    _loc_city.textContent=search_str1;
+    _loc_state.textContent=search_str2;
+    _curr_temp.textContent=x_curr_temp;
+    switch(x_curr_weather_icon) {
+       case "partlycloudy"  : _curr_weather_type_icon.src="image/icon_partlycloudy.svg"; break;
+       case "cloudy"        : _curr_weather_type_icon.src="image/icon_cloudy.svg"; break;
+       case "sunny"         : _curr_weather_type_icon.src="image/icon_sunny.svg"; break;
+       case "rainy"         : _curr_weather_type_icon.src="image/icon_rainy.svg"; break;
+       case "windy"         : _curr_weather_type_icon.src="image/icon_windy.svg"; break;
+       default              : _curr_weather_type_icon.src="image/icon_partlycloudy.svg";
+    } 
+
+
 	 } 
 else {
 	//var  prev_Summary =   _searchSummary.innerHTML;
-    var buf="Sorry !! No movies found for keyword <strong>'"+ g_searchCity 
-                   + "</strong>'.  Please search again !! <br>";
-    _searchSummary.innerHTML=buf;
-    _movieIntro.textContent="";
+    var buf="Sorry... The entered city cannot be found. <br>Please search again !! ";
+    _search_status.textContent= buf;
 	 }  
 }
 
