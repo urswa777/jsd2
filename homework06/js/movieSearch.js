@@ -2,15 +2,18 @@
 // ----------------------------------------------
 var today_ = Date();
 var weekday_ = today_.substring(1, 3);
+console.log('today is : ' + today_);
+console.log('weekday is : ' + weekday_.trim());
+
 var weekday = "";
-switch (weekday) {
-  case "Mon"  : weekday="Monday"; break;
-  case "Tue"  : weekday="Tuesday"; break;
-  case "Wed"  : weekday="Wednesday"; break;
-  case "Thu"  : weekday="Thurday"; break;
-  case "Fri"  : weekday="Friday"; break;
-  case "Sat"  : weekday="Saturday"; break;
-  case "Sun"  : weekday="Sunday"; break;
+switch (weekday_.trim()) {
+  case "on"  : weekday="Monday"; break;
+  case "ue"  : weekday="Tuesday"; break;
+  case "ed"  : weekday="Wednesday"; break;
+  case "hu"  : weekday="Thurday"; break;
+  case "ri"  : weekday="Friday"; break;
+  case "at"  : weekday="Saturday"; break;
+  case "un"  : weekday="Sunday"; break;
   default : weekday="Sunday";
 } 
 var event = new Event('submit');
