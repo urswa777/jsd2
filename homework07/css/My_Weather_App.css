@@ -31,6 +31,7 @@ main {
 	border: 1px solid #003399;
 	position: relative;
 	margin: 15px;
+	padding: 5px;
 	color: #001a4d;
 }
 main::before {
@@ -168,8 +169,8 @@ button {
 }
 
 .fc_day1 .fc_day2 .fc_day3 .fc_day4 .fc_day5 .fc_day6 .fc_day7{
-	 width:50px;
-	 height:100px;
+	 width:100px;
+	 height:90px;
 }	 
 
 /* -------------------------------- */
