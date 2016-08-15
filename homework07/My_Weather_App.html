@@ -32,47 +32,45 @@
     <br>
     <hr><br>
     <p class="Current_and_next3hrs"><h6>Right now ...</h6></p>
-    <div class="details">
-        <div class="text" style="width:150px;height:150px">
-            <h2 class="Curr_Temp">Temperature</h2>
-            <h1 class="hourly_trend">68
-             <img class="temp_unit_icon" src="images/temp_unit_F.svg" style="width:70px;height:100px">
-             </h1>
+    <div class="details current_forecast">
+        <div class="fc_temperature fc_current">
+            <h2>Temperature</h2>
+            <h1 class="Curr_Temp">68</h1>
+            <div style="height:10px"></div>
+             <img class="temp_unit_icon" src="images/temp_unit_F.svg">
         </div>
-        <div class="image"  style="width:150px;height:150px">
+        <div class="fc_weather_icon fc_current">
+            <div style="height:20px"></div>
             <img class="weather_type_icon" src="images/icon_partlycloudy.svg">
         </div>
-        <div class="more"  style="width:150px;height:150px">
-            <h2 class="Next_hours">Coming hours</h2>
-            <p class="hourly_trend"> </p>
+        <div class="fc_coming_hours fc_current">
+            <h2>Coming hours</h2>
+            <div style="height:20px"></div>
             <img class="trend_icon" src="images/trend_up.png" style="width:80px;height:100px">
        </div>
     </div>
 
-    <div class="SummaryStatement" style="font-size:10px">
-    <strong>Summary :</strong> Tomorrow will be <strong>warmer</strong> than today.
-    <br>
+    <div class="Weather_forecast_Statement">
+    <strong>Summary :</strong>  Tomorrow will be <strong>warmer</strong> than today.<br>
     </div>
     <br><hr><br>
 
-
-
-    <p class="Alert"><h5>Alerts...</h5></p>
-    <div class="details">
-        <div class="image">
+    <p><h5>Alerts...</h5></p>
+    <div class="details alert">
+        <div class="alert_icon">
             <img class="poster" src="images/icon_thunderstorm.svg">
         </div>
-        <div class="text" style="width:200px;height:80px">
-            <h2 class="title">Thunderstorm Warning</h2>
-            <p class="plot"> is issued &amp; effective for next 6 hours</p>
+        <div class="alert_msg">
+            <h2 class="alert_subject">Thunderstorm Warning</h2>
+            <p class="alert_details"> is issued &amp; effective for next 6 hours</p>
         </div>
-    </div>
+    </div>    
    <br><hr><br>
 
 
 
     <p class="Tmw_Forecast"><h5>Forecast...</h5></p>
-    <div class="details">
+    <div class="details fc_days">
         <div class="fc_day1" style="width:50px;height:100px">
             <div><h6 style="color:red">TMW</h6></div>
             <div style="width:150px;height:10px"></div>
