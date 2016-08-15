@@ -152,12 +152,11 @@ button {
 	width:150px;
 	height:150px;
 }
-
-.temp_unit_icon {
+.curr_temp_unit_icon {
 	width:50px;
 	height:60px;
 }
-.Weather_forecast_Statement {
+.weather_forecast_Statement {
 	font-size:10px;
 	color:#0066ff;
     text-align: center;
@@ -168,7 +167,7 @@ button {
 	 height:80px;
 }
 
-.fc_day1 .fc_day2 .fc_day3 .fc_day4 .fc_day5 .fc_day6 .fc_day7{
+.fc_days {
 	 width:100px;
 	 height:90px;
     text-align: center;

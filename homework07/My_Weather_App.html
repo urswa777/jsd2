@@ -29,19 +29,19 @@
               Search result: city found</div>
     <br><hr><br>
 
-    <div class="location" style="text-align:left;color:#003cb3"> 
+    <div class="fc_location" style="text-align:left;color:#003cb3"> 
            <strong class="location_city">San Francisco</strong>, 
            <strong class="location_state">CA</strong>, <span style="font-size:12px"> now...</span>
     </div>
 
-    <!--    <p class="Current_and_next3hrs"><h6>Right now ...</h6></p> -->
+    <!--  ################################################################################# -->
 
     <div class="details current_forecast">
         <div class="fc_temperature fc_current">
             <h2>Temperature</h2>
-            <h1 class="Curr_Temp">68</h1>
+            <h1 class="curr_Temp">68</h1>
             <div style="height:10px"></div>
-             <img class="temp_unit_icon" src="images/temp_unit_F.svg">
+             <img class="curr_temp_unit_icon" src="images/temp_unit_F.svg">
         </div>
         <div class="fc_weather_icon fc_current">
             <div style="height:20px"></div>
@@ -50,21 +50,26 @@
         <div class="fc_coming_hours fc_current">
             <h2>Coming hours</h2>
             <div style="height:20px"></div>
-            <img class="trend_icon" src="images/trend_up.png" style="width:80px;height:100px">
+            <img class="curr_hourly_trend_icon" src="images/trend_up.png" style="width:80px;height:100px">
        </div>
     </div>
 
-    <div class="Weather_forecast_Statement">
-    <strong>Summary :</strong>  Tomorrow will be <strong>warmer</strong> than today.<br>
+    <!--  ################################################################################# -->
+
+    <div class="weather_forecast_Statement">
+    <strong>Summary :</strong>  Tomorrow will be 
+    <strong class="weather_forecast_keyword">warmer</strong> than today.<br>
     </div>
     <br><hr><br>
+
+    <!--  ################################################################################# -->
 
     <p><h5>Alerts...</h5></p>
     <div class="details alert">
         <div style="width:20px">
          </div>
-        <div class="alert_icon">
-            <img class="poster" src="images/icon_thunderstorm.svg">
+        <div>
+            <img class="alert_icon" src="images/icon_thunderstorm.svg">
         </div>
         <div class="alert_msg">
             <h2 class="alert_subject">Thunderstorm Warning</h2>
@@ -73,85 +78,85 @@
     </div>    
    <br><hr><br>
 
+    <!--  ################################################################################# -->
 
-
-    <p class="Tmw_Forecast"><h5>Forecast...</h5></p>
-    <div class="details fc_days">
+    <p class="Forecasts"><h5>Forecast...</h5></p>
+    <div class="details">
         <div style="width:30px">
          </div>
-        <div class="fc_day1">
-            <div><h6  class="weekday" style="color:red">TMW</h6></div>
+        <div class="fc_days">
+            <div><h6  class="weekday1" style="color:red">TMW</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">70</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">59</h5></div>
+            <div><h3 class="hi_temp1" style="color:#003cb3">70</h3></div>
+            <div><h5 class="lo_temp1" style="color:#0066ff">59</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon"   style="width:30px;height:30px" 
+                 <img class="weather_type_icon1"   style="width:30px;height:30px" 
                      src="images/icon_thunderstorm.svg">
             </div>     
         </div>
 
-        <div class="fc_day2" >
-            <div><h6 class="weekday">Tue</h6></div>
+        <div class="fc_days" >
+            <div><h6 class="weekday2">Tue</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">70</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">60</h5></div>
+            <div><h3 class="hi_temp2" style="color:#003cb3">70</h3></div>
+            <div><h5 class="lo_temp2" style="color:#0066ff">60</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon2" style="width:30px;height:30px" 
                      src="images/icon_partlycloudy.svg">
             </div>     
         </div>
 
-        <div class="fc_day3">
-            <div><h6 class="weekday">Wed</h6></div>
+        <div class="fc_days">
+            <div><h6 class="weekday3">Wed</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">71</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">62</h5></div>
+            <div><h3 class="hi_temp3" style="color:#003cb3">71</h3></div>
+            <div><h5 class="lo_temp3" style="color:#0066ff">62</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon3" style="width:30px;height:30px" 
                      src="images/icon_partlycloudy.svg">
             </div>     
         </div>
 
-        <div class="fc_day4">
-            <div><h6 class="weekday">Thu</h6></div>
+        <div class="fc_days">
+            <div><h6 class="weekday4">Thu</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">75</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">64</h5></div>
+            <div><h3 class="hi_temp4" style="color:#003cb3">75</h3></div>
+            <div><h5 class="lo_temp4" style="color:#0066ff">64</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon4" style="width:30px;height:30px" 
                      src="images/icon_sunny.svg">
             </div>     
         </div>
 
-        <div class="fc_day5">
-            <div><h6 class="weekday">Fri</h6></div>
+        <div class="fc_days">
+            <div><h6 class="weekday5">Fri</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">75</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">60</h5></div>
+            <div><h3 class="hi_temp5" style="color:#003cb3">75</h3></div>
+            <div><h5 class="lo_temp5" style="color:#0066ff">60</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon5" style="width:30px;height:30px" 
                      src="images/icon_cloudy.svg">
             </div>     
         </div>
 
-        <div class="fc_day6">
-            <div><h6 class="weekday">Sat</h6></div>
+        <div class="fc_days">
+            <div><h6 class="weekday6">Sat</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">70</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">58</h5></div>
+            <div><h3 class="hi_temp6" style="color:#003cb3">70</h3></div>
+            <div><h5 class="lo_temp6" style="color:#0066ff">58</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon6" style="width:30px;height:30px" 
                      src="images/icon_shower.svg">
             </div>     
         </div>
 
-        <div class="fc_day7">
-            <div><h6 class="weekday" style="color:Green">Sun</h6></div>
+        <div class="fc_days">
+            <div><h6 class="weekday7" style="color:Green">Sun</h6></div>
             <div style="height:10px"></div>
-            <div><h3 class="hi_temp" style="color:#003cb3">71</h3></div>
-            <div><h5 class="lo_temp" style="color:#0066ff">58</h5></div>
+            <div><h3 class="hi_temp7" style="color:#003cb3">71</h3></div>
+            <div><h5 class="lo_temp7" style="color:#0066ff">58</h5></div>
             <div class="weather_icon"  style="width:40px;height:30px">
-                 <img class="weather_type_icon" style="width:30px;height:30px" 
+                 <img class="weather_type_icon7" style="width:30px;height:30px" 
                      src="images/icon_rainy.svg">
             </div>     
         </div>

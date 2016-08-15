@@ -18,30 +18,43 @@ var event = new Event('submit');
 var g_searchMovieTitle = ""; 
 var url_search_api   ="https://www.omdbapi.com/?s=";
 var url_oneMovie_api ="https://www.omdbapi.com/?i=";
-var url_search   ="";
-var url_oneMovie ="";
+var url_search       ="";
+var url_oneMovie     ="";
 var one_movie_is_chosen=0;
 var defaultMoviePoster_img="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTc-k0F0Og_2TFjqrEy38pgK1-0_qnv7EVLWLCTlA_MaA7-1xI3nw";
-var DetailMovieId="";
-var movieCounter=0;
+var DetailMovieId    ="";
+var movieCounter     =0;
 
 
 // Structure
-// ----------------------------------------------
-var _form    = document.querySelector(".search_form");
-var _search  = document.querySelector("form .search");
-//var _form2    = document.querySelector(".clear_DTL_form");
-//var _clearDTL   = document.querySelector("form .clearDTL");
-//var _form3    = document.querySelector(".clear_List_form");
-//var _clearList   = document.querySelector("form .clearList");
+// --------------------section1: search --------------------
+var _form           = document.querySelector(".search_form");
+var _search         = document.querySelector("form .search");
+var _search_status  = document.querySelector(".search_status");
+var _loc_city       = document.querySelector(".location_city");
+var _loc_state      = document.querySelector(".location_state");
 
-var _poster  =    document.querySelector(".poster");
-var _title   =    document.querySelector(".title");
-var _plot    =    document.querySelector(".plot");
-var _url     =    document.querySelector(".imdb-link");
+
+// --------------------section2: current --------------------
+var _curr_temp                 = document.querySelector(".curr_Temp");
+var _curr_temp_unit_icon       = document.querySelector(".curr_temp_unit_icon");
+var _curr_weather_type_icon    = document.querySelector(".curr_weather_type_icon");
+var _curr_hourly_trend_icon    = document.querySelector(".curr_hourly_trend_icon");
+var _weather_forecast_keyword  = document.querySelector(".weather_forecast_keyword");
+
+// --------------------section3: alert --------------------
+var _alert_icon      =    document.querySelector(".alert_icon");
+var _alert_subject   =    document.querySelector(".alert_subject");
+var _alert_details   =    document.querySelector(".alert_details");
+
+// --------------------section4: forecasts --------------------
 var _movieIntro  =    document.querySelector(".MovieIntro");
 var _searchSummary = document.querySelector(".searchSummary");
 var _results       = document.querySelector(".results");
+
+
+
+
 
 // Events
 // ----------------------------------------------
@@ -294,7 +307,7 @@ function showOneMovieDetail(OneMovieJson) {
 
 // Update page
 // ----------------------------------------------
-    _search.value=weekday;
+    _search.value="San Francisoc, CA";
     _form.dispatchEvent(event);
 
 
