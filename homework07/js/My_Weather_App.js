@@ -167,7 +167,7 @@ debugger
 
 function searchCityWeather(search_str1,search_str2){
 	console.log("Trigger action : Search City with strings '"+search_str1+", "+search_str2);	
-    url_search = c_url_search_api + "/"+ search_str2 + "/" + search_str1 + ".json";
+    url_search = c_url_search_api + search_str2 + "/" + search_str1 + ".json";
 	console.log("URL >> "+ url_search);	
 	$.getJSON(url_search, showSearchResult);
   console.log("done");
