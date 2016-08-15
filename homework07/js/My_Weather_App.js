@@ -48,21 +48,50 @@ var _alert_subject   =    document.querySelector(".alert_subject");
 var _alert_details   =    document.querySelector(".alert_details");
 
 // --------------------section4: forecasts --------------------
-var _movieIntro  =    document.querySelector(".MovieIntro");
-var _searchSummary = document.querySelector(".searchSummary");
-var _results       = document.querySelector(".results");
+var _fc_seven_days      = document.querySelector(".fc_seven_days");
 
+var _weekday1           = document.querySelector(".weekday1");
+var _hi_temp1           = document.querySelector(".hi_temp1");
+var _lo_temp1           = document.querySelector(".lo_temp1");
+var _weather_type_icon1 = document.querySelector(".weather_type_icon1");
+
+var _weekday2           = document.querySelector(".weekday2");
+var _hi_temp2           = document.querySelector(".hi_temp2");
+var _lo_temp2           = document.querySelector(".lo_temp2");
+var _weather_type_icon2 = document.querySelector(".weather_type_icon2");
+
+var _weekday3           = document.querySelector(".weekday3");
+var _hi_temp3           = document.querySelector(".hi_temp3");
+var _lo_temp3           = document.querySelector(".lo_temp3");
+var _weather_type_icon3 = document.querySelector(".weather_type_icon3");
+
+var _weekday4           = document.querySelector(".weekday4");
+var _hi_temp4           = document.querySelector(".hi_temp4");
+var _lo_temp4           = document.querySelector(".lo_temp4");
+var _weather_type_icon4 = document.querySelector(".weather_type_icon4");
+
+var _weekday5           = document.querySelector(".weekday5");
+var _hi_temp5           = document.querySelector(".hi_temp5");
+var _lo_temp5           = document.querySelector(".lo_temp5");
+var _weather_type_icon5 = document.querySelector(".weather_type_icon5");
+
+var _weekday6           = document.querySelector(".weekday6");
+var _hi_temp6           = document.querySelector(".hi_temp6");
+var _lo_temp6           = document.querySelector(".lo_temp6");
+var _weather_type_icon6 = document.querySelector(".weather_type_icon6");
+
+var _weekday7           = document.querySelector(".weekday7");
+var _hi_temp7           = document.querySelector(".hi_temp7");
+var _lo_temp7           = document.querySelector(".lo_temp7");
+var _weather_type_icon7 = document.querySelector(".weather_type_icon7");
 
 
 
 
 // Events
 // ----------------------------------------------
-//_search.addEventListener('click',goSearch);
 _form.addEventListener('submit',goSearch);
-//_form2.addEventListener('submit',clearDTLScreen);
-//_form3.addEventListener('submit',clearListScreen);
-_results.addEventListener("click",grabSelectedMoive);
+_fc_seven_days.addEventListener("click",grab_OneDay_fc_details);
 
 
 // Event handlers
