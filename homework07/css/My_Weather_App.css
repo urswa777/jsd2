@@ -171,6 +171,12 @@ button {
 .fc_day1 .fc_day2 .fc_day3 .fc_day4 .fc_day5 .fc_day6 .fc_day7{
 	 width:100px;
 	 height:90px;
+    text-align: center;
+}	 
+
+.weather_type_icon {
+	 width:30px;
+	 height:30px;
 }	 
 
 /* -------------------------------- */
