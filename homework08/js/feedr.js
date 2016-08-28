@@ -1,6 +1,7 @@
  var article_id = 0;
  var c_max_article_id=10;
  var src_id=-1;
+
   c_api_url_NewsSrc1="https://newsapi.org/v1/articles?source=entertainment-weekly&sortBy=top&apiKey=6191111e6f3145ef8b9f5c22e97751c7";
   c_api_url_NewsSrc2="https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey=6191111e6f3145ef8b9f5c22e97751c7";
   c_api_url_NewsSrc3="https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=6191111e6f3145ef8b9f5c22e97751c7";
@@ -137,9 +138,9 @@ function Just10() {
 }
 
 
-function add2_news (article_id, src_id, max_article_id){
+function add2_news (p_article_id, src_id, max_article_id){
     c_max_article_id=max_article_id;  
-    article_id = article_id;  ;
+    article_id = p_article_id;  ;
     loadArticles(src_id);
 }
 
@@ -274,9 +275,10 @@ function showOneArticle_NYT(oneArticlejson){
   console.log(oneArticlejson);
   console.log("c_max_article_id:", c_max_article_id);
 
-  article_id+=1;
   if (article_id>c_max_article_id){
     return;
+  }  else {
+    article_id+=1;
   }
     oneArticle=document.createElement("ARTICLE");
     oneArticle.dataset.article_id= article_id;
@@ -332,11 +334,14 @@ function showOneArticle(oneArticlejson){
     if (dummy_ != null) {
 	    dummy= dummy_.substr(0,10);
     }
-    article_id+=1;
 
   if (article_id>c_max_article_id){
     return;
   }
+  else {
+    article_id+=1;
+  }
+
     oneArticle=document.createElement("ARTICLE");
     oneArticle.dataset.article_id= article_id;
     oneArticle.dataset.url = oneArticlejson.url;
