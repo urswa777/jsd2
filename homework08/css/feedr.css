@@ -1,5 +1,6 @@
 /* General Styles
 ---------------------------------------------- */
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -212,13 +213,16 @@ nav ul ul li {
 
 /* Main Section */
 #main {
-  margin-top: 65px;
+    margin-top: 65px;
+    background-color: white;
+
 }
 
 /* Individual Article Styling */
 .article {
   border-bottom: 1px solid #ccc;
   transition: 0.2s all;
+  background-color: white;
 }
 
 .article:hover {
