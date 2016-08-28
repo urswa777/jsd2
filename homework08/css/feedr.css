@@ -87,7 +87,7 @@
 /* Header
 ---------------------------------------------- */
 header {
-  background-color: #FE052C;
+  background-color: #2eb82e;
   position: fixed;
   top: 0;
   left: 0;
@@ -132,7 +132,7 @@ header #search a {
 }
 
 header #search a:hover {
-  background: #CC0020;
+  background: #cc0020;
 }
 
 header #search img {
@@ -171,8 +171,9 @@ header nav a {
 }
 
 header nav a:hover {
-  background-color: #fff;
-  color: #CC0020;
+  background-color: #145214;
+  color: #66ff33;
+  font-size: 20px;
 }
 
 nav ul {
@@ -185,7 +186,7 @@ nav ul {
 
 nav ul li {
 	display:inline-block;
-	background-color: #CC0020;
+	background-color: #239023  ;
   position: relative;
 }
 
@@ -248,7 +249,7 @@ nav ul ul li {
 
 .article .articleContent h3 {
   margin-bottom: 0;
-  color: #FE052C;
+  color: #1e7b1e;
 }
 
 .article .articleContent h6 {
