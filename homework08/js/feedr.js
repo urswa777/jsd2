@@ -21,6 +21,7 @@
  _newsSrc5=document.querySelector(".API_NewYorkTimes");
  //_newsSrc6=document.querySelector(".API_Bloomberg");
  _listOfArticle_Container=document.querySelector(".listOfArticle_Container");
+ _search=document.querySelector("#search input");
 
 
 
@@ -47,9 +48,15 @@
 
  _listOfArticle_Container.addEventListener("click",unhidePOPUP);
  _closePopUp.addEventListener("click",hidePOPUP);
+ _search.addEventListener("click",showSearchBox);
 
 
 // Events Handlers ----------------------------------------------------------
+function showSearchBox(e) {
+  _search.visibility=visble;
+  // body...
+}
+
 
 function unhidePOPUP(e){
     console.log("Callback : Unhide the POPUP");
@@ -286,7 +293,12 @@ function showOneArticle_NYT(oneArticlejson){
     debugger
 
     oneArticle.dataset.description = oneArticlejson.abstract;
-    oneArticle.dataset.imageURL=oneArticlejson.media[0]["media-metadata"][0].url;
+
+    if (oneArticlejson.media.length>0) {
+      oneArticle.dataset.imageURL=oneArticlejson.media[0]["media-metadata"][0].url;
+    } else {
+      oneArticle.dataset.imageURL='images/no_image_available.png';
+    }
     oneArticle.dataset.title=oneArticlejson.title;
     oneArticle.dataset.publishedDate=oneArticlejson.published_date;
     oneArticle.dataset.author=oneArticlejson.byline;
