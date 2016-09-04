@@ -1,6 +1,9 @@
  var article_id = 0;
  var c_max_article_id=10;
  var src_id=-1;
+ var HOME_ARTICLES_PER_SOURCE = 2;
+
+var view = 'home';
 
   c_api_url_NewsSrc1="https://newsapi.org/v1/articles?source=entertainment-weekly&sortBy=top&apiKey=6191111e6f3145ef8b9f5c22e97751c7";
   c_api_url_NewsSrc2="https://newsapi.org/v1/articles?source=espn&sortBy=top&apiKey=6191111e6f3145ef8b9f5c22e97751c7";
@@ -21,7 +24,8 @@
  _newsSrc5=document.querySelector(".API_NewYorkTimes");
  //_newsSrc6=document.querySelector(".API_Bloomberg");
  _listOfArticle_Container=document.querySelector(".listOfArticle_Container");
- _search=document.querySelector("#search input");
+ _search=document.querySelector("#search");
+ _searchinput=document.querySelector("#search input");
 
 
 
@@ -36,7 +40,7 @@
 
 // Events ----------------------------------------------------------
 
- window.addEventListener('load',GrabAllNews);
+ window.addEventListener('load',GrabAllNews); //---- I think this event is not working ----
 
  _newsSrcAll.addEventListener('click',GrabAllNews);
  _newsSrc1.addEventListener('click',GrabEntertainment);
@@ -48,7 +52,8 @@
 
  _listOfArticle_Container.addEventListener("click",unhidePOPUP);
  _closePopUp.addEventListener("click",hidePOPUP);
- _search.addEventListener("click",showSearchBox);
+ _search.addEventListener("hover",showSearchBox);
+ _searchinput.addEventListener("keyUp",executeSearchCriteria);
 
 
 // Events Handlers ----------------------------------------------------------
@@ -57,6 +62,10 @@ function showSearchBox(e) {
   // body...
 }
 
+function executeSearchCriteria(e) {
+  console.log("What is entered inside the search box",_searchinput.value);
+  // body...
+}
 
 function unhidePOPUP(e){
     console.log("Callback : Unhide the POPUP");
@@ -111,32 +120,30 @@ function hidePOPUP(e){
 
 
 
-function GrabAllNews(e) {
-  console.log("Callback Grab Just10");
-  Just10();
-}
+
+function GrabAllNews() {
+  view = 'home';
+  console.log("fn GrabAllNews");
 
 
-function Just10() {
-  debugger
   flushCurrArticles();
-        //c_max_article_id=2;  article_id = 0;  src_id=1;
+        c_max_article_id=2;  article_id = 0;  src_id=1;
         //loadArticles(src_id);
         add2_news(0,1,2);
 
-        //c_max_article_id=4;  article_id = 2;  src_id=2;
+        c_max_article_id=4;  article_id = 2;  src_id=2;
         //loadArticles(src_id);
         add2_news(2,2,4);
 
-        //c_max_article_id=6;  article_id = 4;  src_id=3;
+        c_max_article_id=6;  article_id = 4;  src_id=3;
         //loadArticles(src_id);
         add2_news(4,3,6);
 
-        //c_max_article_id=8;  article_id = 6;  src_id=4;
+        c_max_article_id=8;  article_id = 6;  src_id=4;
         //loadArticles(src_id);
         add2_news(6,4,8);
 
-        //c_max_article_id=10;  article_id = 8;  src_id=5;
+        c_max_article_id=10;  article_id = 8;  src_id=5;
         //loadArticles(src_id);
         add2_news(8,5,10);
   
@@ -145,7 +152,7 @@ function Just10() {
 }
 
 
-function add2_news (p_article_id, src_id, max_article_id){
+function add2_news(p_article_id, src_id, max_article_id) {
     c_max_article_id=max_article_id;  
     article_id = p_article_id;  ;
     loadArticles(src_id);
@@ -155,6 +162,7 @@ function add2_news (p_article_id, src_id, max_article_id){
 function GrabEntertainment(e) {
   console.log("Callback GrabEntertainment");
   flushCurrArticles();
+  view = 'one';
   c_max_article_id=10;
   article_id = 0;
   loadArticles(1);
@@ -166,6 +174,7 @@ function GrabSports(e) {
   console.log("Callback GrabSports");
   flushCurrArticles();
   c_max_article_id=10;
+  view = 'one';
   article_id = 0;
   loadArticles(2);
   _srcAction.innerHTML = "Source : ";
@@ -175,6 +184,7 @@ function GrabSports(e) {
 function GrabFinance(e) {
   console.log("Callback GrabFinance");
   flushCurrArticles();
+  view = 'one';
   c_max_article_id=10;
   article_id = 0;
   loadArticles(3);
@@ -185,6 +195,7 @@ function GrabFinance(e) {
 function GrabTech(e) {
   console.log("Callback GrabTech");
   flushCurrArticles();
+  view = 'one';
   c_max_article_id=10;
   article_id = 0;
   loadArticles(4);
@@ -245,31 +256,52 @@ function loadArticles(src_id) {
 }
 
 
-function showArticles(articleList){
-  console.log("show loaded Articles here");
+function showArticles(articleList) {
+  var searchResults = [];
+  console.log("fn showArticles");
   debugger
   if (articleList == undefined) {
     alert("No article is loaded from 'NewsAPI' currently, pls try again later or choose another New Sources");
   	return;
   }
     console.log(articleList);
-  debugger
-    articleList.articles.forEach(showOneArticle);
-	//console.log("Examine the JSON");
+
+
+    for (var i = 0; i < articleList.articles.length; i++) {
+      if (articleList.articles[i].title.indexOf('to') !== -1) {
+        searchResults.push(articleList.articles[i]);
+      }
+    }
+
+
+
+    if (view === 'home') {
+      for (var i = 0; i < Math.min(HOME_ARTICLES_PER_SOURCE, searchResults.length); i++) {
+        showOneArticle(searchResults[i]);
+      }
+    } else {
+      searchResults.forEach(showOneArticle);
+    }
 }
 
 
 
 function showArticles_NYT(articleList){
-  console.log("show loaded NYT Articles here");
+  console.log("fn showArticles_NYT");
   debugger
   if (articleList == undefined) {
     alert("No article can be loaded from NewYorTimes currently, pls try again later or choose another New Sources");
     return;
   }
     console.log(articleList);
-    debugger
-    articleList.results.forEach(showOneArticle_NYT);
+
+    if (view === 'home') {
+      for (var i = 0; i < HOME_ARTICLES_PER_SOURCE; i++) {
+        showOneArticle_NYT(articleList.results[i]);
+      }
+    } else {
+      articleList.results.forEach(showOneArticle_NYT);
+    }
 }
 
 
@@ -277,20 +309,18 @@ function showArticles_NYT(articleList){
   
 
 function showOneArticle_NYT(oneArticlejson){
-  console.log("Show one NYT article here");
-  debugger
+  console.log("fn showOneArticle_NYT");
+
   console.log(oneArticlejson);
   console.log("c_max_article_id:", c_max_article_id);
 
-  if (article_id>c_max_article_id){
-    return;
-  }  else {
-    article_id+=1;
-  }
+    article_id++;
+
+
     oneArticle=document.createElement("ARTICLE");
     oneArticle.dataset.article_id= article_id;
     oneArticle.dataset.url = oneArticlejson.url;
-    debugger
+
 
     oneArticle.dataset.description = oneArticlejson.abstract;
 
@@ -339,20 +369,16 @@ function showOneArticle_NYT(oneArticlejson){
 }
 
 function showOneArticle(oneArticlejson){
-	console.log("Show one article here");
-  debugger
+	console.log("fn showOneArticle");
+
 	var dummy_=oneArticlejson.publishedAt;
 	var dummy ="";
     if (dummy_ != null) {
 	    dummy= dummy_.substr(0,10);
     }
 
-  if (article_id>c_max_article_id){
-    return;
-  }
-  else {
-    article_id+=1;
-  }
+  article_id++;
+
 
     oneArticle=document.createElement("ARTICLE");
     oneArticle.dataset.article_id= article_id;
@@ -403,4 +429,3 @@ function flushCurrArticles(){
 	_listOfArticle_Container.innerHTML="";
 }
 
-Just10() ;

@@ -94,22 +94,28 @@ header {
   left: 0;
   right: 0;
 }
+header section {
+  display: flex;
+}
+header section a {
+  display: block;
+  text-decoration: none;
+}
+
 header h1 {
   color: #FFF;
   padding: 10px 2%;
   margin: 0;
-  width: 16%;
-  float: left;
   padding-left: 0;
+  white-space: nowrap;
 }
 
 
 /* Header navigation bar
 ---------------------------------------------- */
 header nav {
+  flex: 1;
   padding: 10px 2%;
-  width: 76%;
-  float: right;
   text-align: right;
   line-height: 30px;
   margin-top: 0;
