@@ -1,0 +1,327 @@
+/* General Styles
+---------------------------------------------- */
+.container {
+  max-width: 2000px;  
+  margin: 10 auto;
+}
+
+.delimiter {
+  width:50px;
+  height:120px;
+}
+
+
+
+/* Header
+---------------------------------------------- */
+header {
+  background-color: #0066ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+header h1 {
+  color: #FFFFFF;
+  padding: 10px 2%;
+  margin: 0;
+  float: left;
+  padding-left: 0;
+  font-size: 2em;
+}
+
+
+/* Header navigation bar
+---------------------------------------------- */
+header nav {
+/*  width: 200px;
+  height: 20px;
+  right: -700px;
+  top: -10px;
+  */
+  padding: 10px 2%;
+  width: 200px;
+  right: -10%;
+  top: -10px;
+  float: right;
+  text-align: right;
+  line-height: 25px;
+  margin-top: 0;
+  position: relative;
+}
+
+
+/* Search bar */
+/*
+header #search {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -200px;
+  top: 10px;
+}
+*/
+
+header #search a {
+  display: block;
+  width: 5%;
+  padding: 10px;
+}
+
+header #search a:hover {
+  background: #CC0020;
+}
+
+header #search img {
+  position: absolute;
+  width: 10%;
+  display: block;
+}
+
+header #search input {
+  position: absolute;
+  right: 100px;
+  /*top: 10px;*/
+  padding: 8px 0;
+  width: 0;
+  transition: 0.2s all;
+  visibility: hidden;
+}
+
+header #search.active input {
+  width: 160px;
+  padding: 8px 10px;
+  visibility: visible;
+}
+
+header #search.active a {
+  background: #0066ff;
+}
+
+
+/*-------------------------------------------------*/
+
+header nav a {
+  display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:12px;
+	line-height: 40px;
+	text-decoration:none;
+  transition: 0.2s all;
+  background-color: #0022ff;
+}
+
+header nav a:hover {
+  background-color: #fff;
+  color: #CC0020;
+  font-size:15px;
+  text-align: left;
+  text-decoration: none;
+}
+
+nav ul {
+  position: absolute;
+	padding:0;
+	margin:0;
+  margin-right: 30px;
+	list-style: none;
+	/*position: relative;*/
+	}
+
+nav ul li {
+	display:inline-block;
+	background-color: #CC0020;
+  position: relative;
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 40px;
+  right: -30px;
+}
+
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+
+/* First Tier Dropdown */
+nav ul ul li {
+	width:200px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+
+
+
+
+/*----------------------*/
+/* Main Section */
+#main {
+  margin-top: 65px;
+}
+
+/* Individual Article Styling */
+
+.drilldown {
+  display:block;
+  font-size:10px;
+  color:#6699ff;   
+  background: #ffcccc; 
+  padding-top: 5px;
+  padding-left: 120px;
+  padding-bottom: 5px;
+  transition: 0.2s all;
+}
+.hideDrilldown {
+  display:none;
+  transition: 0.2s all;
+}
+.Notes{
+  text-align: right;
+  padding-right:20px;
+}
+.ListOfNotes{
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:40px;
+}
+.drilldown a{
+  color:#ffffff;
+}
+.drilldown a:hover{
+  text-decoration:none;  
+  color:#ffffff;  
+}
+.article {
+  border-bottom: 1px solid #ccc;
+  transition: 0.2s all;
+}
+
+.article:hover {
+  padding: 0 2%;
+  background-color: #800000;  /*--- 4d94ff ---*/
+}
+
+.article_with_notes {
+  padding: 0 2%;
+  background-color: #800000;
+}
+
+.article .featuredImage {
+  width: 100%;
+  float: left;
+  margin: 1.5%;
+  max-width: 60px;
+}
+
+.article .featuredImage img {
+  max-width: 100%;
+  border-radius: 50px;
+}
+
+.article .articleContent {
+  width: 60%;
+  float: left;
+}
+
+.article .articleContent a {
+  text-decoration: none;
+}
+
+.article .articleContent h3 {
+  margin-bottom: 0;
+  color: #003366;
+  font-size:20px;
+}
+
+.article .articleContent h6 {
+  margin-top: 0;
+  color: #cce0ff;
+  font-size:10px;
+}
+
+.article .impressions {
+  width: 30%;
+  float: right;
+  font-size: 20px;
+  margin-top: 15px;
+  text-align: right;
+  color: #ffffff;
+}
+
+
+
+.AddNotes input {
+  position: absolute;
+  width: 300px;
+  right: 100px;
+  /*top: 10px;*/
+  padding: 8px 0;
+  width: 0;
+}
+
+
+/* Pop-up input box
+---------------------------------------------- */
+#popUp {
+  opacity: 0.93;
+  position: absolute;
+  /*top: 0;
+  left: 0;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:  #0066ff;
+}
+
+#popUp .closePopUp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  color: #FE052C;
+  text-decoration: none;
+}
+
+#popUp.loader {
+  background-image: url(../images/ajax_loader.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#popUp.loader .container {
+  display: none;
+}
+
+#popUp .container {
+  margin-top: 80px;
+}
+
+#popUp h3 {
+  margin-bottom: 10;
+  color:#FFFFFF;
+}
+
+#popUp .popUpAction {
+  padding: 10px;
+  background-color: #FE052C;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transform: 0.2s all;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+#popUp .popUpAction:hover {
+  color: #FE052C;
+  background: #fff;
+}
+
+
