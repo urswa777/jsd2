@@ -176,6 +176,7 @@ nav ul ul li {
   padding-left: 12%;
   padding-bottom: 5px;
   transition: 2s all;
+  margin-bottom: 20px;
 }
 .drilldown_completedTask {
   color:#527a7a;   
@@ -204,8 +205,6 @@ nav ul ul li {
 .article {
   border-bottom: 1px solid #ccc;
   transition: 0.2s all;
-  margin-bottom: 7px;
-  margin-top: 7px;
 }
 .article_completed {
   color:#7a7a52;

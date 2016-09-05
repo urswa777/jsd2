@@ -2,7 +2,7 @@
 //----- Core data : To-do-list object ------------------
 //------------------------------------------------------
 
-var to_do_list = {  "Last_modified_date":"2016-09-04",
+var to_do_list_default = {  "Last_modified_date":"2016-09-04",
                     "List":
     	                 [
  		                     {

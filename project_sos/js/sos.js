@@ -2,7 +2,9 @@
 //----- Core data : To-do-list object ------------------
 //------------------------------------------------------
 var c_max_task_listed =0;
-var curr_top_task_id ="0";
+var curr_firstShow_task_id =0;
+var curr_todolist_id=0;
+var to_do_list = to_do_list_default;
 
 //------------------------------------------------------
 //----- Structure --------------------------------------
@@ -486,33 +488,34 @@ function uuid() {
 
 
 function _e_load_task(e) {
-
+     load_tasks(curr_todolist_id, curr_firstShow_task_id);
+}
 //------------------------------------------------------------------------------------------------------
 //---- need some calculation here to load the stored data and re-order based on their priorities -------
 //------------------------------------------------------------------------------------------------------
 
 
-
+function load_tasks(todolist_id, start_task_id) {
 //-------------------------------------------
 //--- fill in Task #1 -----------------------
 //to_do_list.List[0].Msg[0].uuid             
-		_tk1_title.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
-		_tk1_details.innerHTML        = to_do_list.List[0].Msg[0].msg_details;
-		_tk1_dueDate.innerHTML        = to_do_list.List[0].Msg[0].msg_due_date;
-		_tk1_priority.innerHTML       = to_do_list.List[0].Msg[0].priority;
-		_tk1_status.innerHTML         = to_do_list.List[0].Msg[0].msg_status;
+		_tk1_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id].msg_title;
+		_tk1_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_details;
+		_tk1_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
+		_tk1_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id].priority;
+		_tk1_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 		// _tk1_time_remained.innerHTML  = need calculation ;
-		_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[0].msg_task_type;
-		_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[0].msg_importance;
-		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[0].msg_urgency;
-		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[0].msg_levelOfEffort;
+		_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_task_type;
+		_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_importance;
+		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
+		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
 
 
-		if (to_do_list.List[0].Msg[0].is_completed=="1") {
+		if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="1") {
 		     _task1_drilldown.classList.add("drilldown_completedTask");
 		   //  _task1.classList.add("article_with_notes_completed");
 		   //  _task1.classList.add("article_completed");
-		} else if (to_do_list.List[0].Msg[0].is_completed=="0") {
+		} else if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="0") {
                 _tk1_status.classList.add("status-open");
         }
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
@@ -524,23 +527,23 @@ function _e_load_task(e) {
 //-------------------------------------------
 //--- fill in Task #2 -----------------------
 //to_do_list.List[0].Msg[1].uuid             
-		_tk2_title.innerHTML          = to_do_list.List[0].Msg[1].msg_title;
-		_tk2_details.innerHTML        = to_do_list.List[0].Msg[1].msg_details;
-		_tk2_dueDate.innerHTML        = to_do_list.List[0].Msg[1].msg_due_date;
-		_tk2_priority.innerHTML       = to_do_list.List[0].Msg[1].priority;
-		_tk2_status.innerHTML         = to_do_list.List[0].Msg[1].msg_status;
+		_tk2_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_title;
+		_tk2_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_details;
+		_tk2_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
+		_tk2_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+1].priority;
+		_tk2_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
 		// _tk2_time_remained.innerHTML  = need calculation ;
-		_tk2_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[1].msg_task_type;
-		_tk2_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[1].msg_importance;
-		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[1].msg_urgency;
-		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[1].msg_levelOfEffort;
+		_tk2_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_task_type;
+		_tk2_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_importance;
+		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_urgency;
+		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_levelOfEffort;
 
 
-		if (to_do_list.List[0].Msg[1].is_completed=="1") {
+		if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="1") {
 		     _task2_drilldown.classList.add("drilldown_completedTask");
 		   //  _task2.classList.add("article_with_notes_completed");
 		   //  _task2.classList.add("article_completed");
-		} else if (to_do_list.List[0].Msg[1].is_completed=="0") {
+		} else if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="0") {
                 _tk2_status.classList.add("status-open");
         }
 
@@ -554,23 +557,23 @@ function _e_load_task(e) {
 //-------------------------------------------
 //--- fill in Task #3 -----------------------
 //to_do_list.List[0].Msg[0].uuid             
-		_tk3_title.innerHTML          = to_do_list.List[0].Msg[2].msg_title;
-		_tk3_details.innerHTML        = to_do_list.List[0].Msg[2].msg_details;
-		_tk3_dueDate.innerHTML        = to_do_list.List[0].Msg[2].msg_due_date;
-		_tk3_priority.innerHTML       = to_do_list.List[0].Msg[2].priority;
-		_tk3_status.innerHTML         = to_do_list.List[0].Msg[2].msg_status;
+		_tk3_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_title;
+		_tk3_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_details;
+		_tk3_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
+		_tk3_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+2].priority;
+		_tk3_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
 		// _tk3_time_remained.innerHTML  = need calculation ;
-		_tk3_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[2].msg_task_type;
-		_tk3_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[2].msg_importance;
-		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[2].msg_urgency;
-		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[2].msg_levelOfEffort;
+		_tk3_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_task_type;
+		_tk3_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_importance;
+		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_urgency;
+		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_levelOfEffort;
 
 
-		if (to_do_list.List[0].Msg[2].is_completed=="1") {
+		if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="1") {
 		     _task3_drilldown.classList.add("drilldown_completedTask");
 		   //  _task3.classList.add("article_with_notes_completed");
 		   //  _task3.classList.add("article_completed");
-		} else if (to_do_list.List[0].Msg[2].is_completed=="0") {
+		} else if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="0") {
                 _tk3_status.classList.add("status-open");
         }
 
@@ -585,23 +588,23 @@ function _e_load_task(e) {
 //-------------------------------------------
 //--- fill in Task #4 -----------------------
 //to_do_list.List[0].Msg[0].uuid             
-		_tk4_title.innerHTML          = to_do_list.List[0].Msg[3].msg_title;
-		_tk4_details.innerHTML        = to_do_list.List[0].Msg[3].msg_details;
-		_tk4_dueDate.innerHTML        = to_do_list.List[0].Msg[3].msg_due_date;
-		_tk4_priority.innerHTML       = to_do_list.List[0].Msg[3].priority;
-		_tk4_status.innerHTML         = to_do_list.List[0].Msg[3].msg_status;
+		_tk4_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_title;
+		_tk4_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_details;
+		_tk4_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
+		_tk4_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+3].priority;
+		_tk4_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
 		// _tk4_time_remained.innerHTML  = need calculation ;
-		_tk4_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[3].msg_task_type;
-		_tk4_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[3].msg_importance;
-		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[3].msg_urgency;
-		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[3].msg_levelOfEffort;
+		_tk4_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_task_type;
+		_tk4_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_importance;
+		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_urgency;
+		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_levelOfEffort;
 
 
-		if (to_do_list.List[0].Msg[3].is_completed=="1") {
+		if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="1") {
 		     _task4_drilldown.classList.add("drilldown_completedTask");
 		   //  _task4.classList.add("article_with_notes_completed");
 		   //  _task4.classList.add("article_completed");
-		} else if (to_do_list.List[0].Msg[3].is_completed=="0") {
+		} else if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="0") {
                 _tk4_status.classList.add("status-open");
         }
 
@@ -617,23 +620,23 @@ function _e_load_task(e) {
 //-------------------------------------------
 //--- fill in Task #5 -----------------------
 //to_do_list.List[0].Msg[0].uuid             
-		_tk5_title.innerHTML          = to_do_list.List[0].Msg[4].msg_title;
-		_tk5_details.innerHTML        = to_do_list.List[0].Msg[4].msg_details;
-		_tk5_dueDate.innerHTML        = to_do_list.List[0].Msg[4].msg_due_date;
-		_tk5_priority.innerHTML       = to_do_list.List[0].Msg[4].priority;
-		_tk5_status.innerHTML         = to_do_list.List[0].Msg[4].msg_status;
+		_tk5_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_title;
+		_tk5_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_details;
+		_tk5_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
+		_tk5_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+4].priority;
+		_tk5_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
 		// _tk5_time_remained.innerHTML  = need calculation ;
-		_tk5_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[4].msg_task_type;
-		_tk5_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[4].msg_importance;
-		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[4].msg_urgency;
-		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[4].msg_levelOfEffort;
+		_tk5_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_task_type;
+		_tk5_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_importance;
+		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_urgency;
+		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_levelOfEffort;
 
 
-		if (to_do_list.List[0].Msg[4].is_completed=="1") {
+		if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="1") {
 		     _task5_drilldown.classList.add("drilldown_completedTask");
 		    // _task5.classList.add("article_with_notes_completed");
 		    // _task5.classList.add("article_completed");
-		} else if (to_do_list.List[0].Msg[4].is_completed=="0") {
+		} else if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="0") {
                 _tk5_status.classList.add("status-open");
         }
 
