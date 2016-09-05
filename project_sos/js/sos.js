@@ -512,9 +512,9 @@ function _e_load_task(e) {
 		     _task1_drilldown.classList.add("drilldown_completedTask");
 		   //  _task1.classList.add("article_with_notes_completed");
 		   //  _task1.classList.add("article_completed");
-		}
-
-
+		} else if (to_do_list.List[0].Msg[0].is_completed=="0") {
+                _tk1_status.classList.add("status-open");
+        }
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
 		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
 		//---------------------------------------------------------------------------------------------------------
@@ -540,7 +540,9 @@ function _e_load_task(e) {
 		     _task2_drilldown.classList.add("drilldown_completedTask");
 		   //  _task2.classList.add("article_with_notes_completed");
 		   //  _task2.classList.add("article_completed");
-		}
+		} else if (to_do_list.List[0].Msg[1].is_completed=="0") {
+                _tk2_status.classList.add("status-open");
+        }
 
 
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
@@ -568,7 +570,9 @@ function _e_load_task(e) {
 		     _task3_drilldown.classList.add("drilldown_completedTask");
 		   //  _task3.classList.add("article_with_notes_completed");
 		   //  _task3.classList.add("article_completed");
-		}
+		} else if (to_do_list.List[0].Msg[2].is_completed=="0") {
+                _tk3_status.classList.add("status-open");
+        }
 
 
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
@@ -597,7 +601,9 @@ function _e_load_task(e) {
 		     _task4_drilldown.classList.add("drilldown_completedTask");
 		   //  _task4.classList.add("article_with_notes_completed");
 		   //  _task4.classList.add("article_completed");
-		}
+		} else if (to_do_list.List[0].Msg[3].is_completed=="0") {
+                _tk4_status.classList.add("status-open");
+        }
 
 
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
@@ -627,7 +633,9 @@ function _e_load_task(e) {
 		     _task5_drilldown.classList.add("drilldown_completedTask");
 		    // _task5.classList.add("article_with_notes_completed");
 		    // _task5.classList.add("article_completed");
-		}
+		} else if (to_do_list.List[0].Msg[4].is_completed=="0") {
+                _tk5_status.classList.add("status-open");
+        }
 
 
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;

@@ -211,6 +211,10 @@ nav ul ul li {
   color:#7a7a52;
 }
 
+.status-open{
+  color:#ffcce6;
+  font-size:10px;
+}
 .article:hover {
   padding: 0 2%;
   background-color: #800000;  /*--- 4d94ff ---*/
