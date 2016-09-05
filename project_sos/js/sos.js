@@ -14,18 +14,20 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                           {
 		                             "uuid":"4",
 		                             "msg_title":"Build the visual first (html/css) for to-do-list view!!",
-		                             "msg_details":"Think about all features, layout & UI flow !!",
+		                             "msg_details":"Think about all features, layout & UI flow so HTML/CSS work !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"0.5",
-		                             "msg_importance":"3",
+		                             "msg_importance":"5",
 		                             "msg_urgency":"5",
-		                             "msg_status":"Open",
-		                             "msg_levelOfEffort":"5",
+		                             "msg_status":"Closed",
+		                             "msg_levelOfEffort":"3",
 		                             "like_count":"0",
-		                             "priority":"9",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0",
+		                             "priority":"15",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"2016-09-03 03:00am",
+		                             "completed_ts":"2016-09-03 11:56pm",
+		                             "is_completed":"1",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -35,19 +37,21 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                           },
 		                           {
 		                             "uuid":"5",
-		                             "msg_title":"Build the form to enter message(Task,reminder,...etc) !!",
-		                             "msg_details":"Think about all features, layout & UI flow !!",
+		                             "msg_title":"Build the static-form for task/message input !!",
+		                             "msg_details":"Think about all features, layout & UI flow so HTML/CSS work !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"0.5",
-		                             "msg_importance":"3",
-		                             "msg_urgency":"5",
-		                             "msg_status":"Open",
-		                             "msg_levelOfEffort":"5",
+		                             "msg_importance":"4",
+		                             "msg_urgency":"4",
+		                             "msg_status":"Closed",
+		                             "msg_levelOfEffort":"2",
 		                             "like_count":"0",
-		                             "priority":"7",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0",
+		                             "priority":"15",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"2016-09-04 06:00am",
+		                             "completed_ts":"2016-09-04 08:11am",
+		                             "is_completed":"1",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -57,19 +61,21 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                           },
 		                           {
 		                             "uuid":"6",
-		                             "msg_title":"Build Javascript structure !!",
-		                             "msg_details":"program the JS !!",
+		                             "msg_title":"Build Javascript structure to show static data in the to-do-list view !!",
+		                             "msg_details":"Javascript coding effort !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"0.5",
-		                             "msg_importance":"3",
+		                             "msg_importance":"5",
 		                             "msg_urgency":"5",
 		                             "msg_status":"Open",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
 		                             "priority":"6",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"2016-09-04 07:00pm",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -79,19 +85,21 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                           },
 		                           {
 		                             "uuid":"7",
-		                             "msg_title":"Enable the Message form to work !!",
-		                             "msg_details":"function for saving/editing a message in Firebase!!",
+		                             "msg_title":"Make the input-form for messages(Task,reminder,...etc) to work & store in variable!!",
+		                             "msg_details":"Javascript coding effort !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"0.5",
 		                             "msg_importance":"3",
 		                             "msg_urgency":"5",
 		                             "msg_status":"Open",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
-		                             "priority":"3",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0",
+		                             "priority":"7",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -101,10 +109,34 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                           },
 		                           {
 		                             "uuid":"8",
-		                             "msg_title":"Retrieve the message from Firebase !!",
-		                             "msg_details":"Load data from firebase!!",
+		                             "msg_title":"Enable the Message form to work !!",
+		                             "msg_details":"Javascript coding effort !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"9",
+		                             "msg_title":"Retrieve the message from Firebase !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"0.5",
 		                             "msg_importance":"3",
 		                             "msg_urgency":"5",
@@ -112,8 +144,280 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
 		                             "priority":"2",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"10",
+		                             "msg_title":"Edit the message from Firebase and Save it back !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"11",
+		                             "msg_title":"Enable the Thumb Up and Down feature to change the Priority count !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"12",
+		                             "msg_title":"Enable the REFRESH feature to change the display order by latest Priority !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"13",
+		                             "msg_title":"Load the Tasks from Firebase and change task list with order by Priority !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"14",
+		                             "msg_title":"Enable the function to Scroll up and down one task at a time !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"15",
+		                             "msg_title":"Enable the function to Page down like 5 task at a time !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"16",
+		                             "msg_title":"Switch to different To-Do-List (Work, Private, Errands, Pastdue, Archived...) !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"17",
+		                             "msg_title":"Design the Calendar-view of HTML page !!",
+		                             "msg_details":"HTML/CSS effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"18",
+		                             "msg_title":"Switch to Calendar-view of the same To-Do-List !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+		                           {
+		                             "uuid":"19",
+		                             "msg_title":"Enable the Search feature for tasks inside a To-Do-List in LIST view!!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "Notes": [ 
+		                                {"update_msg":"Something comes up, will delay by 5 hours", 
+		                                 "update datetime":"2016-09-04 09:40am"},
+		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
+		                                 "update datetime":"2016-09-04 11:29am"}		                                      
+		                                 ]
+		                           },
+
+		                           {
+		                             "uuid":"20",
+		                             "msg_title":"Enable the Highlight feature for tasks inside a To-Do-List in CALENDAR view !!",
+		                             "msg_details":"Javascript coding effort !!",
+		                             "msg_task_type":"Project",
+		                             "msg_due_date":"2016-09-04",
+		                             "msg_time_needed":"0.5",
+		                             "msg_importance":"3",
+		                             "msg_urgency":"5",
+		                             "msg_status":"Open",
+		                             "msg_levelOfEffort":"5",
+		                             "like_count":"0",
+		                             "priority":"3",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -121,6 +425,11 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                                 "update datetime":"2016-09-04 11:29am"}		                                      
 		                                 ]
 		                           }
+
+
+
+
+
 		                         ]
 		                       },
 		                       
@@ -133,7 +442,7 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_title":"Testing 123 !!",
 		                             "msg_details":"testing testing testing  !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"2",
 		                             "msg_importance":"3",
 		                             "msg_urgency":"5",
@@ -141,8 +450,8 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
 		                             "priority":"1",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"1",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "is_completed":"1",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -155,7 +464,7 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_title":"Test 456 !!",
 		                             "msg_details":"testing testing testing  !!",
 		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"2",
 		                             "msg_importance":"3",
 		                             "msg_urgency":"5",
@@ -163,8 +472,8 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
 		                             "priority":"2",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"1",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "is_completed":"1",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -177,7 +486,7 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_title":"Test 789 !!",
 		                             "msg_details":"testing testing testing  !!",
 		                             "msg_task_type":"Incident",
-		                             "msg_due_data":"2016-09-04",
+		                             "msg_due_date":"2016-09-04",
 		                             "msg_time_needed":"2",
 		                             "msg_importance":"3",
 		                             "msg_urgency":"5",
@@ -185,8 +494,8 @@ var to_do_list = {  "Last_modified_date":"2016-09-04",
 		                             "msg_levelOfEffort":"5",
 		                             "like_count":"0",
 		                             "priority":"0",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"1",
+		                             "created_ts":"2016-09-03 09:07am",
+		                             "is_completed":"1",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update datetime":"2016-09-04 09:40am"},
@@ -246,6 +555,7 @@ var _task4_drilldown   = document.querySelector(".task4_drilldown");
 var _task5_drilldown   = document.querySelector(".task5_drilldown");
 
 var _tk1_trash         = document.querySelector(".tk1_trash");
+var _tk1_priority      = document.querySelector(".tk1_priority");
 var _tk1_add_priority  = document.querySelector(".tk1_add_priority");
 var _tk1_sub_prioirty  = document.querySelector(".tk1_sub_prioirty");
 var _tk1_complete      = document.querySelector(".tk1_complete");
@@ -258,6 +568,7 @@ var _tk1_notesCount    = document.querySelector(".tk1_notesCount");
 var _tk1_notesClose    = document.querySelector(".closeNotes1");
 
 var _tk2_trash         = document.querySelector(".tk2_trash");
+var _tk2_priority      = document.querySelector(".tk2_priority");
 var _tk2_add_priority  = document.querySelector(".tk2_add_priority");
 var _tk2_sub_prioirty  = document.querySelector(".tk2_sub_prioirty");
 var _tk2_complete      = document.querySelector(".tk2_complete");
@@ -270,6 +581,7 @@ var _tk2_notesCount    = document.querySelector(".tk2_notesCount");
 var _tk2_notesClose    = document.querySelector(".closeNotes2");
 
 var _tk3_trash         = document.querySelector(".tk3_trash");
+var _tk3_priority      = document.querySelector(".tk3_priority");
 var _tk3_add_priority  = document.querySelector(".tk3_add_priority");
 var _tk3_sub_prioirty  = document.querySelector(".tk3_sub_prioirty");
 var _tk3_complete      = document.querySelector(".tk3_complete");
@@ -282,6 +594,7 @@ var _tk3_notesCount    = document.querySelector(".tk3_notesCount");
 var _tk3_notesClose    = document.querySelector(".closeNotes3");
 
 var _tk4_trash         = document.querySelector(".tk4_trash");
+var _tk4_priority      = document.querySelector(".tk4_priority");
 var _tk4_add_priority  = document.querySelector(".tk4_add_priority");
 var _tk4_sub_prioirty  = document.querySelector(".tk4_sub_prioirty");
 var _tk4_complete      = document.querySelector(".tk4_complete");
@@ -294,6 +607,7 @@ var _tk4_notesCount    = document.querySelector(".tk4_notesCount");
 var _tk4_notesClose    = document.querySelector(".closeNotes4");
 
 var _tk5_trash         = document.querySelector(".tk5_trash");
+var _tk5_priority      = document.querySelector(".tk5_priority");
 var _tk5_add_priority  = document.querySelector(".tk5_add_priority");
 var _tk5_sub_prioirty  = document.querySelector(".tk5_sub_prioirty");
 var _tk5_complete      = document.querySelector(".tk5_complete");
@@ -315,7 +629,8 @@ var _tk1_type          = document.querySelector(".task1_type");
 var _tk1_importance    = document.querySelector(".task1_importance");
 var _tk1_urgency       = document.querySelector(".task1_urgency");
 var _tk1_LOE           = document.querySelector(".task1_LOE");
-var _tk1_Notes         = document.querySelector(".task1_Notes");
+var _tk1_notes         = document.querySelector(".task1_Notes");
+var _tk1_status         = document.querySelector(".task1_status");
 
 var _tk2_title         = document.querySelector(".task2_title");
 var _tk2_details       = document.querySelector(".task2_details");
@@ -325,7 +640,8 @@ var _tk2_type          = document.querySelector(".task2_type");
 var _tk2_importance    = document.querySelector(".task2_importance");
 var _tk2_urgency       = document.querySelector(".task2_urgency");
 var _tk2_LOE           = document.querySelector(".task2_LOE");
-var _tk2_Notes         = document.querySelector(".task2_Notes");
+var _tk2_notes         = document.querySelector(".task2_Notes");
+var _tk2_status        = document.querySelector(".task2_status");
 
 var _tk3_title         = document.querySelector(".task3_title");
 var _tk3_details       = document.querySelector(".task3_details");
@@ -335,7 +651,8 @@ var _tk3_type          = document.querySelector(".task3_type");
 var _tk3_importance    = document.querySelector(".task3_importance");
 var _tk3_urgency       = document.querySelector(".task3_urgency");
 var _tk3_LOE           = document.querySelector(".task3_LOE");
-var _tk3_Notes         = document.querySelector(".task3_Notes");
+var _tk3_notes         = document.querySelector(".task3_Notes");
+var _tk3_status        = document.querySelector(".task3_status");
 
 var _tk4_title         = document.querySelector(".task4_title");
 var _tk4_details       = document.querySelector(".task4_details");
@@ -345,7 +662,8 @@ var _tk4_type          = document.querySelector(".task4_type");
 var _tk4_importance    = document.querySelector(".task4_importance");
 var _tk4_urgency       = document.querySelector(".task4_urgency");
 var _tk4_LOE           = document.querySelector(".task4_LOE");
-var _tk4_Notes         = document.querySelector(".task4_Notes");
+var _tk4_notes         = document.querySelector(".task4_Notes");
+var _tk4_status        = document.querySelector(".task4_status");
 
 var _tk5_title         = document.querySelector(".task5_title");
 var _tk5_details       = document.querySelector(".task5_details");
@@ -355,7 +673,8 @@ var _tk5_type          = document.querySelector(".task5_type");
 var _tk5_importance    = document.querySelector(".task5_importance");
 var _tk5_urgency       = document.querySelector(".task5_urgency");
 var _tk5_LOE           = document.querySelector(".task5_LOE");
-var _tk5_Notes         = document.querySelector(".task5_Notes");
+var _tk5_notes         = document.querySelector(".task5_Notes");
+var _tk5_status        = document.querySelector(".task5_status");
 
 
 
@@ -677,19 +996,149 @@ function _e_load_task(e) {
 //---- need some calculation here to load the stored data and re-order based on their priorities -------
 //------------------------------------------------------------------------------------------------------
 
-//to_do_list.List[0].Msg[0].uuid             
-_tk1_title.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
-_tk1_details.innerHTML        = to_do_list.List[0].Msg[0].msg_details;
-_tk1_dueDate.innerHTML        = to_do_list.List[0].Msg[0].msg_due_date;
-// _tk1_time_remained.innerHTML  = need calculation ;
-_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[0].msg_task_type;
-_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[0].msg_importance;
-_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[0].msg_urgency;
-_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[0].msg_levelOfEffort;
 
-// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
-// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
-//---------------------------------------------------------------------------------------------------------
+
+//-------------------------------------------
+//--- fill in Task #1 -----------------------
+//to_do_list.List[0].Msg[0].uuid             
+		_tk1_title.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		_tk1_details.innerHTML        = to_do_list.List[0].Msg[0].msg_details;
+		_tk1_dueDate.innerHTML        = to_do_list.List[0].Msg[0].msg_due_date;
+		_tk1_priority.innerHTML       = to_do_list.List[0].Msg[0].priority;
+		_tk1_status.innerHTML         = to_do_list.List[0].Msg[0].msg_status;
+		// _tk1_time_remained.innerHTML  = need calculation ;
+		_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[0].msg_task_type;
+		_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[0].msg_importance;
+		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[0].msg_urgency;
+		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[0].msg_levelOfEffort;
+
+
+		if (to_do_list.List[0].Msg[0].is_completed=="1") {
+		     _task1_drilldown.classList.add("drilldown_completedTask");
+		     _task1.classList.add("article_with_notes_completed");
+		     _task1.classList.add("article_completed");
+		}
+
+
+		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
+		//---------------------------------------------------------------------------------------------------------
+
+
+
+//-------------------------------------------
+//--- fill in Task #2 -----------------------
+//to_do_list.List[0].Msg[1].uuid             
+		_tk2_title.innerHTML          = to_do_list.List[0].Msg[1].msg_title;
+		_tk2_details.innerHTML        = to_do_list.List[0].Msg[1].msg_details;
+		_tk2_dueDate.innerHTML        = to_do_list.List[0].Msg[1].msg_due_date;
+		_tk2_priority.innerHTML       = to_do_list.List[0].Msg[1].priority;
+		_tk2_status.innerHTML         = to_do_list.List[0].Msg[1].msg_status;
+		// _tk2_time_remained.innerHTML  = need calculation ;
+		_tk2_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[1].msg_task_type;
+		_tk2_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[1].msg_importance;
+		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[1].msg_urgency;
+		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[1].msg_levelOfEffort;
+
+
+		if (to_do_list.List[0].Msg[1].is_completed=="1") {
+		     _task2_drilldown.classList.add("drilldown_completedTask");
+		     _task2.classList.add("article_with_notes_completed");
+		     _task2.classList.add("article_completed");
+		}
+
+
+		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
+		//---------------------------------------------------------------------------------------------------------
+
+
+
+//-------------------------------------------
+//--- fill in Task #3 -----------------------
+//to_do_list.List[0].Msg[0].uuid             
+		_tk3_title.innerHTML          = to_do_list.List[0].Msg[2].msg_title;
+		_tk3_details.innerHTML        = to_do_list.List[0].Msg[2].msg_details;
+		_tk3_dueDate.innerHTML        = to_do_list.List[0].Msg[2].msg_due_date;
+		_tk3_priority.innerHTML       = to_do_list.List[0].Msg[2].priority;
+		_tk3_status.innerHTML         = to_do_list.List[0].Msg[2].msg_status;
+		// _tk3_time_remained.innerHTML  = need calculation ;
+		_tk3_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[2].msg_task_type;
+		_tk3_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[2].msg_importance;
+		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[2].msg_urgency;
+		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[2].msg_levelOfEffort;
+
+
+		if (to_do_list.List[0].Msg[2].is_completed=="1") {
+		     _task3_drilldown.classList.add("drilldown_completedTask");
+		     _task3.classList.add("article_with_notes_completed");
+		     _task3.classList.add("article_completed");
+		}
+
+
+		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
+		//---------------------------------------------------------------------------------------------------------
+
+
+
+
+//-------------------------------------------
+//--- fill in Task #4 -----------------------
+//to_do_list.List[0].Msg[0].uuid             
+		_tk4_title.innerHTML          = to_do_list.List[0].Msg[3].msg_title;
+		_tk4_details.innerHTML        = to_do_list.List[0].Msg[3].msg_details;
+		_tk4_dueDate.innerHTML        = to_do_list.List[0].Msg[3].msg_due_date;
+		_tk4_priority.innerHTML       = to_do_list.List[0].Msg[3].priority;
+		_tk4_status.innerHTML         = to_do_list.List[0].Msg[3].msg_status;
+		// _tk4_time_remained.innerHTML  = need calculation ;
+		_tk4_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[3].msg_task_type;
+		_tk4_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[3].msg_importance;
+		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[3].msg_urgency;
+		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[3].msg_levelOfEffort;
+
+
+		if (to_do_list.List[0].Msg[3].is_completed=="1") {
+		     _task4_drilldown.classList.add("drilldown_completedTask");
+		     _task4.classList.add("article_with_notes_completed");
+		     _task4.classList.add("article_completed");
+		}
+
+
+		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
+		//---------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//-------------------------------------------
+//--- fill in Task #5 -----------------------
+//to_do_list.List[0].Msg[0].uuid             
+		_tk5_title.innerHTML          = to_do_list.List[0].Msg[4].msg_title;
+		_tk5_details.innerHTML        = to_do_list.List[0].Msg[4].msg_details;
+		_tk5_dueDate.innerHTML        = to_do_list.List[0].Msg[4].msg_due_date;
+		_tk5_priority.innerHTML       = to_do_list.List[0].Msg[4].priority;
+		_tk5_status.innerHTML         = to_do_list.List[0].Msg[4].msg_status;
+		// _tk5_time_remained.innerHTML  = need calculation ;
+		_tk5_type.innerHTML           = 'Task Type  : ' + to_do_list.List[0].Msg[4].msg_task_type;
+		_tk5_importance.innerHTML     = 'Importance  : ' + to_do_list.List[0].Msg[4].msg_importance;
+		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[0].Msg[4].msg_urgency;
+		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[0].Msg[4].msg_levelOfEffort;
+
+
+		if (to_do_list.List[0].Msg[4].is_completed=="1") {
+		     _task5_drilldown.classList.add("drilldown_completedTask");
+		     _task5.classList.add("article_with_notes_completed");
+		     _task5.classList.add("article_completed");
+		}
+
+
+		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
+		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
+		//---------------------------------------------------------------------------------------------------------
+
 }
 
 
