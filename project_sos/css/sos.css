@@ -175,11 +175,11 @@ nav ul ul li {
   padding-top: 5px;
   padding-left: 120px;
   padding-bottom: 5px;
-  transition: 0.2s all;
+  transition: 1s all;
 }
 .hideDrilldown {
   display:none;
-  transition: 0.2s all;
+  transition: 1s all;
 }
 .Notes{
   text-align: right;
