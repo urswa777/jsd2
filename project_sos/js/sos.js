@@ -510,8 +510,8 @@ function _e_load_task(e) {
 
 		if (to_do_list.List[0].Msg[0].is_completed=="1") {
 		     _task1_drilldown.classList.add("drilldown_completedTask");
-		     _task1.classList.add("article_with_notes_completed");
-		     _task1.classList.add("article_completed");
+		   //  _task1.classList.add("article_with_notes_completed");
+		   //  _task1.classList.add("article_completed");
 		}
 
 
@@ -538,8 +538,8 @@ function _e_load_task(e) {
 
 		if (to_do_list.List[0].Msg[1].is_completed=="1") {
 		     _task2_drilldown.classList.add("drilldown_completedTask");
-		     _task2.classList.add("article_with_notes_completed");
-		     _task2.classList.add("article_completed");
+		   //  _task2.classList.add("article_with_notes_completed");
+		   //  _task2.classList.add("article_completed");
 		}
 
 
@@ -566,8 +566,8 @@ function _e_load_task(e) {
 
 		if (to_do_list.List[0].Msg[2].is_completed=="1") {
 		     _task3_drilldown.classList.add("drilldown_completedTask");
-		     _task3.classList.add("article_with_notes_completed");
-		     _task3.classList.add("article_completed");
+		   //  _task3.classList.add("article_with_notes_completed");
+		   //  _task3.classList.add("article_completed");
 		}
 
 
@@ -595,8 +595,8 @@ function _e_load_task(e) {
 
 		if (to_do_list.List[0].Msg[3].is_completed=="1") {
 		     _task4_drilldown.classList.add("drilldown_completedTask");
-		     _task4.classList.add("article_with_notes_completed");
-		     _task4.classList.add("article_completed");
+		   //  _task4.classList.add("article_with_notes_completed");
+		   //  _task4.classList.add("article_completed");
 		}
 
 
@@ -625,8 +625,8 @@ function _e_load_task(e) {
 
 		if (to_do_list.List[0].Msg[4].is_completed=="1") {
 		     _task5_drilldown.classList.add("drilldown_completedTask");
-		     _task5.classList.add("article_with_notes_completed");
-		     _task5.classList.add("article_completed");
+		    // _task5.classList.add("article_with_notes_completed");
+		    // _task5.classList.add("article_completed");
 		}
 
 

@@ -204,6 +204,8 @@ nav ul ul li {
 .article {
   border-bottom: 1px solid #ccc;
   transition: 0.2s all;
+  margin-bottom: 7px;
+  margin-top: 7px;
 }
 .article_completed {
   color:#7a7a52;
