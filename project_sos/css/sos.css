@@ -173,7 +173,7 @@ nav ul ul li {
   color:#6699ff;   
   background: #ffcccc; 
   padding-top: 5px;
-  padding-left: 120px;
+  padding-left: 12%;
   padding-bottom: 5px;
   transition: 1s all;
 }
@@ -256,15 +256,19 @@ nav ul ul li {
 
 
 
-.AddNotes input {
+.AddNotes {
   position: absolute;
   width: 300px;
   right: 100px;
   /*top: 10px;*/
   padding: 8px 0;
-  width: 0;
+  width: 0;  
 }
 
+.form-control{
+  height:2%;
+  width:70%;
+}
 
 /* Pop-up input box
 ---------------------------------------------- */

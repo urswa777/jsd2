@@ -446,6 +446,16 @@ _tk5_notesClose.addEventListener('click',    _e_tk5_notesClose);
 //-------------------------------------------------------------
 function _e_composeTask(e){ 
 	      console.log("inside callback fn '_e_composeTask' now !!")
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
 	      _popup_window.classList.remove("hidden");
 	      _popup_window.classList.remove("loader");
 	      };
