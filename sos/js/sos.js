@@ -317,7 +317,7 @@ function _e_todolist_secret(e){
           }
 
 function _e_composeTask(e){ 
-	      console.log("inside callback fn '_e_composeTask' now !!")
+	      console.log("inside callback fn '_e_composeTask' now !!");
 	         _task4_drilldown.classList.add("hideDrilldown");
 	         _task4.classList.remove("article_with_notes");
 	         _task3_drilldown.classList.add("hideDrilldown");
@@ -332,26 +332,48 @@ function _e_composeTask(e){
 	      _popup_window.classList.remove("loader");
 	      };
 
-function _e_calendarView(e){ console.log("inside callback fn '_e_calendarView' now !!")};
-function _e_scrollDown1(e){ console.log("inside callback fn '_e_scollDown1' now !!")};
-function _e_scrollUp1(e){ console.log("inside callback fn '_e_scrollUp1' now !!")};
-function _e_nextPage(e){ console.log("inside callback fn '_e_nextPage' now !!")};
-function _e_back2ListTop(e){ console.log("inside callback fn '_e_back2ListTop' now !!")};
-function _e_settings(e){ console.log("inside callback fn '_e_settings' now !!")};
+function _e_calendarView(e){ 
+	        console.log("inside callback fn '_e_calendarView' now !!");
+	      };
+
+function _e_scrollDown1(e){ 
+	        console.log("inside callback fn '_e_scollDown1' now !!");
+	        debugger
+	        if (to_do_list.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
+	        	  curr_firstShow_task_id++;
+                  load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+	        }
+	    };
+
+function _e_scrollUp1(e){ 
+	        console.log("inside callback fn '_e_scrollUp1' now !!");
+	        debugger
+	        if (curr_firstShow_task_id - 1 >= 0) {
+	        	  curr_firstShow_task_id--;
+                  load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+	        }
+	    };
+
+
+
+
+function _e_nextPage(e){ console.log("inside callback fn '_e_nextPage' now !!"); };
+function _e_back2ListTop(e){ console.log("inside callback fn '_e_back2ListTop' now !!"); };
+function _e_settings(e){ console.log("inside callback fn '_e_settings' now !!"); };
 
 function _e_closePopup(e){ 
 	       console.log("inside callback fn '_e_closePopup' now !!")
 	      _popup_window.classList.add("loader");
 	      _popup_window.classList.add("hidden");
 	       };
-function _e_postTask(e){ console.log("inside callback fn '_e_postTask' now !!")};
+function _e_postTask(e){ console.log("inside callback fn '_e_postTask' now !!"); };
 
-function _e_go2ListOpenOnly(e){ console.log("inside callback fn '_e_go2ListOpenOnly' now !!")};
-function _e_go2ListAllTasks(e){ console.log("inside callback fn '_e_go2ListAllTasks' now !!")};
-function _e_go2ListClosedOnly(e){ console.log("inside callback fn '_e_go2ListClosedOnly' now !!")};
-function _e_go2ListPendingOnly(e){ console.log("inside callback fn '_e_go2ListPendingOnly' now !!")};
-function _e_go2ListArchive(e){ console.log("inside callback fn '_e_go2ListArchive' now !!")};
-function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDue' now !!")};
+function _e_go2ListOpenOnly(e){ console.log("inside callback fn '_e_go2ListOpenOnly' now !!"); };
+function _e_go2ListAllTasks(e){ console.log("inside callback fn '_e_go2ListAllTasks' now !!"); };
+function _e_go2ListClosedOnly(e){ console.log("inside callback fn '_e_go2ListClosedOnly' now !!"); };
+function _e_go2ListPendingOnly(e){ console.log("inside callback fn '_e_go2ListPendingOnly' now !!"); };
+function _e_go2ListArchive(e){ console.log("inside callback fn '_e_go2ListArchive' now !!"); };
+function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDue' now !!"); };
 
 
 
@@ -370,8 +392,20 @@ function _e_tk1_show_details(e){
 	         _task5.classList.remove("article_with_notes");
 	    };
 function _e_tk1_trash(e){ console.log("inside callback fn '_e_tk1_trash' now !!")};
-function _e_tk1_add_priority(e){ console.log("inside callback fn '_e_tk1_add_priority' now !!")};
-function _e_tk1_sub_priority(e){ console.log("inside callback fn '_e_tk1_sub_priority' now !!")};
+function _e_tk1_add_priority(e){ 
+	                 console.log("inside callback fn '_e_tk1_add_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
+	                 var y = parseInt(x) +1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
+               		 _tk1_priority.innerHTML       = y.toString();
+	                 };
+function _e_tk1_sub_priority(e){ 
+	                 console.log("inside callback fn '_e_tk1_sub_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
+	                 var y = parseInt(x) -1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
+               		 _tk1_priority.innerHTML       = y.toString();
+	                 };
 function _e_tk1_complete(e){ console.log("inside callback fn '_e_tk1_complete' now !!")};
 function _e_tk1_add_notes(e){ console.log("inside callback fn '_e_tk1_add_notes' now !!")};
 function _e_tk1_edit_task(e){ console.log("inside callback fn '_e_tk1_edit_task' now !!")};
@@ -399,8 +433,20 @@ function _e_tk2_show_details(e){
 	         _task1.classList.remove("article_with_notes");
 	    };
 function _e_tk2_trash(e){ console.log("inside callback fn '_e_tk2_trash' now !!")};
-function _e_tk2_add_priority(e){ console.log("inside callback fn '_e_tk2_add_priority' now !!")};
-function _e_tk2_sub_priority(e){ console.log("inside callback fn '_e_tk2_sub_priority' now !!")};
+function _e_tk2_add_priority(e){ 
+	                 console.log("inside callback fn '_e_tk2_add_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
+	                 var y = parseInt(x) +1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
+               		 _tk2_priority.innerHTML       = y.toString();
+	                 };
+function _e_tk2_sub_priority(e){ 
+	                 console.log("inside callback fn '_e_tk2_sub_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
+	                 var y = parseInt(x) -1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
+               		 _tk2_priority.innerHTML       = y.toString();
+	                 };
 function _e_tk2_complete(e){ console.log("inside callback fn '_e_tk2_complete' now !!")};
 function _e_tk2_add_notes(e){ console.log("inside callback fn '_e_tk2_add_notes' now !!")};
 function _e_tk2_edit_task(e){ console.log("inside callback fn '_e_tk2_edit_task' now !!")};
@@ -429,8 +475,22 @@ function _e_tk3_show_details(e){
 	         _task1.classList.remove("article_with_notes");
 	    };
 function _e_tk3_trash(e){ console.log("inside callback fn '_e_tk3_trash' now !!")};
-function _e_tk3_add_priority(e){ console.log("inside callback fn '_e_tk3_add_priority' now !!")};
-function _e_tk3_sub_priority(e){ console.log("inside callback fn '_e_tk3_sub_priority' now !!")};
+function _e_tk3_add_priority(e){ 
+	                 console.log("inside callback fn '_e_tk3_add_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
+	                 var y = parseInt(x) +1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
+               		 _tk3_priority.innerHTML       = y.toString();
+	                 };
+
+function _e_tk3_sub_priority(e){ 
+	                 console.log("inside callback fn '_e_tk3_sub_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
+	                 var y = parseInt(x) -1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
+               		 _tk3_priority.innerHTML       = y.toString();
+	                 };
+
 function _e_tk3_complete(e){ console.log("inside callback fn '_e_tk3_complete' now !!")};
 function _e_tk3_add_notes(e){ console.log("inside callback fn '_e_tk3_add_notes' now !!")};
 function _e_tk3_edit_task(e){ console.log("inside callback fn '_e_tk3_edit_task' now !!")};
@@ -459,8 +519,21 @@ function _e_tk4_show_details(e){
 	         _task1.classList.remove("article_with_notes");
 	    };
 function _e_tk4_trash(e){ console.log("inside callback fn '_e_tk4_trash' now !!")};
-function _e_tk4_add_priority(e){ console.log("inside callback fn '_e_tk4_add_priority' now !!")};
-function _e_tk4_sub_priority(e){ console.log("inside callback fn '_e_tk4_sub_priority' now !!")};
+function _e_tk4_add_priority(e){ 
+	                 console.log("inside callback fn '_e_tk4_add_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
+	                 var y = parseInt(x) +1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
+               		 _tk4_priority.innerHTML       = y.toString();
+	                 };
+
+function _e_tk4_sub_priority(e){ 
+	                 console.log("inside callback fn '_e_tk4_sub_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
+	                 var y = parseInt(x) -1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
+               		 _tk4_priority.innerHTML       = y.toString();
+	                 };
 function _e_tk4_complete(e){ console.log("inside callback fn '_e_tk4_complete' now !!")};
 function _e_tk4_add_notes(e){ console.log("inside callback fn '_e_tk4_add_notes' now !!")};
 function _e_tk4_edit_task(e){ console.log("inside callback fn '_e_tk4_edit_task' now !!")};
@@ -490,8 +563,22 @@ function _e_tk5_show_details(e){
 	         _task1.classList.remove("article_with_notes");
 	    };
 function _e_tk5_trash(e){ console.log("inside callback fn '_e_tk5_trash' now !!")};
-function _e_tk5_add_priority(e){ console.log("inside callback fn '_e_tk5_add_priority' now !!")};
-function _e_tk5_sub_priority(e){ console.log("inside callback fn '_e_tk5_sub_priority' now !!")};
+function _e_tk5_add_priority(e){
+	                 console.log("inside callback fn '_e_tk5_add_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
+	                 var y = parseInt(x) +1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
+               		 _tk5_priority.innerHTML       = y.toString();
+	                 };
+
+function _e_tk5_sub_priority(e){        
+	                 console.log("inside callback fn '_e_tk5_sub_priority' now !!");
+	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
+	                 var y = parseInt(x) -1;
+	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
+               		 _tk5_priority.innerHTML       = y.toString();
+	                 };
+
 function _e_tk5_complete(e){ console.log("inside callback fn '_e_tk5_complete' now !!")};
 function _e_tk5_add_notes(e){ console.log("inside callback fn '_e_tk5_add_notes' now !!")};
 function _e_tk5_edit_task(e){ console.log("inside callback fn '_e_tk5_edit_task' now !!")};
@@ -572,7 +659,8 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="1") {
-		     _task1_drilldown.classList.add("drilldown_completedTask");
+                _tk1_status.classList.remove("status-open");
+    		    _task1_drilldown.classList.add("drilldown_completedTask");
 		   //  _task1.classList.add("article_with_notes_completed");
 		   //  _task1.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="0") {
@@ -605,7 +693,8 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="1") {
-		     _task2_drilldown.classList.add("drilldown_completedTask");
+                _tk2_status.classList.remove("status-open");
+		        _task2_drilldown.classList.add("drilldown_completedTask");
 		   //  _task2.classList.add("article_with_notes_completed");
 		   //  _task2.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="0") {
@@ -640,7 +729,8 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="1") {
-		     _task3_drilldown.classList.add("drilldown_completedTask");
+                _tk3_status.classList.remove("status-open");
+		       _task3_drilldown.classList.add("drilldown_completedTask");
 		   //  _task3.classList.add("article_with_notes_completed");
 		   //  _task3.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="0") {
@@ -678,7 +768,8 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="1") {
-		     _task4_drilldown.classList.add("drilldown_completedTask");
+                _tk4_status.classList.remove("status-open");
+   		        _task4_drilldown.classList.add("drilldown_completedTask");
 		   //  _task4.classList.add("article_with_notes_completed");
 		   //  _task4.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="0") {
@@ -716,7 +807,8 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="1") {
-		     _task5_drilldown.classList.add("drilldown_completedTask");
+                _tk5_status.classList.remove("status-open");
+  		        _task5_drilldown.classList.add("drilldown_completedTask");
 		    // _task5.classList.add("article_with_notes_completed");
 		    // _task5.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="0") {
