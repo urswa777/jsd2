@@ -4,6 +4,7 @@
   max-width: 2000px;  
   min-width: 400px;  
   margin: 10 auto;
+  align-content: center;
 }
 
 .delimiter {
@@ -64,24 +65,25 @@ header #search {
   top: 10px;
 }
 */
+/* -------------------------------------------- */
 
-header #search a {
+#search a {
   display: block;
   width: 5%;
   padding: 10px;
 }
 
-header #search a:hover {
+#search a:hover {
   background: #CC0020;
 }
 
-header #search img {
+#search img {
   position: absolute;
-  width: 10%;
+  width: 2%;
   display: block;
 }
 
-header #search input {
+#search input {
   position: absolute;
   right: 100px;
   /*top: 10px;*/
@@ -91,13 +93,13 @@ header #search input {
   visibility: hidden;
 }
 
-header #search.active input {
+#search.active input {
   width: 160px;
   padding: 8px 10px;
   visibility: visible;
 }
 
-header #search.active a {
+#search.active a {
   background: #0066ff;
 }
 
@@ -195,6 +197,9 @@ nav ul ul li {
    color:#99ffff;
   }
 
+.icons {
+   font-size:30px;  
+}
 .task1_hide{
   display:none;
 }

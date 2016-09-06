@@ -610,7 +610,7 @@ var defaultJSON = {
 		                      "Msg": [
 		                           {
 		                             "uuid":"9001",
-		                             "msg_title":"FWB1",
+		                             "msg_title":"X1",
 		                             "msg_details":"blah blah blah  !!",
 		                             "msg_task_type":"Routine",
 		                             "msg_due_date":"2016-09-04",
@@ -634,7 +634,7 @@ var defaultJSON = {
 		                           },
 		                           {
 		                             "uuid":"9002",
-		                             "msg_title":"FWB2",
+		                             "msg_title":"X2",
 		                             "msg_details":"weekend !!",
 		                             "msg_task_type":"Routine",
 		                             "msg_due_date":"2016-09-04",
