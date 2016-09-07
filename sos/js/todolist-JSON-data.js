@@ -38,7 +38,7 @@ var defaultJSON = {
 		                                {"update_msg":"Something comes up, will delay by 2 hours", 
 		                                 "update_datetime":"2016-09-03 04:40pm"},
 		                                {"update_msg":"turns out more difficult than first though, need 2 more hours", 
-		                                 "update_datetime":"2016-09-03 09:29am"}		                                      
+		                                 "update_datetime":"2016-09-03 09:29pm"}		                                      
 		                                 ]
 		                           },
 		                           {

@@ -6,6 +6,10 @@ var curr_firstShow_task_id =0;
 var curr_todolist_id=0;
 var to_do_list = defaultJSON.User[0];
 
+var today_ = Date();
+var displayDT = today_.substring(1, 25);
+console.log('Today is : ' + today_);
+console.log('After format : ' + displayDT.trim());
 
 
 //------------------------------------------------------
@@ -15,6 +19,8 @@ var to_do_list = defaultJSON.User[0];
 var _todolist_personal  = document.querySelector(".fa-home");
 var _todolist_social    = document.querySelector(".fa-group");
 var _todolist_secret    = document.querySelector(".fa-user-secret");
+var _current_datetime   = document.querySelector(".sysdate");
+_current_datetime.innerHTML = displayDT;
 
 var _icon_composeTask  = document.querySelector(".fa-plus");
 var _icon_calendarView = document.querySelector(".fa-calendar");
@@ -657,7 +663,17 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
 		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
 
-
+        debugger
+        if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
+		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id].Notes.length;i++){
+		        	     debugger
+		                 li_notes = document.createElement("LI");
+				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id].Notes[i].update_datetime
+		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id].Notes[i].update_msg;
+		                 _tk1_notes.appendChild(li_notes);
+		                 debugger
+		        } 
+            }
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="1") {
                 _tk1_status.classList.remove("status-open");
@@ -692,6 +708,14 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_urgency;
 		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_levelOfEffort;
 
+        if (to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length >0) {
+		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length;i++){
+		                 li_notes = document.createElement("LI");
+				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id+1].Notes[i].update_datetime
+		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id+1].Notes[i].update_msg;
+		                 _tk2_notes.appendChild(li_notes);
+		        } 
+            }
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="1") {
                 _tk2_status.classList.remove("status-open");
@@ -728,6 +752,14 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_urgency;
 		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_levelOfEffort;
 
+        if (to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length >0) {
+		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length;i++){
+		                 li_notes = document.createElement("LI");
+				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id+2].Notes[i].update_datetime
+		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id+2].Notes[i].update_msg;
+		                 _tk3_notes.appendChild(li_notes);
+		        } 
+            }
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="1") {
                 _tk3_status.classList.remove("status-open");
@@ -767,6 +799,14 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_urgency;
 		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_levelOfEffort;
 
+        if (to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length >0) {
+		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length;i++){
+		                 li_notes = document.createElement("LI");
+				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id+3].Notes[i].update_datetime
+		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id+3].Notes[i].update_msg;
+		                 _tk4_notes.appendChild(li_notes);
+		        } 
+            }
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="1") {
                 _tk4_status.classList.remove("status-open");
@@ -806,6 +846,14 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_urgency;
 		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_levelOfEffort;
 
+        if (to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length >0) {
+		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length;i++){
+		                 li_notes = document.createElement("LI");
+				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id+4].Notes[i].update_datetime
+		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id+4].Notes[i].update_msg;
+		                 _tk5_notes.appendChild(li_notes);
+		        } 
+            }
 
 		if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="1") {
                 _tk5_status.classList.remove("status-open");
