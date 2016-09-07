@@ -308,7 +308,6 @@ function _e_todolist_social(e){
           _todolist_social.classList.add("todolist_social_on");
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
-          debugger
           load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
           }
 function _e_todolist_secret(e){ 
@@ -321,7 +320,6 @@ function _e_todolist_secret(e){
           _todolist_social.classList.add("todolist_social_off");
           _todolist_secret.classList.remove("todolist_secret_off");
           _todolist_secret.classList.add("todolist_secret_on");
-          debugger
           load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
           }
 
@@ -347,7 +345,6 @@ function _e_calendarView(e){
 
 function _e_scrollDown1(e){ 
 	        console.log("inside callback fn '_e_scollDown1' now !!");
-	        debugger
 	        if (to_do_list.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
 	        	  curr_firstShow_task_id++;
                   load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
@@ -356,7 +353,6 @@ function _e_scrollDown1(e){
 
 function _e_scrollUp1(e){ 
 	        console.log("inside callback fn '_e_scrollUp1' now !!");
-	        debugger
 	        if (curr_firstShow_task_id - 1 >= 0) {
 	        	  curr_firstShow_task_id--;
                   load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
@@ -666,15 +662,12 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
 		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
 
-        debugger
         if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id].Notes.length;i++){
-		        	     debugger
 		                 li_notes = document.createElement("LI");
 				         li_notes.innerHTML = to_do_list.List[todolist_id].Msg[start_task_id].Notes[i].update_datetime
 		                                    + " - " + to_do_list.List[todolist_id].Msg[start_task_id].Notes[i].update_msg;
 		                 _tk1_notes.appendChild(li_notes);
-		                 debugger
 		        } 
             }
 
