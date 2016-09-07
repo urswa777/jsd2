@@ -38,6 +38,7 @@ var _list_closedOnly   = document.querySelector(".List_ClosedOnly");
 var _list_pendingOnly  = document.querySelector(".List_PendingOnly");
 var _list_archive      = document.querySelector(".List_Archived");
 var _list_pastDue      = document.querySelector(".List_PastDue");
+var _list_touch3days   = document.querySelector(".List_Touch3Days");
 
 var _popup_window      = document.querySelector("#popUp");
 var _icon_closePopup   = document.querySelector(".closePopUp");
@@ -218,6 +219,8 @@ _list_closedOnly.addEventListener('click',   _e_go2ListClosedOnly);
 _list_pendingOnly.addEventListener('click',  _e_go2ListPendingOnly);
 _list_archive.addEventListener('click',      _e_go2ListArchive);
 _list_pastDue.addEventListener('click',      _e_go2ListPastDue);
+_list_touch3days.addEventListener('click',   _e_go2ListTouch3days);
+
 
 _tk1_show_details.addEventListener('click',  _e_tk1_show_details);
 _tk1_trash.addEventListener('click',         _e_tk1_trash);
@@ -380,7 +383,7 @@ function _e_go2ListClosedOnly(e){ console.log("inside callback fn '_e_go2ListClo
 function _e_go2ListPendingOnly(e){ console.log("inside callback fn '_e_go2ListPendingOnly' now !!"); };
 function _e_go2ListArchive(e){ console.log("inside callback fn '_e_go2ListArchive' now !!"); };
 function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDue' now !!"); };
-
+function _e_go2ListTouch3days(e){ console.log("inside callback fn '_e_go2ListTouch3days' now !!"); };
 
 
 //----------------------------------------------------------------------------------
