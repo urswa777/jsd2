@@ -658,6 +658,7 @@ function load_tasks(to_do_list, todolist_id, start_task_id) {
 		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
 
 
+
 		if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="1") {
                 _tk1_status.classList.remove("status-open");
     		    _task1_drilldown.classList.add("drilldown_completedTask");
