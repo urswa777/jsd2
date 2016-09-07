@@ -7,7 +7,7 @@ var curr_todolist_id=0;
 var to_do_list = defaultJSON.User[0];
 
 var today_ = Date();
-var displayDT = today_.substring(1, 25);
+var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
 console.log('Today is : ' + today_);
 console.log('After format : ' + displayDT.trim());
 
