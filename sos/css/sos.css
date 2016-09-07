@@ -1,5 +1,8 @@
 /* General Styles
 ---------------------------------------------- */
+*{
+  font-family: arial;
+}
 .container {
   max-width: 2000px;  
   min-width: 400px;  
