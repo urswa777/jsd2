@@ -25,8 +25,11 @@ var _todolist_secret    = document.querySelector(".fa-user-secret");
 var _current_datetime   = document.querySelector(".sysdate");
 _current_datetime.innerHTML = displayDT;
 
+var _icon_calendarView  = document.querySelector(".fa-calendar");
+var _icon_mapView       = document.querySelector(".fa-map-marker");
+var _icon_peopleView    = document.querySelector(".fa-male");
+
 var _icon_composeTask  = document.querySelector(".fa-plus-square");
-var _icon_calendarView = document.querySelector(".fa-calendar");
 var _icon_scrollDown1  = document.querySelector(".fa-sort-asc");
 var _icon_scrollup1    = document.querySelector(".fa-sort-desc");
 var _icon_nextPage     = document.querySelector(".fa-sticky-note-o");
@@ -207,8 +210,12 @@ _todolist_personal.addEventListener('click',  _e_todolist_personal);
 _todolist_social.addEventListener('click',    _e_todolist_social);
 _todolist_secret.addEventListener('click',    _e_todolist_secret);
 
+
+_icon_calendarView.addEventListener('click',  _e_icon_calendarView);
+_icon_mapView.addEventListener('click',       _e_icon_mapView);
+_icon_peopleView.addEventListener('click',    _e_icon_peopleView);
+
 _icon_composeTask.addEventListener('click',  _e_composeTask);
-_icon_calendarView.addEventListener('click', _e_calendarView);
 _icon_scrollDown1.addEventListener('click',  _e_scrollDown1);
 _icon_scrollup1.addEventListener('click',    _e_scrollUp1);
 _icon_nextPage.addEventListener('click',     _e_nextPage);
@@ -340,8 +347,14 @@ function _e_composeTask(e){
 	      _popup_window.classList.remove("loader");
 	      };
 
-function _e_calendarView(e){ 
-	        console.log("inside callback fn '_e_calendarView' now !!");
+function _e_icon_calendarView(e){ 
+	        console.log("inside callback fn '_e_icon_calendarView' now !!");
+	      };
+function _e_icon_mapView(e){ 
+	        console.log("inside callback fn '_e_icon_mapView' now !!");
+	      };
+function _e_icon_peopleView(e){ 
+	        console.log("inside callback fn '_e_icon_peopleView' now !!");
 	      };
 
 function _e_scrollUp1(e){ 
