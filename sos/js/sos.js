@@ -17,6 +17,7 @@ console.log('After format : ' + displayDT.trim());
 //------------------------------------------------------
 //----- Structure --------------------------------------
 //------------------------------------------------------
+var _header  = document.querySelector("header");
 
 var _todolist_personal  = document.querySelector(".fa-home");
 var _todolist_social    = document.querySelector(".fa-group");
@@ -379,6 +380,7 @@ function _e_go2ListTouch3days(e){ console.log("inside callback fn '_e_go2ListTou
 //----------------------------------------------------------------------------------
 function _e_tk1_show_details(e){ 
 	     console.log("inside callback fn '_e_tk1_show_details' now !!");
+         _header.classList.add("headerBar_whenDrill");
          _task1_drilldown.classList.remove("hideDrilldown");
          _task1.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -415,11 +417,13 @@ function _e_tk1_notesClose(e){
 	     console.log("inside callback fn '_e_tk1_notesClose' now !!");
          _task1_drilldown.classList.add("hideDrilldown");
          _task1.classList.remove("article_with_notes");
+         _header.classList.remove("headerBar_whenDrill");
     	 };
 
 //----------------------------------------------------------------------------------
 function _e_tk2_show_details(e){ 
 	     console.log("inside callback fn '_e_tk2_show_details' now !!");
+         _header.classList.add("headerBar_whenDrill");
          _task2_drilldown.classList.remove("hideDrilldown");
          _task2.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -456,12 +460,14 @@ function _e_tk2_notesClose(e){
 	     console.log("inside callback fn '_e_tk2_notesClose' now !!");
          _task2_drilldown.classList.add("hideDrilldown");
          _task2.classList.remove("article_with_notes");
+         _header.classList.remove("headerBar_whenDrill");
     	 };
 
 
 //----------------------------------------------------------------------------------
 function _e_tk3_show_details(e){ 
 	     console.log("inside callback fn '_e_tk3_show_details' now !!");
+         _header.classList.add("headerBar_whenDrill");
          _task3_drilldown.classList.remove("hideDrilldown");
          _task3.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -500,12 +506,14 @@ function _e_tk3_notesClose(e){
 	     console.log("inside callback fn '_e_tk3_notesClose' now !!");
          _task3_drilldown.classList.add("hideDrilldown");
          _task3.classList.remove("article_with_notes");
+         _header.classList.remove("headerBar_whenDrill");
     	 };
 
 
 //----------------------------------------------------------------------------------
 function _e_tk4_show_details(e){ 
 	     console.log("inside callback fn '_e_tk4_show_details' now !!");
+         _header.classList.add("headerBar_whenDrill");
          _task4_drilldown.classList.remove("hideDrilldown");
          _task4.classList.add("article_with_notes");
 	         _task5_drilldown.classList.add("hideDrilldown");
@@ -543,12 +551,14 @@ function _e_tk4_notesClose(e){
 	     console.log("inside callback fn '_e_tk4_notesClose' now !!");
          _task4_drilldown.classList.add("hideDrilldown");
          _task4.classList.remove("article_with_notes");
+         _header.classList.remove("headerBar_whenDrill");
     	 };
 
 
 //----------------------------------------------------------------------------------
 function _e_tk5_show_details(e){ 
 	     console.log("inside callback fn '_e_tk5_show_details' now !!");
+         _header.classList.add("headerBar_whenDrill");
          _task5_drilldown.classList.remove("hideDrilldown");
          _task5.classList.add("article_with_notes");
 
@@ -588,6 +598,7 @@ function _e_tk5_notesClose(e){
 	     console.log("inside callback fn '_e_tk5_notesClose' now !!");
          _task5_drilldown.classList.add("hideDrilldown");
          _task5.classList.remove("article_with_notes");
+         _header.classList.remove("headerBar_whenDrill");
     	 };
 
 

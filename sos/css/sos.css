@@ -28,6 +28,13 @@ header {
   left: 0;
   right: 0;
 }
+.headerBar_whenDrill {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 header h1 {
   color: #FFFFFF;
   padding: 10px 2%;
@@ -36,6 +43,7 @@ header h1 {
   padding-left: 0;
   font-size: 2em;
 }
+
 
 
 /* Header navigation bar
