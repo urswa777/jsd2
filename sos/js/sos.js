@@ -8,6 +8,8 @@ var to_do_list = defaultJSON.User[0];
 
 var today_ = Date();
 var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
+
+
 console.log('Today is : ' + today_);
 console.log('After format : ' + displayDT.trim());
 
@@ -39,6 +41,12 @@ var _list_pendingOnly  = document.querySelector(".List_PendingOnly");
 var _list_archive      = document.querySelector(".List_Archived");
 var _list_pastDue      = document.querySelector(".List_PastDue");
 var _list_touch3days   = document.querySelector(".List_Touch3Days");
+
+var _articlePic1       = document.querySelector(".articlePic1");
+var _articlePic2       = document.querySelector(".articlePic2");
+var _articlePic3       = document.querySelector(".articlePic3");
+var _articlePic4       = document.querySelector(".articlePic4");
+var _articlePic5       = document.querySelector(".articlePic5");
 
 var _popup_window      = document.querySelector("#popUp");
 var _icon_closePopup   = document.querySelector(".closePopUp");
@@ -646,6 +654,35 @@ function _e_load_task(e) {
 
 
 function load_tasks(to_do_list, todolist_id, start_task_id) {
+
+//-------------------------------------------------------
+//------------ dynamic pic ------------------------------
+//-------------------------------------------------------
+var picDraw = Date();
+var articleImage1 = picDraw.substring(23, 24);
+var pic1 = parseInt(articleImage1); 
+var pic2 = (pic1 + 1 )%10; 
+var pic3 = (pic1 + 2 )%10; 
+var pic4 = (pic1 + 3 )%10; 
+var pic5 = (pic1 + 4 )%10; 
+debugger
+
+var  articleImage1_str= "images/inspirational0" + pic1 + ".jpg";
+var  articleImage2_str= "images/inspirational0" + pic2 + ".jpg";
+var  articleImage3_str= "images/inspirational0" + pic3 + ".jpg";
+var  articleImage4_str= "images/inspirational0" + pic4 + ".jpg";
+var  articleImage5_str= "images/inspirational0" + pic5 + ".jpg";
+
+_articlePic1.src = articleImage1_str;
+_articlePic2.src = articleImage2_str;
+_articlePic3.src = articleImage3_str;
+_articlePic4.src = articleImage4_str;
+_articlePic5.src = articleImage5_str;
+
+//-------------------------------------------------------
+//------------ dynamic pic ------------------------------
+//-------------------------------------------------------
+
 //-------------------------------------------
 //--- fill in Task #1 -----------------------
 //to_do_list.List[0].Msg[0].uuid             
