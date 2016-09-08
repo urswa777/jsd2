@@ -31,7 +31,7 @@ var _icon_scrollup1    = document.querySelector(".fa-caret-square-o-up");
 var _icon_nextPage     = document.querySelector(".fa-sticky-note-o");
 
 var _icon_back2ListTop = document.querySelector(".fa-refresh");
-var _icon_email        = document.querySelector(".fa-envelope-o");
+var _icon_sharelist    = document.querySelector(".fa-user-plus");
 var _icon_settings     = document.querySelector(".fa-gears");
 
 var _list_openOnly     = document.querySelector(".list_OpenOnly");
@@ -73,68 +73,58 @@ var _task4_drilldown   = document.querySelector(".task4_drilldown");
 var _task5_drilldown   = document.querySelector(".task5_drilldown");
 
 var _tk1_trash         = document.querySelector(".tk1_trash");
+var _tk1_sendtask      = document.querySelector(".tk1_sendtask");
 var _tk1_priority      = document.querySelector(".tk1_priority");
 var _tk1_add_priority  = document.querySelector(".tk1_add_priority");
 var _tk1_sub_prioirty  = document.querySelector(".tk1_sub_prioirty");
 var _tk1_complete      = document.querySelector(".tk1_complete");
-var _tk1_add_notes     = document.querySelector(".tk1_add_notes");
-var _tk1_edit_task     = document.querySelector(".tk1_edit_task");
 var _tk1_dup_task      = document.querySelector(".tk1_dup_task");
 var _tk1_love_task     = document.querySelector(".tk1_love_task");
 var _tk1_show_details  = document.querySelector(".tk1_show_details");
-var _tk1_notesCount    = document.querySelector(".tk1_notesCount");
 var _tk1_notesClose    = document.querySelector(".closeNotes1");
 
 var _tk2_trash         = document.querySelector(".tk2_trash");
+var _tk2_sendtask      = document.querySelector(".tk2_sendtask");
 var _tk2_priority      = document.querySelector(".tk2_priority");
 var _tk2_add_priority  = document.querySelector(".tk2_add_priority");
 var _tk2_sub_prioirty  = document.querySelector(".tk2_sub_prioirty");
 var _tk2_complete      = document.querySelector(".tk2_complete");
-var _tk2_add_notes     = document.querySelector(".tk2_add_notes");
-var _tk2_edit_task     = document.querySelector(".tk2_edit_task");
 var _tk2_dup_task      = document.querySelector(".tk2_dup_task");
 var _tk2_love_task     = document.querySelector(".tk2_love_task");
 var _tk2_show_details  = document.querySelector(".tk2_show_details");
-var _tk2_notesCount    = document.querySelector(".tk2_notesCount");
 var _tk2_notesClose    = document.querySelector(".closeNotes2");
 
 var _tk3_trash         = document.querySelector(".tk3_trash");
+var _tk3_sendtask      = document.querySelector(".tk3_sendtask");
 var _tk3_priority      = document.querySelector(".tk3_priority");
 var _tk3_add_priority  = document.querySelector(".tk3_add_priority");
 var _tk3_sub_prioirty  = document.querySelector(".tk3_sub_prioirty");
 var _tk3_complete      = document.querySelector(".tk3_complete");
-var _tk3_add_notes     = document.querySelector(".tk3_add_notes");
-var _tk3_edit_task     = document.querySelector(".tk3_edit_task");
 var _tk3_dup_task      = document.querySelector(".tk3_dup_task");
 var _tk3_love_task     = document.querySelector(".tk3_love_task");
 var _tk3_show_details  = document.querySelector(".tk3_show_details");
-var _tk3_notesCount    = document.querySelector(".tk3_notesCount");
 var _tk3_notesClose    = document.querySelector(".closeNotes3");
 
 var _tk4_trash         = document.querySelector(".tk4_trash");
+var _tk4_sendtask      = document.querySelector(".tk4_sendtask");
 var _tk4_priority      = document.querySelector(".tk4_priority");
 var _tk4_add_priority  = document.querySelector(".tk4_add_priority");
 var _tk4_sub_prioirty  = document.querySelector(".tk4_sub_prioirty");
 var _tk4_complete      = document.querySelector(".tk4_complete");
-var _tk4_add_notes     = document.querySelector(".tk4_add_notes");
-var _tk4_edit_task     = document.querySelector(".tk4_edit_task");
 var _tk4_dup_task      = document.querySelector(".tk4_dup_task");
 var _tk4_love_task     = document.querySelector(".tk4_love_task");
 var _tk4_show_details  = document.querySelector(".tk4_show_details");
-var _tk4_notesCount    = document.querySelector(".tk4_notesCount");
 var _tk4_notesClose    = document.querySelector(".closeNotes4");
 
 var _tk5_trash         = document.querySelector(".tk5_trash");
+var _tk5_sendtask      = document.querySelector(".tk5_sendtask");
 var _tk5_priority      = document.querySelector(".tk5_priority");
 var _tk5_add_priority  = document.querySelector(".tk5_add_priority");
 var _tk5_sub_prioirty  = document.querySelector(".tk5_sub_prioirty");
 var _tk5_complete      = document.querySelector(".tk5_complete");
-var _tk5_add_notes     = document.querySelector(".tk5_add_notes");
-var _tk5_edit_task     = document.querySelector(".tk5_edit_task");
 var _tk5_dup_task      = document.querySelector(".tk5_dup_task");
 var _tk5_love_task     = document.querySelector(".tk5_love_task");
 var _tk5_show_details  = document.querySelector(".tk5_show_details");
-var _tk5_notesCount    = document.querySelector(".tk5_notesCount");
 var _tk5_notesClose    = document.querySelector(".closeNotes5");
 
 
@@ -218,6 +208,7 @@ _icon_nextPage.addEventListener('click',     _e_nextPage);
 
 _icon_back2ListTop.addEventListener('click', _e_back2ListTop);
 _icon_settings.addEventListener('click',     _e_settings);
+_icon_sharelist.addEventListener('click',    _e_sharelist);
 _icon_closePopup.addEventListener('click',   _e_closePopup);
 _Post_button.addEventListener('click',       _e_postTask);
 
@@ -235,60 +226,50 @@ _tk1_trash.addEventListener('click',         _e_tk1_trash);
 _tk1_add_priority.addEventListener('click',  _e_tk1_add_priority);
 _tk1_sub_prioirty.addEventListener('click',  _e_tk1_sub_priority);
 _tk1_complete.addEventListener('click',      _e_tk1_complete);
-_tk1_add_notes.addEventListener('click',     _e_tk1_add_notes);
-_tk1_edit_task.addEventListener('click',     _e_tk1_edit_task);
 _tk1_dup_task.addEventListener('click',      _e_tk1_dup_task);
 _tk1_love_task.addEventListener('click',     _e_tk1_love_task);
-_tk1_notesCount.addEventListener('click',    _e_tk1_notesCount);
 _tk1_notesClose.addEventListener('click',    _e_tk1_notesClose);
+_tk1_sendtask.addEventListener('click',      _e_tk1_sendTask);
 
 _tk2_show_details.addEventListener('click',  _e_tk2_show_details);
 _tk2_trash.addEventListener('click',         _e_tk2_trash);
 _tk2_add_priority.addEventListener('click',  _e_tk2_add_priority);
 _tk2_sub_prioirty.addEventListener('click',  _e_tk2_sub_priority);
 _tk2_complete.addEventListener('click',      _e_tk2_complete);
-_tk2_add_notes.addEventListener('click',     _e_tk2_add_notes);
-_tk2_edit_task.addEventListener('click',     _e_tk2_edit_task);
 _tk2_dup_task.addEventListener('click',      _e_tk2_dup_task);
 _tk2_love_task.addEventListener('click',     _e_tk2_love_task);
-_tk2_notesCount.addEventListener('click',    _e_tk2_notesCount);
 _tk2_notesClose.addEventListener('click',    _e_tk2_notesClose);
+_tk2_sendtask.addEventListener('click',      _e_tk2_sendTask);
 
 _tk3_show_details.addEventListener('click',  _e_tk3_show_details);
 _tk3_trash.addEventListener('click',         _e_tk3_trash);
 _tk3_add_priority.addEventListener('click',  _e_tk3_add_priority);
 _tk3_sub_prioirty.addEventListener('click',  _e_tk3_sub_priority);
 _tk3_complete.addEventListener('click',      _e_tk3_complete);
-_tk3_add_notes.addEventListener('click',     _e_tk3_add_notes);
-_tk3_edit_task.addEventListener('click',     _e_tk3_edit_task);
 _tk3_dup_task.addEventListener('click',      _e_tk3_dup_task);
 _tk3_love_task.addEventListener('click',     _e_tk3_love_task);
-_tk3_notesCount.addEventListener('click',    _e_tk3_notesCount);
 _tk3_notesClose.addEventListener('click',    _e_tk3_notesClose);
+_tk3_sendtask.addEventListener('click',      _e_tk3_sendTask);
 
 _tk4_show_details.addEventListener('click',  _e_tk4_show_details);
 _tk4_trash.addEventListener('click',         _e_tk4_trash);
 _tk4_add_priority.addEventListener('click',  _e_tk4_add_priority);
 _tk4_sub_prioirty.addEventListener('click',  _e_tk4_sub_priority);
 _tk4_complete.addEventListener('click',      _e_tk4_complete);
-_tk4_add_notes.addEventListener('click',     _e_tk4_add_notes);
-_tk4_edit_task.addEventListener('click',     _e_tk4_edit_task);
 _tk4_dup_task.addEventListener('click',      _e_tk4_dup_task);
 _tk4_love_task.addEventListener('click',     _e_tk4_love_task);
-_tk4_notesCount.addEventListener('click',    _e_tk4_notesCount);
 _tk4_notesClose.addEventListener('click',    _e_tk4_notesClose);
+_tk4_sendtask.addEventListener('click',      _e_tk4_sendTask);
 
 _tk5_show_details.addEventListener('click',  _e_tk5_show_details);
 _tk5_trash.addEventListener('click',         _e_tk5_trash);
 _tk5_add_priority.addEventListener('click',  _e_tk5_add_priority);
 _tk5_sub_prioirty.addEventListener('click',  _e_tk5_sub_priority);
 _tk5_complete.addEventListener('click',      _e_tk5_complete);
-_tk5_add_notes.addEventListener('click',     _e_tk5_add_notes);
-_tk5_edit_task.addEventListener('click',     _e_tk5_edit_task);
 _tk5_dup_task.addEventListener('click',      _e_tk5_dup_task);
 _tk5_love_task.addEventListener('click',     _e_tk5_love_task);
-_tk5_notesCount.addEventListener('click',    _e_tk5_notesCount);
 _tk5_notesClose.addEventListener('click',    _e_tk5_notesClose);
+_tk5_sendtask.addEventListener('click',      _e_tk5_sendTask);
 
 //-------------------------------------------------------------
 //-------- Events' call-back functions ------------------------
@@ -367,12 +348,17 @@ function _e_scrollUp1(e){
 	        }
 	    };
 
-
+function _e_tk1_sendTask(e){ console.log("inside callback fn '_e_tk1_sendTask' now !!"); };
+function _e_tk2_sendTask(e){ console.log("inside callback fn '_e_tk2_sendTask' now !!"); };
+function _e_tk3_sendTask(e){ console.log("inside callback fn '_e_tk3_sendTask' now !!"); };
+function _e_tk4_sendTask(e){ console.log("inside callback fn '_e_tk4_sendTask' now !!"); };
+function _e_tk5_sendTask(e){ console.log("inside callback fn '_e_tk5_sendTask' now !!"); };
 
 
 function _e_nextPage(e){ console.log("inside callback fn '_e_nextPage' now !!"); };
 function _e_back2ListTop(e){ console.log("inside callback fn '_e_back2ListTop' now !!"); };
 function _e_settings(e){ console.log("inside callback fn '_e_settings' now !!"); };
+function _e_sharelist(e){ console.log("inside callback fn '_e_sharelist' now !!"); };
 
 function _e_closePopup(e){ 
 	       console.log("inside callback fn '_e_closePopup' now !!")
