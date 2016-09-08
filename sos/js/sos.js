@@ -665,6 +665,9 @@ function uuid() {
 
 
 function _e_load_task(e) {
+     //-----------------------------------------------------------------------------------------
+	 // add a function to sort the tasks based on the descending Priority ----------------------
+     //-----------------------------------------------------------------------------------------
      load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
@@ -708,15 +711,15 @@ _articlePic5.src = articleImage5_str;
   if (to_do_list.List[todolist_id].Msg.length > 0) {
         _task1.classList.remove("task1_hide");
 		_tk1_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id].msg_title;
-		_tk1_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_details;
-		_tk1_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
 		_tk1_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id].priority;
-		_tk1_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 		// _tk1_time_remained.innerHTML  = need calculation ;
 		_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_task_type;
 		_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_importance;
 		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
 		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
+		_tk1_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_details;
+		_tk1_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
+		_tk1_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 
         if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id].Notes.length;i++){
@@ -750,15 +753,15 @@ _articlePic5.src = articleImage5_str;
   if (to_do_list.List[todolist_id].Msg.length > 1) {
         _task2.classList.remove("task2_hide");
 		_tk2_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_title;
-		_tk2_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_details;
-		_tk2_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
 		_tk2_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+1].priority;
-		_tk2_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
 		// _tk2_time_remained.innerHTML  = need calculation ;
 		_tk2_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_task_type;
 		_tk2_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_importance;
 		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_urgency;
 		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_levelOfEffort;
+		_tk2_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_details;
+		_tk2_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
+		_tk2_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
 
         if (to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length;i++){
@@ -794,15 +797,15 @@ _articlePic5.src = articleImage5_str;
   if (to_do_list.List[todolist_id].Msg.length > 2) {
         _task3.classList.remove("task3_hide");
 		_tk3_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_title;
-		_tk3_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_details;
-		_tk3_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
 		_tk3_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+2].priority;
-		_tk3_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
 		// _tk3_time_remained.innerHTML  = need calculation ;
 		_tk3_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_task_type;
 		_tk3_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_importance;
 		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_urgency;
 		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_levelOfEffort;
+		_tk3_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_details;
+		_tk3_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
+		_tk3_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
 
         if (to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length;i++){
@@ -841,15 +844,15 @@ _articlePic5.src = articleImage5_str;
   if (to_do_list.List[todolist_id].Msg.length > 3) {
         _task4.classList.remove("task4_hide");
 		_tk4_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_title;
-		_tk4_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_details;
-		_tk4_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
 		_tk4_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+3].priority;
-		_tk4_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
 		// _tk4_time_remained.innerHTML  = need calculation ;
 		_tk4_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_task_type;
 		_tk4_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_importance;
 		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_urgency;
 		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_levelOfEffort;
+		_tk4_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_details;
+		_tk4_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
+		_tk4_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
 
         if (to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length;i++){
@@ -888,15 +891,15 @@ _articlePic5.src = articleImage5_str;
   if (to_do_list.List[todolist_id].Msg.length > 4) {
         _task5.classList.remove("task5_hide");
 		_tk5_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_title;
-		_tk5_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_details;
-		_tk5_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
 		_tk5_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+4].priority;
-		_tk5_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
 		// _tk5_time_remained.innerHTML  = need calculation ;
 		_tk5_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_task_type;
 		_tk5_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_importance;
 		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_urgency;
 		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_levelOfEffort;
+		_tk5_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_details;
+		_tk5_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
+		_tk5_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
 
         if (to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length;i++){
