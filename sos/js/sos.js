@@ -27,8 +27,8 @@ _current_datetime.innerHTML = displayDT;
 
 var _icon_composeTask  = document.querySelector(".fa-plus");
 var _icon_calendarView = document.querySelector(".fa-calendar");
-var _icon_scrollDown1  = document.querySelector(".fa-caret-square-o-down");
-var _icon_scrollup1    = document.querySelector(".fa-caret-square-o-up");
+var _icon_scrollDown1  = document.querySelector(".fa-sort-asc");
+var _icon_scrollup1    = document.querySelector(".fa-sort-desc");
 var _icon_nextPage     = document.querySelector(".fa-sticky-note-o");
 
 var _icon_back2ListTop = document.querySelector(".fa-refresh");
@@ -72,6 +72,12 @@ var _task2_drilldown   = document.querySelector(".task2_drilldown");
 var _task3_drilldown   = document.querySelector(".task3_drilldown");
 var _task4_drilldown   = document.querySelector(".task4_drilldown");
 var _task5_drilldown   = document.querySelector(".task5_drilldown");
+
+var _tk1_edit_task     = document.querySelector(".tk1_edit_task");
+var _tk2_edit_task     = document.querySelector(".tk2_edit_task");
+var _tk3_edit_task     = document.querySelector(".tk3_edit_task");
+var _tk4_edit_task     = document.querySelector(".tk4_edit_task");
+var _tk5_edit_task     = document.querySelector(".tk5_edit_task");
 
 var _tk1_trash         = document.querySelector(".tk1_trash");
 var _tk1_sendtask      = document.querySelector(".tk1_send_task");
@@ -221,6 +227,11 @@ _list_archive.addEventListener('click',      _e_go2ListArchive);
 _list_pastDue.addEventListener('click',      _e_go2ListPastDue);
 _list_touch3days.addEventListener('click',   _e_go2ListTouch3days);
 
+_tk1_edit_task.addEventListener('click',     _e_tk1_edit_task);
+_tk2_edit_task.addEventListener('click',     _e_tk2_edit_task);
+_tk3_edit_task.addEventListener('click',     _e_tk3_edit_task);
+_tk4_edit_task.addEventListener('click',     _e_tk4_edit_task);
+_tk5_edit_task.addEventListener('click',     _e_tk5_edit_task);
 
 _tk1_show_details.addEventListener('click',  _e_tk1_show_details);
 _tk1_trash.addEventListener('click',         _e_tk1_trash);
@@ -376,6 +387,11 @@ function _e_go2ListArchive(e){ console.log("inside callback fn '_e_go2ListArchiv
 function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDue' now !!"); };
 function _e_go2ListTouch3days(e){ console.log("inside callback fn '_e_go2ListTouch3days' now !!"); };
 
+function _e_tk1_edit_task(e){ console.log("inside callback fn '_e_tk1_edit_task' now !!"); };
+function _e_tk2_edit_task(e){ console.log("inside callback fn '_e_tk2_edit_task' now !!"); };
+function _e_tk3_edit_task(e){ console.log("inside callback fn '_e_tk3_edit_task' now !!"); };
+function _e_tk4_edit_task(e){ console.log("inside callback fn '_e_tk4_edit_task' now !!"); };
+function _e_tk5_edit_task(e){ console.log("inside callback fn '_e_tk5_edit_task' now !!"); };
 
 //----------------------------------------------------------------------------------
 function _e_tk1_show_details(e){ 
@@ -607,23 +623,29 @@ function _e_tk5_notesClose(e){
 
 //------------------------------------------------------------------------
 // Establish a connection with Firebase --------------------------------
- var fbRef = new Firebase("https://msgboard-1f3d5.firebaseio.com");
+ var fbRef = new Firebase("https://sos7-37957.firebaseio.com");
 //------------------------------------------------------------------------
-  // Initialize Firebase
 
+//---------------------------------------------------------------------
+//--------- new way ?? ------------------------------------------------
+//---------------------------------------------------------------------
+// Initialize Firebase
 //  var config = {
 //    apiKey: "AIzaSyDiu-guTL-2JBvIetP3Qa6sBiqfy9m-OBY",
-//    authDomain: "jsd2-72c71.firebaseapp.com",
-//    databaseURL: "https://jsd2-72c71.firebaseio.com",
-//    storageBucket: "jsd2-72c71.appspot.com",
+//    authDomain: "sos7-37957.firebaseapp.com",
+//    databaseURL: "https://sos7-37957.firebaseio.com",
+//    storageBucket: "sos7-37957.appspot.com",
 //  };
 //  firebase.initializeApp(config);
+
+//  https://sos7-37957.firebaseio.com/
+
+
 
 
 
 
 // hideDrilldown
-
 //-----------------------------------------------------------------
 //-------  Supporting Functions  ----------------------------------
 //-----------------------------------------------------------------
