@@ -218,6 +218,10 @@ nav ul ul li {
    font-size:30px;  
    color:#0066cc;
  }
+.separator_hide {
+   font-size:30px;  
+   color:#e0ebeb;
+ }
 .icons {
    font-size:30px;  
 }

@@ -28,6 +28,8 @@ _current_datetime.innerHTML = displayDT;
 var _icon_calendarView  = document.querySelector(".fa-calendar");
 var _icon_mapView       = document.querySelector(".fa-map-marker");
 var _icon_peopleView    = document.querySelector(".fa-male");
+var _icon_separator1    = document.querySelector(".separator1");
+var _icon_separator2    = document.querySelector(".separator2");
 
 var _icon_composeTask  = document.querySelector(".fa-plus-square");
 var _icon_scrollDown1  = document.querySelector(".fa-sort-asc");
@@ -410,6 +412,8 @@ function _e_tk5_edit_task(e){ console.log("inside callback fn '_e_tk5_edit_task'
 function _e_tk1_show_details(e){ 
 	     console.log("inside callback fn '_e_tk1_show_details' now !!");
          _header.classList.add("headerBar_whenDrill");
+         _icon_separator1.classList.add("separator_hide");
+         _icon_separator2.classList.add("separator_hide");
          _task1_drilldown.classList.remove("hideDrilldown");
          _task1.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -447,12 +451,16 @@ function _e_tk1_notesClose(e){
          _task1_drilldown.classList.add("hideDrilldown");
          _task1.classList.remove("article_with_notes");
          _header.classList.remove("headerBar_whenDrill");
-    	 };
+         _icon_separator1.classList.remove("separator_hide");
+         _icon_separator2.classList.remove("separator_hide");
+   	 };
 
 //----------------------------------------------------------------------------------
 function _e_tk2_show_details(e){ 
 	     console.log("inside callback fn '_e_tk2_show_details' now !!");
          _header.classList.add("headerBar_whenDrill");
+         _icon_separator1.classList.add("separator_hide");
+         _icon_separator2.classList.add("separator_hide");
          _task2_drilldown.classList.remove("hideDrilldown");
          _task2.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -490,6 +498,8 @@ function _e_tk2_notesClose(e){
          _task2_drilldown.classList.add("hideDrilldown");
          _task2.classList.remove("article_with_notes");
          _header.classList.remove("headerBar_whenDrill");
+         _icon_separator1.classList.remove("separator_hide");
+         _icon_separator2.classList.remove("separator_hide");
     	 };
 
 
@@ -497,6 +507,8 @@ function _e_tk2_notesClose(e){
 function _e_tk3_show_details(e){ 
 	     console.log("inside callback fn '_e_tk3_show_details' now !!");
          _header.classList.add("headerBar_whenDrill");
+         _icon_separator1.classList.add("separator_hide");
+         _icon_separator2.classList.add("separator_hide");
          _task3_drilldown.classList.remove("hideDrilldown");
          _task3.classList.add("article_with_notes");
 	         _task4_drilldown.classList.add("hideDrilldown");
@@ -536,6 +548,8 @@ function _e_tk3_notesClose(e){
          _task3_drilldown.classList.add("hideDrilldown");
          _task3.classList.remove("article_with_notes");
          _header.classList.remove("headerBar_whenDrill");
+         _icon_separator1.classList.remove("separator_hide");
+         _icon_separator2.classList.remove("separator_hide");
     	 };
 
 
@@ -543,6 +557,8 @@ function _e_tk3_notesClose(e){
 function _e_tk4_show_details(e){ 
 	     console.log("inside callback fn '_e_tk4_show_details' now !!");
          _header.classList.add("headerBar_whenDrill");
+         _icon_separator1.classList.add("separator_hide");
+         _icon_separator2.classList.add("separator_hide");
          _task4_drilldown.classList.remove("hideDrilldown");
          _task4.classList.add("article_with_notes");
 	         _task5_drilldown.classList.add("hideDrilldown");
@@ -581,6 +597,8 @@ function _e_tk4_notesClose(e){
          _task4_drilldown.classList.add("hideDrilldown");
          _task4.classList.remove("article_with_notes");
          _header.classList.remove("headerBar_whenDrill");
+         _icon_separator1.classList.remove("separator_hide");
+         _icon_separator2.classList.remove("separator_hide");
     	 };
 
 
@@ -588,6 +606,8 @@ function _e_tk4_notesClose(e){
 function _e_tk5_show_details(e){ 
 	     console.log("inside callback fn '_e_tk5_show_details' now !!");
          _header.classList.add("headerBar_whenDrill");
+         _icon_separator1.classList.add("separator_hide");
+         _icon_separator2.classList.add("separator_hide");
          _task5_drilldown.classList.remove("hideDrilldown");
          _task5.classList.add("article_with_notes");
 
@@ -628,6 +648,8 @@ function _e_tk5_notesClose(e){
          _task5_drilldown.classList.add("hideDrilldown");
          _task5.classList.remove("article_with_notes");
          _header.classList.remove("headerBar_whenDrill");
+         _icon_separator1.classList.remove("separator_hide");
+         _icon_separator2.classList.remove("separator_hide");
     	 };
 
 
