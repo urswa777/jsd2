@@ -333,16 +333,16 @@ function _e_calendarView(e){
 	        console.log("inside callback fn '_e_calendarView' now !!");
 	      };
 
-function _e_scrollDown1(e){ 
-	        console.log("inside callback fn '_e_scollDown1' now !!");
+function _e_scrollUp1(e){ 
+	        console.log("inside callback fn '_e_scollUp1' now !!");
 	        if (to_do_list.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
 	        	  curr_firstShow_task_id++;
                   load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
 	        }
 	    };
 
-function _e_scrollUp1(e){ 
-	        console.log("inside callback fn '_e_scrollUp1' now !!");
+function _e_scrollDown1(e){ 
+	        console.log("inside callback fn '_e_scrollDown1' now !!");
 	        if (curr_firstShow_task_id - 1 >= 0) {
 	        	  curr_firstShow_task_id--;
                   load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
