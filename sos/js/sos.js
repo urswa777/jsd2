@@ -73,7 +73,7 @@ var _task4_drilldown   = document.querySelector(".task4_drilldown");
 var _task5_drilldown   = document.querySelector(".task5_drilldown");
 
 var _tk1_trash         = document.querySelector(".tk1_trash");
-var _tk1_sendtask      = document.querySelector(".tk1_sendtask");
+var _tk1_sendtask      = document.querySelector(".tk1_send_task");
 var _tk1_priority      = document.querySelector(".tk1_priority");
 var _tk1_add_priority  = document.querySelector(".tk1_add_priority");
 var _tk1_sub_prioirty  = document.querySelector(".tk1_sub_prioirty");
@@ -84,7 +84,7 @@ var _tk1_show_details  = document.querySelector(".tk1_show_details");
 var _tk1_notesClose    = document.querySelector(".closeNotes1");
 
 var _tk2_trash         = document.querySelector(".tk2_trash");
-var _tk2_sendtask      = document.querySelector(".tk2_sendtask");
+var _tk2_sendtask      = document.querySelector(".tk2_send_task");
 var _tk2_priority      = document.querySelector(".tk2_priority");
 var _tk2_add_priority  = document.querySelector(".tk2_add_priority");
 var _tk2_sub_prioirty  = document.querySelector(".tk2_sub_prioirty");
@@ -95,7 +95,7 @@ var _tk2_show_details  = document.querySelector(".tk2_show_details");
 var _tk2_notesClose    = document.querySelector(".closeNotes2");
 
 var _tk3_trash         = document.querySelector(".tk3_trash");
-var _tk3_sendtask      = document.querySelector(".tk3_sendtask");
+var _tk3_sendtask      = document.querySelector(".tk3_send_task");
 var _tk3_priority      = document.querySelector(".tk3_priority");
 var _tk3_add_priority  = document.querySelector(".tk3_add_priority");
 var _tk3_sub_prioirty  = document.querySelector(".tk3_sub_prioirty");
@@ -106,7 +106,7 @@ var _tk3_show_details  = document.querySelector(".tk3_show_details");
 var _tk3_notesClose    = document.querySelector(".closeNotes3");
 
 var _tk4_trash         = document.querySelector(".tk4_trash");
-var _tk4_sendtask      = document.querySelector(".tk4_sendtask");
+var _tk4_sendtask      = document.querySelector(".tk4_send_task");
 var _tk4_priority      = document.querySelector(".tk4_priority");
 var _tk4_add_priority  = document.querySelector(".tk4_add_priority");
 var _tk4_sub_prioirty  = document.querySelector(".tk4_sub_prioirty");
@@ -117,7 +117,7 @@ var _tk4_show_details  = document.querySelector(".tk4_show_details");
 var _tk4_notesClose    = document.querySelector(".closeNotes4");
 
 var _tk5_trash         = document.querySelector(".tk5_trash");
-var _tk5_sendtask      = document.querySelector(".tk5_sendtask");
+var _tk5_sendtask      = document.querySelector(".tk5_send_task");
 var _tk5_priority      = document.querySelector(".tk5_priority");
 var _tk5_add_priority  = document.querySelector(".tk5_add_priority");
 var _tk5_sub_prioirty  = document.querySelector(".tk5_sub_prioirty");
