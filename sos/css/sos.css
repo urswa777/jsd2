@@ -210,6 +210,14 @@ nav ul ul li {
    color:#99ffff;
   }
 
+.viewIcons {
+   font-size:30px;  
+   color:#ccff33;
+}
+.separator {
+   font-size:30px;  
+   color:#0066cc;
+ }
 .icons {
    font-size:30px;  
 }

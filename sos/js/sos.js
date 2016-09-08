@@ -25,7 +25,7 @@ var _todolist_secret    = document.querySelector(".fa-user-secret");
 var _current_datetime   = document.querySelector(".sysdate");
 _current_datetime.innerHTML = displayDT;
 
-var _icon_composeTask  = document.querySelector(".fa-plus");
+var _icon_composeTask  = document.querySelector(".fa-plus-square");
 var _icon_calendarView = document.querySelector(".fa-calendar");
 var _icon_scrollDown1  = document.querySelector(".fa-sort-asc");
 var _icon_scrollup1    = document.querySelector(".fa-sort-desc");
