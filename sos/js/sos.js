@@ -509,7 +509,8 @@ function _e_saveTask(e) {
                // loop thru local_list & database and update the TASK with matching uuid
                console.log("Task is edited");
               };
-
+            closePopup();
+           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
             _previous_action.innerHTML = "New task is added successfully (" + new_msg.created_ts + ")"  
           };
 
@@ -918,8 +919,6 @@ function _e_load_task(e) {
      //-----------------------------------------------------------------------------------------
 	 // add a function to sort the tasks based on the descending Priority ----------------------
      //-----------------------------------------------------------------------------------------
-     _curr_ToDoList_name.innerHTML = "Personal/Home  with " 
-                                 + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
      load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
@@ -943,7 +942,7 @@ var pic3 = (pic1 + 2 )%10;
 var pic4 = (pic1 + 3 )%10; 
 var pic5 = (pic1 + 4 )%10; 
 debugger
-
+var listname="";
 var  articleImage1_str= "images/inspirational0" + pic1 + ".jpg";
 var  articleImage2_str= "images/inspirational0" + pic2 + ".jpg";
 var  articleImage3_str= "images/inspirational0" + pic3 + ".jpg";
@@ -955,6 +954,13 @@ _articlePic2.src = articleImage2_str;
 _articlePic3.src = articleImage3_str;
 _articlePic4.src = articleImage4_str;
 _articlePic5.src = articleImage5_str;
+
+switch(curr_todolist_id) {
+	case 0: listname= "Personal/Home  with ";
+	case 1: listname= "Social/Work  with ";
+	case 2: listname= "Confidential  with ";
+}
+ _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
 
 //-------------------------------------------------------
 //------------ dynamic pic ------------------------------
