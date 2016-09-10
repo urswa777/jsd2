@@ -33,7 +33,9 @@
               <i class="fa fa-dashboard"><span class="sysdate"></span></i>
              <br>
              <div style="text-align:right">
+             <span>Your current To-Do-List is <strong class="curr_todolist_name">Personal/Home  </strong></span>
 
+              <i class="fa fa-smile-o icons"></i>
               <i class="fa fa-plus-square icons"></i>
               <i class="fa fa-sort-desc icons"></i>
               <i class="fa fa-sort-asc icons"></i>
@@ -92,29 +94,30 @@
                           <label>Details:</label>
                           <textarea id="msg_details" type="text" class="form-control"></textarea>
                           <br>
-
-                              <section id="msg_todolist_name"> To-Do-List :
-                              <input type="text" name="name" value="">
+<!-- curr_todolist_id=0 -->
+                              <section >
+                                       <strong>To-Do-List :</strong>
+                                       <span id="msg_todolist_name"></span>
                               </section>
-                              <section id="msg_task_type"> Task type:
-                              <input type="text" name="name" value="">
+                              <section > Task type:
+                              <input type="text" name="name" value="" id="msg_task_type">
                               </section>
-                              <section id="msg_duedate"> Due Date:
-                              <input type="text" name="name" value="">
+                              <section > Due Date:
+                              <input type="text" name="name" value="" id="msg_duedate">
                               </section>
-                              <section id="msg_timeneeded"> Time needed:
-                              <input type="text" name="name" value="">
-                              <section id="msg_levelOfEffort"> Level of Effort:
-                              <input type="text" name="name" value="">
-                              <section id="msg_importance"> Importance:
-                              <input type="text" name="name" value="">
+                              <section > Time needed:
+                              <input type="text" name="name" value="" id="msg_timeneeded">
+                              <section > Level of Effort:
+                              <input type="text" name="name" value="" id="msg_levelOfEffort">
+                              <section > Importance:
+                              <input type="text" name="name" value="" id="msg_importance">
                               </section>
                               <section id="msg_urgency"> Urgency:
-                              <input type="text" name="name" value="">
+                              <input type="text" name="name" value="" id="msg_urgency">
                               </section>
 
                         </div>
-                        <button class="btn btn-default">Post</button>
+                        <button class="btn btn-default save_task">Post</button>
                       </form>
                    </div>
                    </div>
@@ -178,8 +181,8 @@
                         </ul>
                   </section>
                   <section class="addnotes">New update:
-                        <textarea id="addnotes1" type="text" class="form-control"></textarea>
-                        <button class="PostNotes1">Post</button>
+                        <textarea id="addNotes1" type="text" class="form-control"></textarea>
+                        <button id="postNotes1">Post</button>
                   </section>
                   <div class="clearfix"></div>
                 </article>
@@ -228,8 +231,8 @@
                         </ul>
                   </section>
                   <section class="addnotes">New update:
-                        <textarea id="addnotes2" type="text" class="form-control"></textarea>
-                        <button class="PostNotes2">Post</button>
+                        <textarea id="addNotes2" type="text" class="form-control"></textarea>
+                        <button id="postNotes2">Post</button>
                   </section>
                   <div class="clearfix"></div>
                 </article>
@@ -280,8 +283,8 @@
                         </ul>
                   </section>
                   <section class="addnotes">New update:
-                        <textarea id="addnotes3" type="text" class="form-control"></textarea>
-                        <button class="PostNotes3">Post</button>
+                        <textarea id="addNotes3" type="text" class="form-control"></textarea>
+                        <button id="postNotes3">Post</button>
                   </section>
                   <div class="clearfix"></div>
                 </article>
@@ -333,8 +336,8 @@
                         </ul>
                   </section>
                   <section class="addnotes">New update:
-                        <textarea id="addnotes4" type="text" class="form-control"></textarea>
-                        <button class="PostNotes4">Post</button>
+                        <textarea id="addNotes4" type="text" class="form-control"></textarea>
+                        <button id="postNotes4">Post</button>
                   </section>
                 <div class="clearfix"></div>
               </article>
@@ -385,8 +388,8 @@
                         </ul>
                   </section>
                   <section class="addnotes">New update:
-                        <textarea id="addnotes5" type="text" class="form-control"></textarea>
-                        <button class="PostNotes5">Post</button>
+                        <textarea id="addNotes5" type="text" class="form-control"></textarea>
+                        <button id="postNotes5">Post</button>
                   </section>
                     <div class="clearfix"></div>
                   </article>

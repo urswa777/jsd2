@@ -13,7 +13,6 @@ var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + t
 console.log('Today is : ' + today_);
 console.log('After format : ' + displayDT.trim());
 
-
 //------------------------------------------------------
 //----- Structure --------------------------------------
 //------------------------------------------------------
@@ -24,6 +23,8 @@ var _todolist_social    = document.querySelector(".fa-group");
 var _todolist_secret    = document.querySelector(".fa-user-secret");
 var _current_datetime   = document.querySelector(".sysdate");
 _current_datetime.innerHTML = displayDT;
+
+var _curr_ToDoList_name = document.querySelector(".curr_todolist_name");
 
 var _icon_calendarView  = document.querySelector(".fa-calendar");
 var _icon_mapView       = document.querySelector(".fa-map-marker");
@@ -65,7 +66,8 @@ var _msg_timeneeded    = document.querySelector("#msg_timeneeded");
 var _msg_importance    = document.querySelector("#msg_importance");
 var _msg_urgency       = document.querySelector("#msg_urgency");
 var _msg_levelOfEffort = document.querySelector("#msg_levelOfEffort");
-var _Post_button       = document.querySelector(".btn");
+
+var _save_Task         = document.querySelector(".save_task");
 
 var _task1             = document.querySelector(".task1");
 var _task2             = document.querySelector(".task2");
@@ -94,6 +96,8 @@ var _tk1_dup_task      = document.querySelector(".tk1_dup_task");
 var _tk1_love_task     = document.querySelector(".tk1_love_task");
 var _tk1_show_details  = document.querySelector(".tk1_show_details");
 var _tk1_notesClose    = document.querySelector(".closeNotes1");
+var _tk1_addNotes      = document.querySelector("#addnotes1");
+var _tk1_postNotes     = document.querySelector("#postNotes1");
 
 var _tk2_trash         = document.querySelector(".tk2_trash");
 var _tk2_sendtask      = document.querySelector(".tk2_send_task");
@@ -105,6 +109,8 @@ var _tk2_dup_task      = document.querySelector(".tk2_dup_task");
 var _tk2_love_task     = document.querySelector(".tk2_love_task");
 var _tk2_show_details  = document.querySelector(".tk2_show_details");
 var _tk2_notesClose    = document.querySelector(".closeNotes2");
+var _tk2_addNotes      = document.querySelector("#addnotes2");
+var _tk2_postNotes     = document.querySelector("#postNotes2");
 
 var _tk3_trash         = document.querySelector(".tk3_trash");
 var _tk3_sendtask      = document.querySelector(".tk3_send_task");
@@ -116,6 +122,8 @@ var _tk3_dup_task      = document.querySelector(".tk3_dup_task");
 var _tk3_love_task     = document.querySelector(".tk3_love_task");
 var _tk3_show_details  = document.querySelector(".tk3_show_details");
 var _tk3_notesClose    = document.querySelector(".closeNotes3");
+var _tk3_addNotes      = document.querySelector("#addnotes3");
+var _tk3_postNotes     = document.querySelector("#postNotes3");
 
 var _tk4_trash         = document.querySelector(".tk4_trash");
 var _tk4_sendtask      = document.querySelector(".tk4_send_task");
@@ -127,6 +135,8 @@ var _tk4_dup_task      = document.querySelector(".tk4_dup_task");
 var _tk4_love_task     = document.querySelector(".tk4_love_task");
 var _tk4_show_details  = document.querySelector(".tk4_show_details");
 var _tk4_notesClose    = document.querySelector(".closeNotes4");
+var _tk4_addNotes      = document.querySelector("#addnotes4");
+var _tk4_postNotes     = document.querySelector("#postNotes4");
 
 var _tk5_trash         = document.querySelector(".tk5_trash");
 var _tk5_sendtask      = document.querySelector(".tk5_send_task");
@@ -138,6 +148,8 @@ var _tk5_dup_task      = document.querySelector(".tk5_dup_task");
 var _tk5_love_task     = document.querySelector(".tk5_love_task");
 var _tk5_show_details  = document.querySelector(".tk5_show_details");
 var _tk5_notesClose    = document.querySelector(".closeNotes5");
+var _tk5_addNotes      = document.querySelector("#addnotes5");
+var _tk5_postNotes     = document.querySelector("#postNotes5");
 
 
 //-------------------------------------------------------------------------------
@@ -226,7 +238,7 @@ _icon_back2ListTop.addEventListener('click', _e_back2ListTop);
 _icon_settings.addEventListener('click',     _e_settings);
 _icon_sharelist.addEventListener('click',    _e_sharelist);
 _icon_closePopup.addEventListener('click',   _e_closePopup);
-_Post_button.addEventListener('click',       _e_postTask);
+_save_Task.addEventListener('click',         _e_saveTask);
 
 _list_openOnly.addEventListener('click',     _e_go2ListOpenOnly);
 _list_allTasks.addEventListener('click',     _e_go2ListAllTasks);
@@ -251,6 +263,7 @@ _tk1_dup_task.addEventListener('click',      _e_tk1_dup_task);
 _tk1_love_task.addEventListener('click',     _e_tk1_love_task);
 _tk1_notesClose.addEventListener('click',    _e_tk1_notesClose);
 _tk1_sendtask.addEventListener('click',      _e_tk1_sendTask);
+_tk1_postNotes.addEventListener('click',     _e_tk1_postNotes);
 
 _tk2_show_details.addEventListener('click',  _e_tk2_show_details);
 _tk2_trash.addEventListener('click',         _e_tk2_trash);
@@ -261,6 +274,7 @@ _tk2_dup_task.addEventListener('click',      _e_tk2_dup_task);
 _tk2_love_task.addEventListener('click',     _e_tk2_love_task);
 _tk2_notesClose.addEventListener('click',    _e_tk2_notesClose);
 _tk2_sendtask.addEventListener('click',      _e_tk2_sendTask);
+_tk2_postNotes.addEventListener('click',     _e_tk2_postNotes);
 
 _tk3_show_details.addEventListener('click',  _e_tk3_show_details);
 _tk3_trash.addEventListener('click',         _e_tk3_trash);
@@ -271,6 +285,7 @@ _tk3_dup_task.addEventListener('click',      _e_tk3_dup_task);
 _tk3_love_task.addEventListener('click',     _e_tk3_love_task);
 _tk3_notesClose.addEventListener('click',    _e_tk3_notesClose);
 _tk3_sendtask.addEventListener('click',      _e_tk3_sendTask);
+_tk3_postNotes.addEventListener('click',     _e_tk3_postNotes);
 
 _tk4_show_details.addEventListener('click',  _e_tk4_show_details);
 _tk4_trash.addEventListener('click',         _e_tk4_trash);
@@ -281,6 +296,7 @@ _tk4_dup_task.addEventListener('click',      _e_tk4_dup_task);
 _tk4_love_task.addEventListener('click',     _e_tk4_love_task);
 _tk4_notesClose.addEventListener('click',    _e_tk4_notesClose);
 _tk4_sendtask.addEventListener('click',      _e_tk4_sendTask);
+_tk4_postNotes.addEventListener('click',     _e_tk4_postNotes);
 
 _tk5_show_details.addEventListener('click',  _e_tk5_show_details);
 _tk5_trash.addEventListener('click',         _e_tk5_trash);
@@ -291,6 +307,7 @@ _tk5_dup_task.addEventListener('click',      _e_tk5_dup_task);
 _tk5_love_task.addEventListener('click',     _e_tk5_love_task);
 _tk5_notesClose.addEventListener('click',    _e_tk5_notesClose);
 _tk5_sendtask.addEventListener('click',      _e_tk5_sendTask);
+_tk5_postNotes.addEventListener('click',     _e_tk5_postNotes);
 
 //-------------------------------------------------------------
 //-------- Events' call-back functions ------------------------
@@ -307,6 +324,7 @@ function _e_todolist_personal(e){
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
           load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Personal/Home  ";
           }
 function _e_todolist_social(e){ 
 	      console.log("inside callback fn '_e_todolist_social' now !!");
@@ -319,6 +337,7 @@ function _e_todolist_social(e){
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
           load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Social/Work  ";
           }
 function _e_todolist_secret(e){ 
 	      console.log("inside callback fn '_e_todolist_secret' now !!");
@@ -331,6 +350,7 @@ function _e_todolist_secret(e){
           _todolist_secret.classList.remove("todolist_secret_off");
           _todolist_secret.classList.add("todolist_secret_on");
           load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Confidential  ";
           }
 
 function _e_composeTask(e){ 
@@ -347,7 +367,34 @@ function _e_composeTask(e){
 	         _task2.classList.remove("article_with_notes");
 	      _popup_window.classList.remove("hidden");
 	      _popup_window.classList.remove("loader");
+
+          switch(curr_todolist_id) {
+          	case 0 : _msg_todolist_name.innHTML = 'Personal'; break;
+          	case 1 : _msg_todolist_name.innHTML = 'Social'; break;
+          	case 2 : _msg_todolist_name.innHTML = 'Confidential'; break;
+            default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
+          }
 	      };
+
+function _e_saveTask(e) {
+	        console.log("inside callback fn '_e_saveTask' now !!");
+          };
+
+function _e_tk1_postNotes(e) {
+	        console.log("inside callback fn '_e_tk1_postNotes' now !!");
+          };
+function _e_tk2_postNotes(e) {
+	        console.log("inside callback fn '_e_tk2_postNotes' now !!");
+          };
+function _e_tk3_postNotes(e) {
+	        console.log("inside callback fn '_e_tk3_postNotes' now !!");
+          };
+function _e_tk4_postNotes(e) {
+	        console.log("inside callback fn '_e_tk4_postNotes' now !!");
+          };
+function _e_tk5_postNotes(e) {
+	        console.log("inside callback fn '_e_tk5_postNotes' now !!");
+          };
 
 function _e_icon_calendarView(e){ 
 	        console.log("inside callback fn '_e_icon_calendarView' now !!");
