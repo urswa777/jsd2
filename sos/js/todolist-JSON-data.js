@@ -34,7 +34,7 @@ var msg_template =  {
 		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
-		                                {"update_msg":"none", 
+		                                {"update_msg":"Created", 
 		                                 "update_datetime":""}
 		                                 ]
 		                           };

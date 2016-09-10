@@ -235,8 +235,7 @@ var _tk5_urgency       = document.querySelector(".task5_urgency");
 var _tk5_LOE           = document.querySelector(".task5_LOE");
 var _tk5_notes         = document.querySelector(".task5_Notes");
 var _tk5_status        = document.querySelector(".task5_status");
-
-
+var _previous_action   = document.querySelector(".previous_action");
 
 
 //------------------------------------------------------
@@ -343,6 +342,20 @@ _tk5_postNotes.addEventListener('click',     _e_tk5_postNotes);
 
 function _e_todolist_personal(e){ 
 	      console.log("inside callback fn '_e_todolist_personal' now !!");
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+           _header.classList.remove("headerBar_whenDrill");
+           _icon_separator1.classList.remove("separator_hide");
+           _icon_separator2.classList.remove("separator_hide");
+
           curr_firstShow_task_id =0;
           curr_todolist_id=0;
           _todolist_personal.classList.remove("todolist_personal_off");
@@ -351,11 +364,26 @@ function _e_todolist_personal(e){
           _todolist_social.classList.add("todolist_social_off");
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
-          load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Personal/Home  ";
+          load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Personal/Home  with " 
+                                 + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 function _e_todolist_social(e){ 
 	      console.log("inside callback fn '_e_todolist_social' now !!");
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+           _header.classList.remove("headerBar_whenDrill");
+           _icon_separator1.classList.remove("separator_hide");
+           _icon_separator2.classList.remove("separator_hide");
+
           curr_firstShow_task_id =0;
           curr_todolist_id=1;
           _todolist_personal.classList.remove("todolist_personal_on");
@@ -364,11 +392,26 @@ function _e_todolist_social(e){
           _todolist_social.classList.add("todolist_social_on");
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
-          load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Social/Work  ";
+          load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Social/Work  with "
+                                 + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 function _e_todolist_secret(e){ 
 	      console.log("inside callback fn '_e_todolist_secret' now !!");
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+           _header.classList.remove("headerBar_whenDrill");
+           _icon_separator1.classList.remove("separator_hide");
+           _icon_separator2.classList.remove("separator_hide");
+
           curr_firstShow_task_id =0;
           curr_todolist_id=2;
           _todolist_personal.classList.remove("todolist_personal_on");
@@ -377,8 +420,9 @@ function _e_todolist_secret(e){
           _todolist_social.classList.add("todolist_social_off");
           _todolist_secret.classList.remove("todolist_secret_off");
           _todolist_secret.classList.add("todolist_secret_on");
-          load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Confidential  ";
+          load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+          _curr_ToDoList_name.innerHTML = "Confidential  with "
+                                 + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 
 function _e_composeTask(e){ 
@@ -448,19 +492,25 @@ function _e_saveTask(e) {
 			new_msg.msg_status = "Open";
 			new_msg.priority = "0";
 			new_msg.created_ts = gen_timestamp();
-
+            new_msg.Notes[0].update_datetime=gen_timestamp();
 			debugger
 
             if (form_mode=='new'){
                console.log("add new task");
                // push into the local_list & database
-               curr_user_database.List[curr_todolist_id].msg.push(new_msg);
+               console.log("curr_todolist_id", curr_todolist_id);
+
+               curr_user_database.List[curr_todolist_id].Msg.push(new_msg);
                debugger
+               console.log("added & you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
               }
             else if (form_mode=='edit'){
                console.log("edit existing task");
                // loop thru local_list & database and update the TASK with matching uuid
+               console.log("Task is edited");
               };
+
+            _previous_action.innerHTML = "New task is added successfully (" + new_msg.created_ts + ")"  
           };
 
 
@@ -497,6 +547,21 @@ function _e_icon_peopleView(e){
 
 function _e_scrollUp1(e){ 
 	        console.log("inside callback fn '_e_scollUp1' now !!");
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+
+             _header.classList.remove("headerBar_whenDrill");
+             _icon_separator1.classList.remove("separator_hide");
+             _icon_separator2.classList.remove("separator_hide");
+
 	        if (curr_user_database.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
 	        	  curr_firstShow_task_id++;
                   load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
@@ -505,7 +570,21 @@ function _e_scrollUp1(e){
 
 function _e_scrollDown1(e){ 
 	        console.log("inside callback fn '_e_scrollDown1' now !!");
-	        if (curr_firstShow_task_id - 1 >= 0) {
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+
+             _header.classList.remove("headerBar_whenDrill");
+             _icon_separator1.classList.remove("separator_hide");
+             _icon_separator2.classList.remove("separator_hide");
+ 	        if (curr_firstShow_task_id - 1 >= 0) {
 	        	  curr_firstShow_task_id--;
                   load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 	        }
@@ -525,9 +604,14 @@ function _e_sharelist(e){ console.log("inside callback fn '_e_sharelist' now !!"
 
 function _e_closePopup(e){ 
 	       console.log("inside callback fn '_e_closePopup' now !!")
+           closePopup();
+	       };
+
+function  closePopup(){ 
 	      _popup_window.classList.add("loader");
 	      _popup_window.classList.add("hidden");
 	       };
+
 function _e_postTask(e){ console.log("inside callback fn '_e_postTask' now !!"); };
 
 function _e_go2ListOpenOnly(e){ console.log("inside callback fn '_e_go2ListOpenOnly' now !!"); };
@@ -834,6 +918,8 @@ function _e_load_task(e) {
      //-----------------------------------------------------------------------------------------
 	 // add a function to sort the tasks based on the descending Priority ----------------------
      //-----------------------------------------------------------------------------------------
+     _curr_ToDoList_name.innerHTML = "Personal/Home  with " 
+                                 + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
      load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
