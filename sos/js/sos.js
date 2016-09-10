@@ -3,9 +3,15 @@
 //------------------------------------------------------
 var c_max_task_listed =0;
 var curr_firstShow_task_id =0;
-var curr_todolist_id=0;
-var to_do_list = initial_ToDoList_JSON.User[0];
+var curr_todolist_id=0;   //----------- default list is PERSONAL -------------------------------
+var to_do_list = initial_ToDoList_JSON.User[curr_todolist_id];
 
+//----------------------------------------------------------------------------------------------
+//--------------- do sorting by Priority here after filtering out the closed task --------------
+//----------------------------------------------------------------------------------------------
+
+var form_mode='new';  // or 'edit'
+var curr_UUID ="";
 var today_ = Date();
 var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
 
@@ -57,6 +63,8 @@ var _articlePic4       = document.querySelector(".articlePic4");
 var _articlePic5       = document.querySelector(".articlePic5");
 
 var _popup_window      = document.querySelector("#popUp");
+
+var _editingMsg        = document.querySelector("#EditingMsg");
 var _icon_closePopup   = document.querySelector(".closePopUp");
 var _msg_todolist_name = document.querySelector("#msg_todolist_name");
 var _msg_title         = document.querySelector("#msg_title");
@@ -67,7 +75,6 @@ var _msg_timeneeded    = document.querySelector("#msg_timeneeded");
 var _msg_importance    = document.querySelector("#msg_importance");
 var _msg_urgency       = document.querySelector("#msg_urgency");
 var _msg_levelOfEffort = document.querySelector("#msg_levelOfEffort");
-
 var _save_Task         = document.querySelector(".save_task");
 
 var _task1             = document.querySelector(".task1");
@@ -163,7 +170,7 @@ var _tk1_importance    = document.querySelector(".task1_importance");
 var _tk1_urgency       = document.querySelector(".task1_urgency");
 var _tk1_LOE           = document.querySelector(".task1_LOE");
 var _tk1_notes         = document.querySelector(".task1_Notes");
-var _tk1_status         = document.querySelector(".task1_status");
+var _tk1_status        = document.querySelector(".task1_status");
 
 var _tk2_title         = document.querySelector(".task2_title");
 var _tk2_details       = document.querySelector(".task2_details");
@@ -369,6 +376,8 @@ function _e_composeTask(e){
 	      _popup_window.classList.remove("hidden");
 	      _popup_window.classList.remove("loader");
 
+          // generate UUID here !!!!!!!!!!!  
+          _editingMsg.dataset.uuid = gen_UUID();
           switch(curr_todolist_id) {
           	case 0 : _msg_todolist_name.innHTML = 'Personal'; break;
           	case 1 : _msg_todolist_name.innHTML = 'Social'; break;
@@ -377,12 +386,59 @@ function _e_composeTask(e){
           }
 	   };
 
+function loadEditTask(uuid){  /// load the values into the form for editing !!!
+	      console.log("inside callback fn '_e_composeTask' now !!");
+	         _task4_drilldown.classList.add("hideDrilldown");
+	         _task4.classList.remove("article_with_notes");
+	         _task3_drilldown.classList.add("hideDrilldown");
+	         _task3.classList.remove("article_with_notes");
+	         _task5_drilldown.classList.add("hideDrilldown");
+	         _task5.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+	      _popup_window.classList.remove("hidden");
+	      _popup_window.classList.remove("loader");
+          curr_UUID = uuid;
+          // load the task details into the form with UUID  !!!!!!!!!!!  
+          switch(curr_todolist_id) {
+          	case 0 : _msg_todolist_name.innHTML = 'Personal'; break;
+          	case 1 : _msg_todolist_name.innHTML = 'Social'; break;
+          	case 2 : _msg_todolist_name.innHTML = 'Confidential'; break;
+            default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
+          }
+	   };
+
+
 function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
+            var new_msg = msg_template;
+            var uuid ="";
+			new_msg.uuid = _editingMsg.dataset.uuid;
+			new_msg.msg_title = _msg_title.value;
+			new_msg.msg_details = _msg_details.value;
+			new_msg.msg_task_type = _msg_task_type.value;
+			new_msg.msg_due_date = _msg_duedate.value;
+			new_msg.msg_time_needed = _msg_timeneeded.value;
+			new_msg.msg_importance = _msg_importance.value;
+			new_msg.msg_urgency = _msg_urgency.value;
+			new_msg.msg_levelOfEffort = _msg_levelOfEffort.value;
+            if (form_mode=='new'){
+               console.log("add new task");
+               // push into the local_list & database
+              }
+            else if (form_mode=='edit'){
+               console.log("edit existing task");
+               // loop thru local_list & database and update the TASK with matching uuid
+              };
           };
+
+
 
 function _e_tk1_postNotes(e) {
 	        console.log("inside callback fn '_e_tk1_postNotes' now !!");
+	        var new_notes = notes_template; 
           };
 function _e_tk2_postNotes(e) {
 	        console.log("inside callback fn '_e_tk2_postNotes' now !!");
@@ -396,6 +452,9 @@ function _e_tk4_postNotes(e) {
 function _e_tk5_postNotes(e) {
 	        console.log("inside callback fn '_e_tk5_postNotes' now !!");
           };
+
+
+
 
 function _e_icon_calendarView(e){ 
 	        console.log("inside callback fn '_e_icon_calendarView' now !!");
@@ -450,11 +509,45 @@ function _e_go2ListArchive(e){ console.log("inside callback fn '_e_go2ListArchiv
 function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDue' now !!"); };
 function _e_go2ListTouch3days(e){ console.log("inside callback fn '_e_go2ListTouch3days' now !!"); };
 
-function _e_tk1_edit_task(e){ console.log("inside callback fn '_e_tk1_edit_task' now !!"); };
-function _e_tk2_edit_task(e){ console.log("inside callback fn '_e_tk2_edit_task' now !!"); };
-function _e_tk3_edit_task(e){ console.log("inside callback fn '_e_tk3_edit_task' now !!"); };
-function _e_tk4_edit_task(e){ console.log("inside callback fn '_e_tk4_edit_task' now !!"); };
-function _e_tk5_edit_task(e){ console.log("inside callback fn '_e_tk5_edit_task' now !!"); };
+function _e_tk1_edit_task(e){ 
+	        console.log("inside callback fn '_e_tk1_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        _editingMsg.dataset.uuid = _task1.dataset.uuid;
+	        loadEditTask(_editingMsg.dataset.uuid);
+	     };
+function _e_tk2_edit_task(e){ 
+	        console.log("inside callback fn '_e_tk2_edit_task' now !!");
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        _editingMsg.dataset.uuid = _task2.dataset.uuid;
+	        loadEditTask(_editingMsg.dataset.uuid);
+	     };
+function _e_tk3_edit_task(e){ 
+	        console.log("inside callback fn '_e_tk3_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        _editingMsg.dataset.uuid = _task3.dataset.uuid;
+	        loadEditTask(_editingMsg.dataset.uuid);
+	     };
+function _e_tk4_edit_task(e){ 
+	        console.log("inside callback fn '_e_tk4_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        _editingMsg.dataset.uuid = _task4.dataset.uuid;
+	        loadEditTask(_editingMsg.dataset.uuid);
+	     };
+function _e_tk5_edit_task(e){ 
+	        console.log("inside callback fn '_e_tk5_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        _editingMsg.dataset.uuid = _task5.dataset.uuid;
+	        loadEditTask(_editingMsg.dataset.uuid);
+	     };
+
+
+
+
 
 //----------------------------------------------------------------------------------
 function _e_tk1_show_details(e){ 
@@ -732,7 +825,7 @@ function _e_tk5_notesClose(e){
 //-----------------------------------------------------------------
 //-------  Supporting Functions  ----------------------------------
 //-----------------------------------------------------------------
-function uuid() {
+function gen_UUID() {
   var uuid = "", i, random;
   for (i = 0; i < 32; i++) {
     random = Math.random() * 16 | 0;
