@@ -956,9 +956,9 @@ _articlePic4.src = articleImage4_str;
 _articlePic5.src = articleImage5_str;
 
 switch(curr_todolist_id) {
-	case 0: listname= "Personal/Home  with ";
-	case 1: listname= "Social/Work  with ";
-	case 2: listname= "Confidential  with ";
+	case 0: listname= "Personal/Home  with "; break;
+	case 1: listname= "Social/Work  with "; break;
+	case 2: listname= "Confidential  with "; break;
 }
  _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
 
