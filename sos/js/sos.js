@@ -1,11 +1,31 @@
+
+//------------------------------------------------------------------------
+// Establish a connection with Firebase --------------------------------
+ var fbRef = new Firebase("https://sos7-37957.firebaseio.com");
+//---------------------------------------------------------------------
+//--------- for multi-users -------------------------------------------
+//---------------------------------------------------------------------
+// Initialize Firebase
+//  var config = {
+//    apiKey: "AIzaSyDiu-guTL-2JBvIetP3Qa6sBiqfy9m-OBY",
+//    authDomain: "sos7-37957.firebaseapp.com",
+//    databaseURL: "https://sos7-37957.firebaseio.com",
+//    storageBucket: "sos7-37957.appspot.com",
+//  };
+//  firebase.initializeApp(config);
+
+//  https://sos7-37957.firebaseio.com/
+
+
 //------------------------------------------------------
 //----- Core data : To-do-list object ------------------
 //------------------------------------------------------
+var curr_user_id = 0;
 var c_max_task_listed =0;
 var curr_firstShow_task_id =0;
 var curr_todolist_id=0;   //----------- default list is PERSONAL -------------------------------
-var to_do_list = initial_ToDoList_JSON.User[curr_todolist_id];
-
+var curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
+//var display_list = local_database.[curr_todolist_id]
 //----------------------------------------------------------------------------------------------
 //--------------- do sorting by Priority here after filtering out the closed task --------------
 //----------------------------------------------------------------------------------------------
@@ -379,10 +399,11 @@ function _e_composeTask(e){
           // generate UUID here !!!!!!!!!!!  
           _editingMsg.dataset.uuid = gen_UUID();
           switch(curr_todolist_id) {
-          	case 0 : _msg_todolist_name.innHTML = 'Personal'; break;
-          	case 1 : _msg_todolist_name.innHTML = 'Social'; break;
-          	case 2 : _msg_todolist_name.innHTML = 'Confidential'; break;
+          	case 0 : _msg_todolist_name.innerHTML = 'Personal'; break;
+          	case 1 : _msg_todolist_name.innerHTML = 'Social'; break;
+          	case 2 : _msg_todolist_name.innerHTML = 'Confidential'; break;
             default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
+            debugger
           }
 	   };
 
@@ -403,9 +424,9 @@ function loadEditTask(uuid){  /// load the values into the form for editing !!!
           curr_UUID = uuid;
           // load the task details into the form with UUID  !!!!!!!!!!!  
           switch(curr_todolist_id) {
-          	case 0 : _msg_todolist_name.innHTML = 'Personal'; break;
-          	case 1 : _msg_todolist_name.innHTML = 'Social'; break;
-          	case 2 : _msg_todolist_name.innHTML = 'Confidential'; break;
+          	case 0 : _msg_todolist_name.innerHTML = 'Personal'; break;
+          	case 1 : _msg_todolist_name.innerHTML = 'Social'; break;
+          	case 2 : _msg_todolist_name.innerHTML = 'Confidential'; break;
             default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
           }
 	   };
@@ -424,9 +445,17 @@ function _e_saveTask(e) {
 			new_msg.msg_importance = _msg_importance.value;
 			new_msg.msg_urgency = _msg_urgency.value;
 			new_msg.msg_levelOfEffort = _msg_levelOfEffort.value;
+			new_msg.msg_status = "Open";
+			new_msg.priority = "0";
+			new_msg.created_ts = gen_timestamp();
+
+			debugger
+
             if (form_mode=='new'){
                console.log("add new task");
                // push into the local_list & database
+               curr_user_database.List[curr_todolist_id].msg.push(new_msg);
+               debugger
               }
             else if (form_mode=='edit'){
                console.log("edit existing task");
@@ -468,9 +497,9 @@ function _e_icon_peopleView(e){
 
 function _e_scrollUp1(e){ 
 	        console.log("inside callback fn '_e_scollUp1' now !!");
-	        if (to_do_list.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
+	        if (curr_user_database.List[curr_todolist_id].Msg.length - curr_firstShow_task_id > 5) {
 	        	  curr_firstShow_task_id++;
-                  load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+                  load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 	        }
 	    };
 
@@ -478,7 +507,7 @@ function _e_scrollDown1(e){
 	        console.log("inside callback fn '_e_scrollDown1' now !!");
 	        if (curr_firstShow_task_id - 1 >= 0) {
 	        	  curr_firstShow_task_id--;
-                  load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+                  load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 	        }
 	    };
 
@@ -569,16 +598,16 @@ function _e_tk1_show_details(e){
 function _e_tk1_trash(e){ console.log("inside callback fn '_e_tk1_trash' now !!")};
 function _e_tk1_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk1_add_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
 	                 var y = parseInt(x) +1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
                		 _tk1_priority.innerHTML       = y.toString();
 	                 };
 function _e_tk1_sub_priority(e){ 
 	                 console.log("inside callback fn '_e_tk1_sub_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
 	                 var y = parseInt(x) -1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority = y.toString();
                		 _tk1_priority.innerHTML       = y.toString();
 	                 };
 function _e_tk1_complete(e){ console.log("inside callback fn '_e_tk1_complete' now !!")};
@@ -616,16 +645,16 @@ function _e_tk2_show_details(e){
 function _e_tk2_trash(e){ console.log("inside callback fn '_e_tk2_trash' now !!")};
 function _e_tk2_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk2_add_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
 	                 var y = parseInt(x) +1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
                		 _tk2_priority.innerHTML       = y.toString();
 	                 };
 function _e_tk2_sub_priority(e){ 
 	                 console.log("inside callback fn '_e_tk2_sub_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
 	                 var y = parseInt(x) -1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority = y.toString();
                		 _tk2_priority.innerHTML       = y.toString();
 	                 };
 function _e_tk2_complete(e){ console.log("inside callback fn '_e_tk2_complete' now !!")};
@@ -664,17 +693,17 @@ function _e_tk3_show_details(e){
 function _e_tk3_trash(e){ console.log("inside callback fn '_e_tk3_trash' now !!")};
 function _e_tk3_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk3_add_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
 	                 var y = parseInt(x) +1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
                		 _tk3_priority.innerHTML       = y.toString();
 	                 };
 
 function _e_tk3_sub_priority(e){ 
 	                 console.log("inside callback fn '_e_tk3_sub_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
 	                 var y = parseInt(x) -1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority = y.toString();
                		 _tk3_priority.innerHTML       = y.toString();
 	                 };
 
@@ -714,17 +743,17 @@ function _e_tk4_show_details(e){
 function _e_tk4_trash(e){ console.log("inside callback fn '_e_tk4_trash' now !!")};
 function _e_tk4_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk4_add_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
 	                 var y = parseInt(x) +1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
                		 _tk4_priority.innerHTML       = y.toString();
 	                 };
 
 function _e_tk4_sub_priority(e){ 
 	                 console.log("inside callback fn '_e_tk4_sub_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
 	                 var y = parseInt(x) -1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority = y.toString();
                		 _tk4_priority.innerHTML       = y.toString();
 	                 };
 function _e_tk4_complete(e){ console.log("inside callback fn '_e_tk4_complete' now !!")};
@@ -764,17 +793,17 @@ function _e_tk5_show_details(e){
 function _e_tk5_trash(e){ console.log("inside callback fn '_e_tk5_trash' now !!")};
 function _e_tk5_add_priority(e){
 	                 console.log("inside callback fn '_e_tk5_add_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
 	                 var y = parseInt(x) +1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
                		 _tk5_priority.innerHTML       = y.toString();
 	                 };
 
 function _e_tk5_sub_priority(e){        
 	                 console.log("inside callback fn '_e_tk5_sub_priority' now !!");
-	                 var x = to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
+	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
 	                 var y = parseInt(x) -1;
-	                 to_do_list.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
+	                 curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority = y.toString();
                		 _tk5_priority.innerHTML       = y.toString();
 	                 };
 
@@ -797,45 +826,6 @@ function _e_tk5_notesClose(e){
 
 
 
-//------------------------------------------------------------------------
-// Establish a connection with Firebase --------------------------------
- var fbRef = new Firebase("https://sos7-37957.firebaseio.com");
-//------------------------------------------------------------------------
-
-//---------------------------------------------------------------------
-//--------- new way ?? ------------------------------------------------
-//---------------------------------------------------------------------
-// Initialize Firebase
-//  var config = {
-//    apiKey: "AIzaSyDiu-guTL-2JBvIetP3Qa6sBiqfy9m-OBY",
-//    authDomain: "sos7-37957.firebaseapp.com",
-//    databaseURL: "https://sos7-37957.firebaseio.com",
-//    storageBucket: "sos7-37957.appspot.com",
-//  };
-//  firebase.initializeApp(config);
-
-//  https://sos7-37957.firebaseio.com/
-
-
-
-
-
-
-// hideDrilldown
-//-----------------------------------------------------------------
-//-------  Supporting Functions  ----------------------------------
-//-----------------------------------------------------------------
-function gen_UUID() {
-  var uuid = "", i, random;
-  for (i = 0; i < 32; i++) {
-    random = Math.random() * 16 | 0;
-    if (i == 8 || i == 12 || i == 16 || i == 20) {
-      uuid += "-"
-    }
-    uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-  }
-  return uuid;
-}
 
 
 
@@ -844,15 +834,18 @@ function _e_load_task(e) {
      //-----------------------------------------------------------------------------------------
 	 // add a function to sort the tasks based on the descending Priority ----------------------
      //-----------------------------------------------------------------------------------------
-     load_tasks(to_do_list, curr_todolist_id, curr_firstShow_task_id);
+     load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
 //---- need some calculation here to load the stored data and re-order based on their priorities -------
 //------------------------------------------------------------------------------------------------------
 
 
-function load_tasks(to_do_list, todolist_id, start_task_id) {
 
+
+
+
+function load_tasks(to_do_list, todolist_id, start_task_id) {
 //-------------------------------------------------------
 //------------ dynamic pic ------------------------------
 //-------------------------------------------------------
@@ -898,6 +891,7 @@ _articlePic5.src = articleImage5_str;
 		_tk1_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
 		_tk1_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 
+debugger
         if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
@@ -1112,8 +1106,42 @@ _articlePic5.src = articleImage5_str;
 
 }
 
+//-----------------------------------------------------------------
+//-------  Supporting Functions  ----------------------------------
+//-----------------------------------------------------------------
+function gen_UUID() {
+  var uuid = "", i, random;
+  for (i = 0; i < 32; i++) {
+    random = Math.random() * 16 | 0;
+    if (i == 8 || i == 12 || i == 16 || i == 20) {
+      uuid += "-"
+    }
+    uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+  }
+  return uuid;
+}
 
-
+function gen_timestamp() {
+	var now_ = Date();
+	var mth = "";
+	var mth_str = now_.substring(4, 7);
+	switch (mth_str) {
+	  case "Jan"  : mth="01"; break;
+	  case "Feb"  : mth="02"; break;
+	  case "Mar"  : mth="03"; break;
+	  case "Arp"  : mth="04"; break;
+	  case "May"  : mth="05"; break;
+	  case "Jun"  : mth="06"; break;
+	  case "Jul"  : mth="07"; break;
+	  case "Aug"  : mth="08"; break;
+	  case "Sep"  : mth="09"; break;
+	  case "Oct"  : mth="10"; break;
+	  case "Nov"  : mth="11"; break;
+	  case "Dec"  : mth="12"; break;
+	  default  : mth="??";
+	}
+	return now_.substring(11, 15) + '-' + mth + '-' + now_.substring(8, 10) + ' ' + now_.substring(16, 24);
+}
 
 /*
 var to_do_list = {  "Last_modified_date":"2016-09-04",

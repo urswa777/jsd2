@@ -2,7 +2,11 @@
 //----- Core data : To-do-list object ------------------
 //------------------------------------------------------
 
-
+var display_list = {
+	                 "to_do_list__id":"",
+                     "uuid":"",
+                     "priority":""
+                   }
 
 var msg_template =  {
 		                             "uuid":"",
@@ -27,6 +31,7 @@ var msg_template =  {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -74,6 +79,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"2016-09-03 11:56pm",
 		                             "is_completed":"1",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 2 hours", 
@@ -105,6 +111,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"2016-09-04 08:11am",
 		                             "is_completed":"1",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Easier than I thought, cut 2 hours", 
@@ -134,6 +141,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"get stuck with some glitch on some icons in the header", 
@@ -165,6 +173,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -194,6 +203,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -223,6 +233,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -252,6 +263,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -281,6 +293,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -310,6 +323,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -339,6 +353,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -369,6 +384,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -399,6 +415,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -429,6 +446,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -459,6 +477,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -489,6 +508,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -520,6 +540,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -550,6 +571,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -579,6 +601,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -609,6 +632,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -639,6 +663,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -669,6 +694,7 @@ var initial_ToDoList_JSON = {
 		                             "completed_ts":"",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
@@ -708,6 +734,7 @@ var initial_ToDoList_JSON = {
 		                             "created_ts":"2016-09-05 11:07am",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"buy a gift by 5 hours", 
@@ -735,6 +762,7 @@ var initial_ToDoList_JSON = {
 		                             "created_ts":"2016-09-05 10:17pm",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"may need to reschedule like one week later", 
@@ -762,6 +790,7 @@ var initial_ToDoList_JSON = {
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"recurring as usual", 
@@ -796,6 +825,7 @@ var initial_ToDoList_JSON = {
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
@@ -825,6 +855,7 @@ var initial_ToDoList_JSON = {
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
 		                             "last_touched_ts":"",
+		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
