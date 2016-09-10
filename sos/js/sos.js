@@ -4,7 +4,7 @@
 var c_max_task_listed =0;
 var curr_firstShow_task_id =0;
 var curr_todolist_id=0;
-var to_do_list = defaultJSON.User[0];
+var to_do_list = initial_ToDoList_JSON.User[0];
 
 var today_ = Date();
 var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
@@ -745,6 +745,7 @@ _articlePic5.src = articleImage5_str;
 //to_do_list.List[0].Msg[0].uuid             
   if (to_do_list.List[todolist_id].Msg.length > 0) {
         _task1.classList.remove("task1_hide");
+        _task1.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id].uuid;
 		_tk1_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id].msg_title;
 		_tk1_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id].priority;
 		// _tk1_time_remained.innerHTML  = need calculation ;
@@ -787,6 +788,7 @@ _articlePic5.src = articleImage5_str;
 //to_do_list.List[0].Msg[1].uuid             
   if (to_do_list.List[todolist_id].Msg.length > 1) {
         _task2.classList.remove("task2_hide");
+        _task2.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id+1].uuid;
 		_tk2_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_title;
 		_tk2_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+1].priority;
 		// _tk2_time_remained.innerHTML  = need calculation ;
@@ -831,6 +833,7 @@ _articlePic5.src = articleImage5_str;
 //to_do_list.List[0].Msg[0].uuid             
   if (to_do_list.List[todolist_id].Msg.length > 2) {
         _task3.classList.remove("task3_hide");
+        _task3.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id+2].uuid;
 		_tk3_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_title;
 		_tk3_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+2].priority;
 		// _tk3_time_remained.innerHTML  = need calculation ;
@@ -878,6 +881,8 @@ _articlePic5.src = articleImage5_str;
 //to_do_list.List[0].Msg[0].uuid             
   if (to_do_list.List[todolist_id].Msg.length > 3) {
         _task4.classList.remove("task4_hide");
+        _task4.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id+3].uuid;
+        _task4.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id+3].uuid;
 		_tk4_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_title;
 		_tk4_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+3].priority;
 		// _tk4_time_remained.innerHTML  = need calculation ;
@@ -925,6 +930,7 @@ _articlePic5.src = articleImage5_str;
 //to_do_list.List[0].Msg[0].uuid             
   if (to_do_list.List[todolist_id].Msg.length > 4) {
         _task5.classList.remove("task5_hide");
+        _task5.dataset.uuid           = to_do_list.List[todolist_id].Msg[start_task_id+4].uuid;       
 		_tk5_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_title;
 		_tk5_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+4].priority;
 		// _tk5_time_remained.innerHTML  = need calculation ;

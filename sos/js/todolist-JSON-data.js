@@ -2,7 +2,43 @@
 //----- Core data : To-do-list object ------------------
 //------------------------------------------------------
 
-var defaultJSON = {  
+
+
+var msg_template =  {
+		                             "uuid":"",
+		                             "msg_title":"",
+		                             "msg_details":"",
+		                             "msg_task_type":"",
+		                             "msg_due_date":"",
+		                             "msg_time_needed":"",
+		                             "msg_importance":"",
+		                             "msg_urgency":"",
+		                             "msg_status":"",
+		                             "msg_levelOfEffort":"",
+		                             "msg_freqency":"",
+		                             "is_recurring":"",
+		                             "Love_task":"",
+		                             "priority":"",
+		                             "my_role":"",
+		                             "people_Group_involved":"",
+		                             "event_location":"",
+		                             "created_ts":"",
+		                             "started_ts":"",
+		                             "completed_ts":"",
+		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
+		                             "Notes": [ 
+		                                {"update_msg":"none", 
+		                                 "update_datetime":""}
+		                                 ]
+		                           };
+
+var notes_template =  {"update_msg":"", 
+		                "update_datetime":""};
+
+
+var initial_ToDoList_JSON = {  
 	       "Type":"To-Do-List",
            "User":[
                {
@@ -37,6 +73,8 @@ var defaultJSON = {
 		                             "started_ts":"2016-09-03 03:00pm",
 		                             "completed_ts":"2016-09-03 11:56pm",
 		                             "is_completed":"1",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 2 hours", 
 		                                 "update_datetime":"2016-09-03 04:40pm"},
@@ -66,6 +104,8 @@ var defaultJSON = {
 		                             "started_ts":"2016-09-04 06:00am",
 		                             "completed_ts":"2016-09-04 08:11am",
 		                             "is_completed":"1",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Easier than I thought, cut 2 hours", 
 		                                 "update_datetime":"2016-09-04 07:40am"}
@@ -93,6 +133,8 @@ var defaultJSON = {
 		                             "started_ts":"2016-09-04 12:00pm",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"get stuck with some glitch on some icons in the header", 
 		                                 "update_datetime":"2016-09-05 05:25pm"},
@@ -122,6 +164,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -149,6 +193,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -176,6 +222,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -203,6 +251,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -230,6 +280,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -257,6 +309,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -284,6 +338,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -312,6 +368,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -340,6 +398,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -368,6 +428,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -396,6 +458,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -424,6 +488,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -453,6 +519,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -481,6 +549,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -508,6 +578,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -536,6 +608,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -564,6 +638,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -592,6 +668,8 @@ var defaultJSON = {
 		                             "started_ts":"",
 		                             "completed_ts":"",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
@@ -629,6 +707,8 @@ var defaultJSON = {
 		                             "event_location":"San Francisco, CA",
 		                             "created_ts":"2016-09-05 11:07am",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"buy a gift by 5 hours", 
 		                                 "update_datetime":"2016-09-06 07:15am"}
@@ -654,6 +734,8 @@ var defaultJSON = {
 		                             "event_location":"San Francisco, CA",
 		                             "created_ts":"2016-09-05 10:17pm",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"may need to reschedule like one week later", 
 		                                 "update_datetime":"2016-09-06 10:48am"}
@@ -679,6 +761,8 @@ var defaultJSON = {
 		                             "event_location":"San Francisco, CA",
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"recurring as usual", 
 		                                 "update_datetime":"2016-09-06 01:33pm"}
@@ -711,6 +795,8 @@ var defaultJSON = {
 		                             "event_location":"San Francisco, CA",
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"Something comes up, will delay by 5 hours", 
 		                                 "update_datetime":"2016-09-04 09:40am"},
@@ -738,6 +824,8 @@ var defaultJSON = {
 		                             "event_location":"San Francisco, CA",
 		                             "created_ts":"2016-09-03 09:07am",
 		                             "is_completed":"0",
+		                             "last_touched_ts":"",
+		                             "touch_count":"",
 		                             "Notes": [ 
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
