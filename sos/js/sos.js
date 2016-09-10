@@ -48,6 +48,7 @@ var _list_pendingOnly  = document.querySelector(".List_PendingOnly");
 var _list_archive      = document.querySelector(".List_Archived");
 var _list_pastDue      = document.querySelector(".List_PastDue");
 var _list_touch3days   = document.querySelector(".List_Touch3Days");
+var _list_MyFavorite   = document.querySelector(".List_MyFavorite");
 
 var _articlePic1       = document.querySelector(".articlePic1");
 var _articlePic2       = document.querySelector(".articlePic2");
@@ -374,7 +375,7 @@ function _e_composeTask(e){
           	case 2 : _msg_todolist_name.innHTML = 'Confidential'; break;
             default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
           }
-	      };
+	   };
 
 function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
