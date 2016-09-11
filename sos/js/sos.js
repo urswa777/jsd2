@@ -30,6 +30,7 @@ var curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
 //--------------- do sorting by Priority here after filtering out the closed task --------------
 //----------------------------------------------------------------------------------------------
 
+var new_msg = msg_template;
 var form_mode='new';  // or 'edit'
 var curr_UUID ="";
 var today_ = Date();
@@ -427,6 +428,7 @@ function _e_todolist_secret(e){
 
 function _e_composeTask(e){ 
 	      console.log("inside callback fn '_e_composeTask' now !!");
+          form_mode='new';
 	         _task4_drilldown.classList.add("hideDrilldown");
 	         _task4.classList.remove("article_with_notes");
 	         _task3_drilldown.classList.add("hideDrilldown");
@@ -452,7 +454,7 @@ function _e_composeTask(e){
 	   };
 
 function loadEditTask(uuid){  /// load the values into the form for editing !!!
-	      console.log("inside callback fn '_e_composeTask' now !!");
+          console.log("inside callback fn '_e_composeTask' now !!");
 	         _task4_drilldown.classList.add("hideDrilldown");
 	         _task4.classList.remove("article_with_notes");
 	         _task3_drilldown.classList.add("hideDrilldown");
@@ -478,8 +480,9 @@ function loadEditTask(uuid){  /// load the values into the form for editing !!!
 
 function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
-            var new_msg = msg_template;
+            new_msg = msg_template;
             var uuid ="";
+            var listname="";
 			new_msg.uuid = _editingMsg.dataset.uuid;
 			new_msg.msg_title = _msg_title.value;
 			new_msg.msg_details = _msg_details.value;
@@ -496,22 +499,31 @@ function _e_saveTask(e) {
 			debugger
 
             if (form_mode=='new'){
-               console.log("add new task");
-               // push into the local_list & database
-               console.log("curr_todolist_id", curr_todolist_id);
+		               console.log("add new task");
+		               // push into the local_list & database
+		               console.log("curr_todolist_id", curr_todolist_id);
 
-               curr_user_database.List[curr_todolist_id].Msg.push(new_msg);
-               debugger
-               console.log("added & you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
-              }
+		               curr_user_database.List[curr_todolist_id].Msg.push(new_msg);
+		               debugger
+		               console.log("Task added : you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
+		              }
             else if (form_mode=='edit'){
-               console.log("edit existing task");
-               // loop thru local_list & database and update the TASK with matching uuid
-               console.log("Task is edited");
-              };
+		               console.log("edit existing task");
+		               // loop thru local_list & database and update the TASK with matching uuid
+		               console.log("Task is edited");
+		              };
             closePopup();
-           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+            //load_tasks(curr_user_database, curr_todolist_id, 0);
             _previous_action.innerHTML = "New task is added successfully (" + new_msg.created_ts + ")"  
+            console.log("Again, task is added & you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
+            console.log("The new Local database :" + curr_user_database);
+            debugger
+			switch(curr_todolist_id) {
+				case 0: listname= "Personal/Home  with "; break;
+				case 1: listname= "Social/Work  with "; break;
+				case 2: listname= "Confidential  with "; break;
+			}
+			 _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           };
 
 
@@ -519,18 +531,72 @@ function _e_saveTask(e) {
 function _e_tk1_postNotes(e) {
 	        console.log("inside callback fn '_e_tk1_postNotes' now !!");
 	        var new_notes = notes_template; 
+            var li_notes = document.createElement("LI");
+            var i;
+	        new_notes.update_msg = addNotes1.value;
+	        new_notes.update_datetime = gen_timestamp();
+            curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.push(new_notes);
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.length
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_datetime
+		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
+            _tk1_notes.appendChild(li_notes);
+            addNotes1.value="";
           };
 function _e_tk2_postNotes(e) {
 	        console.log("inside callback fn '_e_tk2_postNotes' now !!");
+	        var new_notes = notes_template; 
+            var li_notes = document.createElement("LI");
+            var i;
+	        new_notes.update_msg = addNotes2.value;
+	        new_notes.update_datetime = gen_timestamp();
+            curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes.push(new_notes);
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes.length
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_datetime
+		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
+            _tk2_notes.appendChild(li_notes);
+            addNotes2.value="";
           };
 function _e_tk3_postNotes(e) {
 	        console.log("inside callback fn '_e_tk3_postNotes' now !!");
+	        var new_notes = notes_template; 
+            var li_notes = document.createElement("LI");
+            var i;
+	        new_notes.update_msg = addNotes3.value;
+	        new_notes.update_datetime = gen_timestamp();
+            curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes.push(new_notes);
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes.length
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_datetime
+		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_msg;
+            _tk3_notes.appendChild(li_notes);
+            addNotes3.value="";
           };
 function _e_tk4_postNotes(e) {
 	        console.log("inside callback fn '_e_tk4_postNotes' now !!");
+	        var new_notes = notes_template; 
+            var li_notes = document.createElement("LI");
+            var i;
+	        new_notes.update_msg = addNotes4.value;
+	        new_notes.update_datetime = gen_timestamp();
+            curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes.push(new_notes);
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes.length
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_datetime
+		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_msg;
+            _tk4_notes.appendChild(li_notes);
+            addNotes4.value="";
           };
 function _e_tk5_postNotes(e) {
 	        console.log("inside callback fn '_e_tk5_postNotes' now !!");
+	        var new_notes = notes_template; 
+            var li_notes = document.createElement("LI");
+            var i;
+	        new_notes.update_msg = addNotes5.value;
+	        new_notes.update_datetime = gen_timestamp();
+            curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes.push(new_notes);
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes.length
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_datetime
+		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_msg;
+            _tk5_notes.appendChild(li_notes);
+            addNotes5.value="";
           };
 
 
@@ -627,6 +693,7 @@ function _e_tk1_edit_task(e){
 	        console.log("inside callback fn '_e_tk1_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
+	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task1.dataset.uuid;
 	        loadEditTask(_editingMsg.dataset.uuid);
 	     };
@@ -634,6 +701,7 @@ function _e_tk2_edit_task(e){
 	        console.log("inside callback fn '_e_tk2_edit_task' now !!");
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
+	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task2.dataset.uuid;
 	        loadEditTask(_editingMsg.dataset.uuid);
 	     };
@@ -641,6 +709,7 @@ function _e_tk3_edit_task(e){
 	        console.log("inside callback fn '_e_tk3_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
+	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task3.dataset.uuid;
 	        loadEditTask(_editingMsg.dataset.uuid);
 	     };
@@ -648,6 +717,7 @@ function _e_tk4_edit_task(e){
 	        console.log("inside callback fn '_e_tk4_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
+	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task4.dataset.uuid;
 	        loadEditTask(_editingMsg.dataset.uuid);
 	     };
@@ -655,6 +725,7 @@ function _e_tk5_edit_task(e){
 	        console.log("inside callback fn '_e_tk5_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
+	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task5.dataset.uuid;
 	        loadEditTask(_editingMsg.dataset.uuid);
 	     };
@@ -983,7 +1054,7 @@ switch(curr_todolist_id) {
 		_tk1_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
 		_tk1_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 
-debugger
+        _tk1_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
@@ -1027,6 +1098,7 @@ debugger
 		_tk2_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
 		_tk2_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
 
+        _tk2_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
@@ -1072,6 +1144,7 @@ debugger
 		_tk3_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
 		_tk3_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
 
+        _tk3_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
@@ -1121,6 +1194,7 @@ debugger
 		_tk4_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
 		_tk4_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
 
+        _tk4_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
@@ -1169,6 +1243,7 @@ debugger
 		_tk5_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
 		_tk5_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
 
+        _tk5_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length >0) {
 		        for (i=0;i<to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length;i++){
 		                 li_notes = document.createElement("LI");
