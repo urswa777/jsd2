@@ -43,10 +43,10 @@ function dataRetrieved(snapshot){
     if (snapshot.val() === null) {
         curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
     debugger
-        alert("data from code");
+        console.log("data from code");
         return;
     }
-    alert("data from firebase");
+    console.log("data from firebase");
     debugger
     download_data = snapshot.val();
     console.log("download_data: " + download_data);
