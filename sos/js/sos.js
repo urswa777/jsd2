@@ -467,7 +467,21 @@ function _e_saveTask(e) {
 		              }
             else if (form_mode=='edit'){
 		               console.log("edit existing task");
-		               // loop thru local_list & database and update the TASK with matching uuid
+		               // loop thru local_list & database and update the TASK with matching uuid ----
+		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
+                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _editingMsg.dataset.uuid) {
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_title = new_msg.msg_title;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_details = new_msg.msg_details;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_task_type = new_msg.msg_task_type;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_due_date = new_msg.msg_due_date;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_time_needed = new_msg.msg_time_needed;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_importance = new_msg.msg_importance;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_urgency = new_msg.msg_urgency;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_levelOfEffort = new_msg.msg_levelOfEffort;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_status = new_msg.msg_status;
+			                    curr_user_database.List[curr_todolist_id].Msg[i].last_updated_ts = gen_timestamp();
+                             } 
+		                 }
 		               console.log("Task is edited");
 		              };
             closePopup();
@@ -737,6 +751,101 @@ function _e_tk5_edit_task(e){
 			_msg_levelOfEffort.value = _tk5_LOE.innerHTML ;
 	        ShowTaskForm ();
 	     };
+
+
+//------------------------------------------------------------------------------
+function _e_tk1_dup_task(e){ 
+	debugger
+	        console.log("inside callback fn '_e_tk1_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        form_mode='new';
+	        debugger
+	        _editingMsg.dataset.uuid = gen_UUID();
+			_msg_title.value         = _tk1_title.innerHTML ;
+			_msg_details.value       = _tk1_details.innerHTML ;
+			_msg_task_type.value     = _tk1_type.innerHTML ;
+			_msg_duedate.value       = _tk1_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk1_time_remained.innerHTML ;
+			_msg_importance.value    = _tk1_importance.innerHTML ;
+			_msg_urgency.value       = _tk1_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk1_LOE.innerHTML ;
+	debugger		
+	        ShowTaskForm ();
+	        console.log("fn '_e_tk1_edit_task' done !!"); 	        
+	     };
+
+function _e_tk2_dup_task(e){ 
+	        console.log("inside callback fn '_e_tk2_edit_task' now !!");
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        form_mode='new';
+	        _editingMsg.dataset.uuid = gen_UUID();
+			_msg_title.value         = _tk2_title.innerHTML ;
+			_msg_details.value       = _tk2_details.innerHTML ;
+			_msg_task_type.value     = _tk2_type.innerHTML ;
+			_msg_duedate.value       = _tk2_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk2_time_remained.innerHTML ;
+			_msg_importance.value    = _tk2_importance.innerHTML ;
+			_msg_urgency.value       = _tk2_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk2_LOE.innerHTML ;
+	debugger		
+	        ShowTaskForm ();
+	        console.log("fn '_e_tk1_edit_task' done !!"); 	        
+	     };
+
+function _e_tk3_dup_task(e){ 
+	        console.log("inside callback fn '_e_tk3_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        form_mode='new';
+	        _editingMsg.dataset.uuid = gen_UUID();
+			_msg_title.value         = _tk3_title.innerHTML ;
+			_msg_details.value       = _tk3_details.innerHTML ;
+			_msg_task_type.value     = _tk3_type.innerHTML ;
+			_msg_duedate.value       = _tk3_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk3_time_remained.innerHTML ;
+			_msg_importance.value    = _tk3_importance.innerHTML ;
+			_msg_urgency.value       = _tk3_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk3_LOE.innerHTML ;
+	        ShowTaskForm ();
+	     };
+
+function _e_tk4_dup_task(e){ 
+	        console.log("inside callback fn '_e_tk4_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        form_mode='new';
+	        _editingMsg.dataset.uuid = gen_UUID();
+			_msg_title.value         = _tk4_title.innerHTML ;
+			_msg_details.value       = _tk4_details.innerHTML ;
+			_msg_task_type.value     = _tk4_type.innerHTML ;
+			_msg_duedate.value       = _tk4_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk4_time_remained.innerHTML ;
+			_msg_importance.value    = _tk4_importance.innerHTML ;
+			_msg_urgency.value       = _tk4_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk4_LOE.innerHTML ;
+	        ShowTaskForm ();
+	     };
+
+function _e_tk5_dup_task(e){ 
+	        console.log("inside callback fn '_e_tk5_edit_task' now !!"); 
+	        // pass the UUID of "THE" task to EDIT TASK function -----------------
+	        // loadEditTask(uuid);
+	        form_mode='new';
+	        _editingMsg.dataset.uuid = gen_UUID();
+			_msg_title.value         = _tk5_title.innerHTML ;
+			_msg_details.value       = _tk5_details.innerHTML ;
+			_msg_task_type.value     = _tk5_type.innerHTML ;
+			_msg_duedate.value       = _tk5_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk5_time_remained.innerHTML ;
+			_msg_importance.value    = _tk5_importance.innerHTML ;
+			_msg_urgency.value       = _tk5_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk5_LOE.innerHTML ;
+	        ShowTaskForm ();
+	     };
+
+
 
 
 
@@ -1079,6 +1188,7 @@ switch(curr_todolist_id) {
 		   //  _task1.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id].is_completed=="0") {
                 _tk1_status.classList.add("status-open");
+    		    _task1_drilldown.classList.remove("drilldown_completedTask");
         }
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
 		// -------------- LOOP to add CreateElement("LI"); based on the number of elements in the NOTES array -----
@@ -1123,6 +1233,7 @@ switch(curr_todolist_id) {
 		   //  _task2.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+1].is_completed=="0") {
                 _tk2_status.classList.add("status-open");
+    		    _task2_drilldown.classList.remove("drilldown_completedTask");
         }
 
 
@@ -1169,6 +1280,7 @@ switch(curr_todolist_id) {
 		   //  _task3.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+2].is_completed=="0") {
                 _tk3_status.classList.add("status-open");
+    		    _task3_drilldown.classList.remove("drilldown_completedTask");
         }
 
 		// _tk1_Notes.innerHTML          = to_do_list.List[0].Msg[0].msg_title;
@@ -1219,6 +1331,7 @@ switch(curr_todolist_id) {
 		   //  _task4.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+3].is_completed=="0") {
                 _tk4_status.classList.add("status-open");
+    		    _task4_drilldown.classList.remove("drilldown_completedTask");
         }
 
 
@@ -1268,6 +1381,7 @@ switch(curr_todolist_id) {
 		    // _task5.classList.add("article_completed");
 		} else if (to_do_list.List[todolist_id].Msg[start_task_id+4].is_completed=="0") {
                 _tk5_status.classList.add("status-open");
+    		    _task5_drilldown.classList.remove("drilldown_completedTask");
         }
 
 
@@ -1318,26 +1432,3 @@ function gen_timestamp() {
 	return now_.substring(11, 15) + '-' + mth + '-' + now_.substring(8, 10) + ' ' + now_.substring(16, 24);
 }
 
-/*
-var to_do_list = {  "Last_modified_date":"2016-09-04",
-                    "List":
-    	                 [ 
- 		                     {
-			                  "Name": "Primary",
-		                      "Msg": [
-		                           {
-		                             "uuid":"4",
-		                             "msg_title":"Build the visual first (html/css) for to-do-list view!!",
-		                             "msg_details":"Think about all features, layout & UI flow !!",
-		                             "msg_task_type":"Project",
-		                             "msg_due_data":"2016-09-04",
-		                             "msg_time_needed":"0.5",
-		                             "msg_importance":"3",
-		                             "msg_urgency":"5",
-		                             "msg_levelOfEffort":"5",
-		                             "like_count":"0",
-		                             "priority":"5",
-		                             "created_timestamp":"2016-09-03",
-		                             "is_deleted":"0"
-
-*/
