@@ -703,6 +703,7 @@ function _e_back2ListTop(e){ //---- refresh SORTING & back-to-Top --------------
 	            console.log("inside callback fn '_e_back2ListTop' now !!"); 
                 sortTask_byPriority();
                 curr_firstShow_task_id=0;
+                disableAllDrilldown();
                 load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 	            };
 
