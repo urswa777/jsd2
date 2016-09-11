@@ -702,6 +702,7 @@ function _e_nextPage(e){
 function _e_back2ListTop(e){ //---- refresh SORTING & back-to-Top ---------------
 	            console.log("inside callback fn '_e_back2ListTop' now !!"); 
                 sortTask_byPriority();
+                curr_firstShow_task_id=0;
                 load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 	            };
 
@@ -1515,7 +1516,7 @@ function sortTask_byPriority(){
      var x = curr_user_database.List[curr_todolist_id].Msg;
      console.log("before sorting:", x);
      for (i=0; i<x.length;i++) {
-        if (x[i].is_completed=="1") {
+        if (x[i].is_completed=="1" && parseInt(x[i].priority) >=0) {
               k = parseInt(x[i].priority) - 100;
               x[i].priority = k.toString();
         }
