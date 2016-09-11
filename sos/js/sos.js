@@ -11,7 +11,6 @@ var curr_user_database ; //= initial_ToDoList_JSON.User[curr_user_id];
 //--------------- do sorting by Priority here after filtering out the closed task --------------
 //----------------------------------------------------------------------------------------------
 
-var new_msg = msg_template;
 var form_mode='new';  // or 'edit'
 var curr_UUID ="";
 var today_ = Date();
@@ -395,6 +394,7 @@ function _e_todolist_personal(e){
           _todolist_social.classList.add("todolist_social_off");
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
+          sortTask_byPriority();
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
           _curr_ToDoList_name.innerHTML = "Home/Personal   with " 
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
@@ -414,6 +414,7 @@ function _e_todolist_social(e){
           _todolist_social.classList.add("todolist_social_on");
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
+          sortTask_byPriority();
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
           _curr_ToDoList_name.innerHTML = "Social/Work   with "
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
@@ -433,6 +434,7 @@ function _e_todolist_secret(e){
           _todolist_social.classList.add("todolist_social_off");
           _todolist_secret.classList.remove("todolist_secret_off");
           _todolist_secret.classList.add("todolist_secret_on");
+          sortTask_byPriority();
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
           _curr_ToDoList_name.innerHTML = "Confidential   with "
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
@@ -465,7 +467,7 @@ function _e_composeTask(e){
 
 function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
-            new_msg = msg_template;
+            var new_msg = msg_template;
             var uuid ="";
             var listname="";
 			new_msg.uuid = _editingMsg.dataset.uuid;
@@ -609,7 +611,8 @@ function _e_tk5_postNotes(e) {
 
 
 
-
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
 function _e_icon_calendarView(e){ 
 	        console.log("inside callback fn '_e_icon_calendarView' now !!");
 	      };
@@ -619,6 +622,8 @@ function _e_icon_mapView(e){
 function _e_icon_peopleView(e){ 
 	        console.log("inside callback fn '_e_icon_peopleView' now !!");
 	      };
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
 
 function _e_scrollUp1(e){ 
 	        console.log("inside callback fn '_e_scollUp1' now !!");
@@ -672,8 +677,34 @@ function _e_tk4_sendTask(e){ console.log("inside callback fn '_e_tk4_sendTask' n
 function _e_tk5_sendTask(e){ console.log("inside callback fn '_e_tk5_sendTask' now !!"); };
 
 
-function _e_nextPage(e){ console.log("inside callback fn '_e_nextPage' now !!"); };
-function _e_back2ListTop(e){ console.log("inside callback fn '_e_back2ListTop' now !!"); };
+function _e_nextPage(e){ 
+	    	         console.log("inside callback fn '_e_nextPage' now !!"); 
+			         _task4_drilldown.classList.add("hideDrilldown");
+			         _task4.classList.remove("article_with_notes");
+			         _task3_drilldown.classList.add("hideDrilldown");
+			         _task3.classList.remove("article_with_notes");
+			         _task2_drilldown.classList.add("hideDrilldown");
+			         _task2.classList.remove("article_with_notes");
+			         _task1_drilldown.classList.add("hideDrilldown");
+			         _task1.classList.remove("article_with_notes");
+			         _task5_drilldown.classList.add("hideDrilldown");
+			         _task5.classList.remove("article_with_notes");
+
+		             _header.classList.remove("headerBar_whenDrill");
+		             _icon_separator1.classList.remove("separator_hide");
+		             _icon_separator2.classList.remove("separator_hide");
+
+			        if (curr_user_database.List[curr_todolist_id].Msg.length - curr_firstShow_task_id -5 > 5) {
+			        	  curr_firstShow_task_id+=5;
+		                  load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+			        }
+	            };
+function _e_back2ListTop(e){ //---- refresh SORTING & back-to-Top ---------------
+	            console.log("inside callback fn '_e_back2ListTop' now !!"); 
+                sortTask_byPriority();
+                load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+	            };
+
 function _e_settings(e){ console.log("inside callback fn '_e_settings' now !!"); };
 function _e_sharelist(e){ console.log("inside callback fn '_e_sharelist' now !!"); };
 
@@ -1474,8 +1505,25 @@ function gen_timestamp() {
 	return now_.substring(11, 15) + '-' + mth + '-' + now_.substring(8, 10) + ' ' + now_.substring(16, 24);
 }
 
+function datediff(date1, date2){
+    console.log("inside a function to compare day-difference between two date string");
+}
+
 function sortTask_byPriority(){
 	console.log("inside the function SortTask_byPriority");
+     var k="";
+     var x = curr_user_database.List[curr_todolist_id].Msg;
+     console.log("before sorting:", x);
+     for (i=0; i<x.length;i++) {
+        if (x[i].is_completed=="1") {
+              k = parseInt(x[i].priority) - 100;
+              x[i].priority = k.toString();
+        }
+     }
+	x.sort(function (b, a) {return parseInt(a.priority) - parseInt(b.priority)});
+    console.log("after sorting:", x);
+    curr_user_database.List[curr_todolist_id].Msg = x;
+    saveData_into_Firebase();
 }
 
 
