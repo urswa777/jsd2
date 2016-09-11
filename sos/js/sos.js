@@ -518,9 +518,9 @@ function _e_saveTask(e) {
             console.log("The new Local database :" + curr_user_database);
             debugger
 			switch(curr_todolist_id) {
-				case 0: listname= "Personal/Home  with "; break;
-				case 1: listname= "Social/Work  with "; break;
-				case 2: listname= "Confidential  with "; break;
+				case 0: listname= "Home/Personal   with "; break;
+				case 1: listname= "Social/Work   with "; break;
+				case 2: listname= "Confidential   with "; break;
 			}
 			 _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
 			 saveData_into_Firebase() ;
@@ -544,6 +544,7 @@ function _e_tk1_postNotes(e) {
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
             _tk1_notes.appendChild(li_notes);
             addNotes1.value="";
+	    	saveData_into_Firebase() ;
           };
 function _e_tk2_postNotes(e) {
 	        console.log("inside callback fn '_e_tk2_postNotes' now !!");
@@ -558,6 +559,7 @@ function _e_tk2_postNotes(e) {
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
             _tk2_notes.appendChild(li_notes);
             addNotes2.value="";
+	    	saveData_into_Firebase() ;
           };
 function _e_tk3_postNotes(e) {
 	        console.log("inside callback fn '_e_tk3_postNotes' now !!");
@@ -572,6 +574,7 @@ function _e_tk3_postNotes(e) {
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_msg;
             _tk3_notes.appendChild(li_notes);
             addNotes3.value="";
+	    	saveData_into_Firebase() ;
           };
 function _e_tk4_postNotes(e) {
 	        console.log("inside callback fn '_e_tk4_postNotes' now !!");
@@ -586,6 +589,7 @@ function _e_tk4_postNotes(e) {
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_msg;
             _tk4_notes.appendChild(li_notes);
             addNotes4.value="";
+	    	saveData_into_Firebase() ;
           };
 function _e_tk5_postNotes(e) {
 	        console.log("inside callback fn '_e_tk5_postNotes' now !!");
@@ -600,6 +604,7 @@ function _e_tk5_postNotes(e) {
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_msg;
             _tk5_notes.appendChild(li_notes);
             addNotes5.value="";
+	    	saveData_into_Firebase() ;
           };
 
 
