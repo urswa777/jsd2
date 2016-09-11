@@ -40,20 +40,28 @@ console.log('After format : ' + displayDT.trim());
 //  firebase.initializeApp(config);
 //  https://sos7-37957.firebaseio.com/
 
-function dataChange(snapshot){
+function dataRetrieved(snapshot){
     if (snapshot.val() === null) {
         curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
+    debugger
+        alert("data from code");
         return;
     }
+    alert("data from firebase");
+    debugger
     download_data = snapshot.val();
+    console.log("download_data: " + download_data);
     curr_user_database = download_data.User[curr_user_id];
+    debugger
+    console.log("Current_User_database: " + curr_user_database);
 }
 
 function getData_from_Firebase() {
-    fbRef.on("value", dataChange);
+    fbRef.on("value", dataRetrieved);
  };
 
 function saveData_into_Firebase() {
+    initial_ToDoList_JSON.User[curr_user_id]=curr_user_database;
     fbRef.set(initial_ToDoList_JSON);
 };
 
@@ -388,7 +396,7 @@ function _e_todolist_personal(e){
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Personal/Home  with " 
+          _curr_ToDoList_name.innerHTML = "Home/Personal   with " 
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 function _e_todolist_social(e){ 
@@ -407,7 +415,7 @@ function _e_todolist_social(e){
           _todolist_secret.classList.remove("todolist_secret_on");
           _todolist_secret.classList.add("todolist_secret_off");
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Social/Work  with "
+          _curr_ToDoList_name.innerHTML = "Social/Work   with "
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 function _e_todolist_secret(e){ 
@@ -426,7 +434,7 @@ function _e_todolist_secret(e){
           _todolist_secret.classList.remove("todolist_secret_off");
           _todolist_secret.classList.add("todolist_secret_on");
           load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
-          _curr_ToDoList_name.innerHTML = "Confidential  with "
+          _curr_ToDoList_name.innerHTML = "Confidential   with "
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 
@@ -515,6 +523,10 @@ function _e_saveTask(e) {
 				case 2: listname= "Confidential  with "; break;
 			}
 			 _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
+			 saveData_into_Firebase() ;
+		     getData_from_Firebase();
+		     curr_firstShow_task_id=0;
+		     load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
           };
 
 
@@ -1127,6 +1139,8 @@ function _e_load_task(e) {
 	 // add a function to sort the tasks based on the descending Priority ----------------------
      //-----------------------------------------------------------------------------------------
      getData_from_Firebase();
+   	 console.log("Get any data from Firebase ??");
+    
      load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
@@ -1168,6 +1182,9 @@ switch(curr_todolist_id) {
 	case 1: listname= "Social/Work  with "; break;
 	case 2: listname= "Confidential  with "; break;
 }
+
+debugger
+
  _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
 
 //-------------------------------------------------------
@@ -1452,11 +1469,9 @@ function gen_timestamp() {
 	return now_.substring(11, 15) + '-' + mth + '-' + now_.substring(8, 10) + ' ' + now_.substring(16, 24);
 }
 
-
-//------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------
-//getData_from_Firebase();
-saveData_into_Firebase();
+function sortTask_byPriority(){
+	console.log("inside the function SortTask_byPriority");
+}
 
 
 
