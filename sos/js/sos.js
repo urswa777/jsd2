@@ -1,3 +1,28 @@
+//------------------------------------------------------
+//----- Core data : To-do-list object ------------------
+//------------------------------------------------------
+var curr_user_id = 0;
+var c_max_task_listed =0;
+var curr_firstShow_task_id =0;
+var curr_todolist_id=0;   //----------- default list is PERSONAL -------------------------------
+var curr_user_database ; //= initial_ToDoList_JSON.User[curr_user_id];
+//var display_list = local_database.[curr_todolist_id]
+//----------------------------------------------------------------------------------------------
+//--------------- do sorting by Priority here after filtering out the closed task --------------
+//----------------------------------------------------------------------------------------------
+
+var new_msg = msg_template;
+var form_mode='new';  // or 'edit'
+var curr_UUID ="";
+var today_ = Date();
+var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
+
+
+console.log('Today is : ' + today_);
+console.log('After format : ' + displayDT.trim());
+
+
+
 
 //------------------------------------------------------------------------
 // Establish a connection with Firebase --------------------------------
@@ -13,32 +38,26 @@
 //    storageBucket: "sos7-37957.appspot.com",
 //  };
 //  firebase.initializeApp(config);
-
 //  https://sos7-37957.firebaseio.com/
 
+function dataChange(snapshot){
+    if (snapshot.val() === null) {
+        curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
+        return;
+    }
+    download_data = snapshot.val();
+    curr_user_database = download_data.User[curr_user_id];
+}
 
-//------------------------------------------------------
-//----- Core data : To-do-list object ------------------
-//------------------------------------------------------
-var curr_user_id = 0;
-var c_max_task_listed =0;
-var curr_firstShow_task_id =0;
-var curr_todolist_id=0;   //----------- default list is PERSONAL -------------------------------
-var curr_user_database = initial_ToDoList_JSON.User[curr_user_id];
-//var display_list = local_database.[curr_todolist_id]
-//----------------------------------------------------------------------------------------------
-//--------------- do sorting by Priority here after filtering out the closed task --------------
-//----------------------------------------------------------------------------------------------
+function getData_from_Firebase() {
+    fbRef.on("value", dataChange);
+ };
 
-var new_msg = msg_template;
-var form_mode='new';  // or 'edit'
-var curr_UUID ="";
-var today_ = Date();
-var displayDT = today_.substring(0, 7) + '-' + today_.substring(8, 10) + '-' + today_.substring(11, 16) + ' @' + today_.substring(16, 24);
+function saveData_into_Firebase() {
+    fbRef.set(initial_ToDoList_JSON);
+};
 
 
-console.log('Today is : ' + today_);
-console.log('After format : ' + displayDT.trim());
 
 //------------------------------------------------------
 //----- Structure --------------------------------------
@@ -1107,6 +1126,7 @@ function _e_load_task(e) {
      //-----------------------------------------------------------------------------------------
 	 // add a function to sort the tasks based on the descending Priority ----------------------
      //-----------------------------------------------------------------------------------------
+     getData_from_Firebase();
      load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
 }
 //------------------------------------------------------------------------------------------------------
@@ -1431,4 +1451,12 @@ function gen_timestamp() {
 	}
 	return now_.substring(11, 15) + '-' + mth + '-' + now_.substring(8, 10) + ' ' + now_.substring(16, 24);
 }
+
+
+//------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
+//getData_from_Firebase();
+saveData_into_Firebase();
+
+
 
