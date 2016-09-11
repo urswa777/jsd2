@@ -340,19 +340,22 @@ _tk5_postNotes.addEventListener('click',     _e_tk5_postNotes);
 //-------------------------------------------------------------
 //-------- Events' call-back functions ------------------------
 //-------------------------------------------------------------
-
-function _e_todolist_personal(e){ 
-	      console.log("inside callback fn '_e_todolist_personal' now !!");
+function disableAllDrilldown(){
 	         _task4_drilldown.classList.add("hideDrilldown");
 	         _task4.classList.remove("article_with_notes");
 	         _task3_drilldown.classList.add("hideDrilldown");
 	         _task3.classList.remove("article_with_notes");
-	         _task2_drilldown.classList.add("hideDrilldown");
-	         _task2.classList.remove("article_with_notes");
-	         _task1_drilldown.classList.add("hideDrilldown");
-	         _task1.classList.remove("article_with_notes");
 	         _task5_drilldown.classList.add("hideDrilldown");
 	         _task5.classList.remove("article_with_notes");
+	         _task1_drilldown.classList.add("hideDrilldown");
+	         _task1.classList.remove("article_with_notes");
+	         _task2_drilldown.classList.add("hideDrilldown");
+	         _task2.classList.remove("article_with_notes");
+        }
+
+function _e_todolist_personal(e){ 
+	      console.log("inside callback fn '_e_todolist_personal' now !!");
+	      disableAllDrilldown();
            _header.classList.remove("headerBar_whenDrill");
            _icon_separator1.classList.remove("separator_hide");
            _icon_separator2.classList.remove("separator_hide");
@@ -371,16 +374,7 @@ function _e_todolist_personal(e){
           }
 function _e_todolist_social(e){ 
 	      console.log("inside callback fn '_e_todolist_social' now !!");
-	         _task4_drilldown.classList.add("hideDrilldown");
-	         _task4.classList.remove("article_with_notes");
-	         _task3_drilldown.classList.add("hideDrilldown");
-	         _task3.classList.remove("article_with_notes");
-	         _task2_drilldown.classList.add("hideDrilldown");
-	         _task2.classList.remove("article_with_notes");
-	         _task1_drilldown.classList.add("hideDrilldown");
-	         _task1.classList.remove("article_with_notes");
-	         _task5_drilldown.classList.add("hideDrilldown");
-	         _task5.classList.remove("article_with_notes");
+	      disableAllDrilldown();
            _header.classList.remove("headerBar_whenDrill");
            _icon_separator1.classList.remove("separator_hide");
            _icon_separator2.classList.remove("separator_hide");
@@ -399,17 +393,8 @@ function _e_todolist_social(e){
           }
 function _e_todolist_secret(e){ 
 	      console.log("inside callback fn '_e_todolist_secret' now !!");
-	         _task4_drilldown.classList.add("hideDrilldown");
-	         _task4.classList.remove("article_with_notes");
-	         _task3_drilldown.classList.add("hideDrilldown");
-	         _task3.classList.remove("article_with_notes");
-	         _task2_drilldown.classList.add("hideDrilldown");
-	         _task2.classList.remove("article_with_notes");
-	         _task1_drilldown.classList.add("hideDrilldown");
-	         _task1.classList.remove("article_with_notes");
-	         _task5_drilldown.classList.add("hideDrilldown");
-	         _task5.classList.remove("article_with_notes");
-           _header.classList.remove("headerBar_whenDrill");
+	      disableAllDrilldown();
+          _header.classList.remove("headerBar_whenDrill");
            _icon_separator1.classList.remove("separator_hide");
            _icon_separator2.classList.remove("separator_hide");
 
@@ -426,24 +411,13 @@ function _e_todolist_secret(e){
                                  + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
           }
 
-function _e_composeTask(e){ 
-	      console.log("inside callback fn '_e_composeTask' now !!");
-          form_mode='new';
-	         _task4_drilldown.classList.add("hideDrilldown");
-	         _task4.classList.remove("article_with_notes");
-	         _task3_drilldown.classList.add("hideDrilldown");
-	         _task3.classList.remove("article_with_notes");
-	         _task5_drilldown.classList.add("hideDrilldown");
-	         _task5.classList.remove("article_with_notes");
-	         _task1_drilldown.classList.add("hideDrilldown");
-	         _task1.classList.remove("article_with_notes");
-	         _task2_drilldown.classList.add("hideDrilldown");
-	         _task2.classList.remove("article_with_notes");
+
+function ShowTaskForm () {
+	       disableAllDrilldown();
 	      _popup_window.classList.remove("hidden");
 	      _popup_window.classList.remove("loader");
 
           // generate UUID here !!!!!!!!!!!  
-          _editingMsg.dataset.uuid = gen_UUID();
           switch(curr_todolist_id) {
           	case 0 : _msg_todolist_name.innerHTML = 'Personal'; break;
           	case 1 : _msg_todolist_name.innerHTML = 'Social'; break;
@@ -453,29 +427,13 @@ function _e_composeTask(e){
           }
 	   };
 
-function loadEditTask(uuid){  /// load the values into the form for editing !!!
-          console.log("inside callback fn '_e_composeTask' now !!");
-	         _task4_drilldown.classList.add("hideDrilldown");
-	         _task4.classList.remove("article_with_notes");
-	         _task3_drilldown.classList.add("hideDrilldown");
-	         _task3.classList.remove("article_with_notes");
-	         _task5_drilldown.classList.add("hideDrilldown");
-	         _task5.classList.remove("article_with_notes");
-	         _task1_drilldown.classList.add("hideDrilldown");
-	         _task1.classList.remove("article_with_notes");
-	         _task2_drilldown.classList.add("hideDrilldown");
-	         _task2.classList.remove("article_with_notes");
-	      _popup_window.classList.remove("hidden");
-	      _popup_window.classList.remove("loader");
-          curr_UUID = uuid;
-          // load the task details into the form with UUID  !!!!!!!!!!!  
-          switch(curr_todolist_id) {
-          	case 0 : _msg_todolist_name.innerHTML = 'Personal'; break;
-          	case 1 : _msg_todolist_name.innerHTML = 'Social'; break;
-          	case 2 : _msg_todolist_name.innerHTML = 'Confidential'; break;
-            default : console.log("Error !!  Issue for the cuurent To-do-list ????"); return;
-          }
+function _e_composeTask(e){ 
+	      console.log("inside callback fn '_e_composeTask' now !!");
+          form_mode='new';
+          ShowTaskForm ();
+          _editingMsg.dataset.uuid = gen_UUID();
 	   };
+
 
 
 function _e_saveTask(e) {
@@ -690,44 +648,94 @@ function _e_go2ListPastDue(e){ console.log("inside callback fn '_e_go2ListPastDu
 function _e_go2ListTouch3days(e){ console.log("inside callback fn '_e_go2ListTouch3days' now !!"); };
 
 function _e_tk1_edit_task(e){ 
+	debugger
 	        console.log("inside callback fn '_e_tk1_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
 	        form_mode='edit';
+	        debugger
 	        _editingMsg.dataset.uuid = _task1.dataset.uuid;
-	        loadEditTask(_editingMsg.dataset.uuid);
+			_msg_title.value         = _tk1_title.innerHTML ;
+			_msg_details.value       = _tk1_details.innerHTML ;
+			_msg_task_type.value     = _tk1_type.innerHTML ;
+			_msg_duedate.value       = _tk1_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk1_time_remained.innerHTML ;
+			_msg_importance.value    = _tk1_importance.innerHTML ;
+			_msg_urgency.value       = _tk1_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk1_LOE.innerHTML ;
+	debugger		
+	        ShowTaskForm ();
+	        console.log("fn '_e_tk1_edit_task' done !!"); 	        
 	     };
+
 function _e_tk2_edit_task(e){ 
 	        console.log("inside callback fn '_e_tk2_edit_task' now !!");
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
 	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task2.dataset.uuid;
-	        loadEditTask(_editingMsg.dataset.uuid);
+			_msg_title.value         = _tk2_title.innerHTML ;
+			_msg_details.value       = _tk2_details.innerHTML ;
+			_msg_task_type.value     = _tk2_type.innerHTML ;
+			_msg_duedate.value       = _tk2_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk2_time_remained.innerHTML ;
+			_msg_importance.value    = _tk2_importance.innerHTML ;
+			_msg_urgency.value       = _tk2_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk2_LOE.innerHTML ;
+	debugger		
+	        ShowTaskForm ();
+	        console.log("fn '_e_tk1_edit_task' done !!"); 	        
 	     };
+
 function _e_tk3_edit_task(e){ 
 	        console.log("inside callback fn '_e_tk3_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
 	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task3.dataset.uuid;
-	        loadEditTask(_editingMsg.dataset.uuid);
+			_msg_title.value         = _tk3_title.innerHTML ;
+			_msg_details.value       = _tk3_details.innerHTML ;
+			_msg_task_type.value     = _tk3_type.innerHTML ;
+			_msg_duedate.value       = _tk3_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk3_time_remained.innerHTML ;
+			_msg_importance.value    = _tk3_importance.innerHTML ;
+			_msg_urgency.value       = _tk3_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk3_LOE.innerHTML ;
+	        ShowTaskForm ();
 	     };
+
 function _e_tk4_edit_task(e){ 
 	        console.log("inside callback fn '_e_tk4_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
 	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task4.dataset.uuid;
-	        loadEditTask(_editingMsg.dataset.uuid);
+			_msg_title.value         = _tk4_title.innerHTML ;
+			_msg_details.value       = _tk4_details.innerHTML ;
+			_msg_task_type.value     = _tk4_type.innerHTML ;
+			_msg_duedate.value       = _tk4_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk4_time_remained.innerHTML ;
+			_msg_importance.value    = _tk4_importance.innerHTML ;
+			_msg_urgency.value       = _tk4_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk4_LOE.innerHTML ;
+	        ShowTaskForm ();
 	     };
+
 function _e_tk5_edit_task(e){ 
 	        console.log("inside callback fn '_e_tk5_edit_task' now !!"); 
 	        // pass the UUID of "THE" task to EDIT TASK function -----------------
 	        // loadEditTask(uuid);
 	        form_mode='edit';
 	        _editingMsg.dataset.uuid = _task5.dataset.uuid;
-	        loadEditTask(_editingMsg.dataset.uuid);
+			_msg_title.value         = _tk5_title.innerHTML ;
+			_msg_details.value       = _tk5_details.innerHTML ;
+			_msg_task_type.value     = _tk5_type.innerHTML ;
+			_msg_duedate.value       = _tk5_dueDate.innerHTML ;
+			_msg_timeneeded.value    = "";  // _tk5_time_remained.innerHTML ;
+			_msg_importance.value    = _tk5_importance.innerHTML ;
+			_msg_urgency.value       = _tk5_urgency.innerHTML ;
+			_msg_levelOfEffort.value = _tk5_LOE.innerHTML ;
+	        ShowTaskForm ();
 	     };
 
 
@@ -1046,13 +1054,13 @@ switch(curr_todolist_id) {
 		_tk1_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id].msg_title;
 		_tk1_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id].priority;
 		// _tk1_time_remained.innerHTML  = need calculation ;
-		_tk1_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_task_type;
-		_tk1_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_importance;
-		_tk1_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
-		_tk1_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
-		_tk1_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_details;
-		_tk1_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
-		_tk1_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
+		_tk1_type.innerHTML           = to_do_list.List[todolist_id].Msg[start_task_id].msg_task_type;
+		_tk1_importance.innerHTML     = to_do_list.List[todolist_id].Msg[start_task_id].msg_importance;
+		_tk1_urgency.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_urgency;
+		_tk1_LOE.innerHTML            = to_do_list.List[todolist_id].Msg[start_task_id].msg_levelOfEffort;
+		_tk1_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_details;
+		_tk1_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id].msg_due_date;
+		_tk1_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id].msg_status;
 
         _tk1_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id].Notes.length >0) {
@@ -1090,13 +1098,13 @@ switch(curr_todolist_id) {
 		_tk2_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_title;
 		_tk2_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+1].priority;
 		// _tk2_time_remained.innerHTML  = need calculation ;
-		_tk2_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_task_type;
-		_tk2_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_importance;
-		_tk2_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_urgency;
-		_tk2_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_levelOfEffort;
-		_tk2_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_details;
-		_tk2_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
-		_tk2_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
+		_tk2_type.innerHTML           = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_task_type;
+		_tk2_importance.innerHTML     = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_importance;
+		_tk2_urgency.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_urgency;
+		_tk2_LOE.innerHTML            = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_levelOfEffort;
+		_tk2_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_details;
+		_tk2_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_due_date;
+		_tk2_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+1].msg_status;
 
         _tk2_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+1].Notes.length >0) {
@@ -1136,13 +1144,13 @@ switch(curr_todolist_id) {
 		_tk3_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_title;
 		_tk3_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+2].priority;
 		// _tk3_time_remained.innerHTML  = need calculation ;
-		_tk3_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_task_type;
-		_tk3_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_importance;
-		_tk3_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_urgency;
-		_tk3_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_levelOfEffort;
-		_tk3_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_details;
-		_tk3_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
-		_tk3_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
+		_tk3_type.innerHTML           = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_task_type;
+		_tk3_importance.innerHTML     = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_importance;
+		_tk3_urgency.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_urgency;
+		_tk3_LOE.innerHTML            = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_levelOfEffort;
+		_tk3_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_details;
+		_tk3_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_due_date;
+		_tk3_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+2].msg_status;
 
         _tk3_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+2].Notes.length >0) {
@@ -1186,13 +1194,13 @@ switch(curr_todolist_id) {
 		_tk4_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_title;
 		_tk4_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+3].priority;
 		// _tk4_time_remained.innerHTML  = need calculation ;
-		_tk4_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_task_type;
-		_tk4_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_importance;
-		_tk4_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_urgency;
-		_tk4_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_levelOfEffort;
-		_tk4_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_details;
-		_tk4_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
-		_tk4_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
+		_tk4_type.innerHTML           = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_task_type;
+		_tk4_importance.innerHTML     = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_importance;
+		_tk4_urgency.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_urgency;
+		_tk4_LOE.innerHTML            = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_levelOfEffort;
+		_tk4_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_details;
+		_tk4_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_due_date;
+		_tk4_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+3].msg_status;
 
         _tk4_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+3].Notes.length >0) {
@@ -1235,13 +1243,13 @@ switch(curr_todolist_id) {
 		_tk5_title.innerHTML          = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_title;
 		_tk5_priority.innerHTML       = to_do_list.List[todolist_id].Msg[start_task_id+4].priority;
 		// _tk5_time_remained.innerHTML  = need calculation ;
-		_tk5_type.innerHTML           = 'Task Type  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_task_type;
-		_tk5_importance.innerHTML     = 'Importance  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_importance;
-		_tk5_urgency.innerHTML        = 'Urgency  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_urgency;
-		_tk5_LOE.innerHTML            = 'Level of Effort  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_levelOfEffort;
-		_tk5_details.innerHTML        = 'Details : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_details;
-		_tk5_dueDate.innerHTML        = 'Due Date  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
-		_tk5_status.innerHTML         = 'Status  : ' + to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
+		_tk5_type.innerHTML           = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_task_type;
+		_tk5_importance.innerHTML     = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_importance;
+		_tk5_urgency.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_urgency;
+		_tk5_LOE.innerHTML            = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_levelOfEffort;
+		_tk5_details.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_details;
+		_tk5_dueDate.innerHTML        = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_due_date;
+		_tk5_status.innerHTML         = to_do_list.List[todolist_id].Msg[start_task_id+4].msg_status;
 
         _tk5_notes.innerHTML="";
         if (to_do_list.List[todolist_id].Msg[start_task_id+4].Notes.length >0) {
