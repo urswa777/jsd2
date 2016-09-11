@@ -542,8 +542,8 @@ function _e_tk1_postNotes(e) {
 	        new_notes.update_msg = addNotes1.value;
 	        new_notes.update_datetime = gen_timestamp();
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.push(new_notes);
-            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.length
-	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_datetime
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.length;
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_datetime;
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
             _tk1_notes.appendChild(li_notes);
             addNotes1.value="";
@@ -556,10 +556,11 @@ function _e_tk2_postNotes(e) {
             var i;
 	        new_notes.update_msg = addNotes2.value;
 	        new_notes.update_datetime = gen_timestamp();
+	        debugger
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes.push(new_notes);
-            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes.length
-	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_datetime
-		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes[i-1].update_msg;
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes.length;
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes[i-1].update_datetime;
+		               + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].Notes[i-1].update_msg;
             _tk2_notes.appendChild(li_notes);
             addNotes2.value="";
 	    	saveData_into_Firebase() ;
@@ -572,9 +573,9 @@ function _e_tk3_postNotes(e) {
 	        new_notes.update_msg = addNotes3.value;
 	        new_notes.update_datetime = gen_timestamp();
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes.push(new_notes);
-            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes.length
-	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_datetime
-		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_msg;
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes.length;
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_datetime;
+		               + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].Notes[i-1].update_msg;
             _tk3_notes.appendChild(li_notes);
             addNotes3.value="";
 	    	saveData_into_Firebase() ;
@@ -587,9 +588,9 @@ function _e_tk4_postNotes(e) {
 	        new_notes.update_msg = addNotes4.value;
 	        new_notes.update_datetime = gen_timestamp();
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes.push(new_notes);
-            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes.length
-	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_datetime
-		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_msg;
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes.length;
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_datetime;
+		               + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].Notes[i-1].update_msg;
             _tk4_notes.appendChild(li_notes);
             addNotes4.value="";
 	    	saveData_into_Firebase() ;
@@ -602,8 +603,8 @@ function _e_tk5_postNotes(e) {
 	        new_notes.update_msg = addNotes5.value;
 	        new_notes.update_datetime = gen_timestamp();
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes.push(new_notes);
-            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes.length
-	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_datetime
+            i = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes.length;
+	        li_notes.innerHTML = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_datetime;
 		                           + " - " + curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].Notes[i-1].update_msg;
             _tk5_notes.appendChild(li_notes);
             addNotes5.value="";
