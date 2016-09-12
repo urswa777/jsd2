@@ -10,7 +10,7 @@ var curr_user_database ; //= initial_ToDoList_JSON.User[curr_user_id];
 //----------------------------------------------------------------------------------------------
 //--------------- do sorting by Priority here after filtering out the closed task --------------
 //----------------------------------------------------------------------------------------------
-
+var previous_action="";
 var form_mode='new';  // or 'edit'
 var curr_UUID ="";
 var today_ = Date();
@@ -61,7 +61,8 @@ function getData_from_Firebase() {
     fbRef.on("value", dataRetrieved);
  };
 
-function saveData_into_Firebase(previous_action) {
+function saveData_into_Firebase() {
+    closePopup();
     initial_ToDoList_JSON.User[curr_user_id]=curr_user_database;
     fbRef.set(initial_ToDoList_JSON);
     curr_firstShow_task_id=0;
@@ -72,7 +73,6 @@ function saveData_into_Firebase(previous_action) {
 			case 2: listname= "Confidential   with ";  break;
 		}
 	_curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
-    closePopup();
     load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
     console.log("The new Local database :", curr_user_database);
     if (previous_action != undefined) {
@@ -519,7 +519,6 @@ function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
             var new_msg = msg_template;
             var listname="";
-            var previous_action="";
 			debugger
 
 			new_msg.uuid = _editingMsg.dataset.uuid;
@@ -568,19 +567,8 @@ function _e_saveTask(e) {
 		                 }
 		               console.log("Task is edited");
 		              };
-            saveData_into_Firebase(previous_action) ;
-//            debugger
-//			switch(curr_todolist_id) {
-//				case 0: listname= "Home/Personal   with "; break;
-//				case 1: listname= "Social/Work   with ";   break;
-//				case 2: listname= "Confidential   with ";  break;
-//			}
-//			 _curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
-//          closePopup();
-            //load_tasks(curr_user_database, curr_todolist_id, 0);
+            saveData_into_Firebase() ;
             console.log("Again, task is added & you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
-		     //getData_from_Firebase();
-		     //load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
           };
 
 
@@ -590,7 +578,6 @@ function _e_tk1_postNotes(e) {
 	        var new_notes = notes_template; 
             var li_notes = document.createElement("LI");
             var i;
-            var previous_action="";
 	        new_notes.update_msg = addNotes1.value;
 	        new_notes.update_datetime = gen_timestamp();
             curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].Notes.push(new_notes);
@@ -600,7 +587,7 @@ function _e_tk1_postNotes(e) {
             _tk1_notes.appendChild(li_notes);
             addNotes1.value="";
             previous_action="New Notes is just appended.";
-	    	saveData_into_Firebase(previous_action) ;
+	    	saveData_into_Firebase() ;
           };
 function _e_tk2_postNotes(e) {
 	        console.log("inside callback fn '_e_tk2_postNotes' now !!");
@@ -618,7 +605,7 @@ function _e_tk2_postNotes(e) {
             addNotes2.value="";
             debugger
             previous_action="New Notes is just appended.";
-	    	saveData_into_Firebase(previous_action) ;
+	    	saveData_into_Firebase() ;
           };
 function _e_tk3_postNotes(e) {
 	        console.log("inside callback fn '_e_tk3_postNotes' now !!");
@@ -634,7 +621,7 @@ function _e_tk3_postNotes(e) {
             _tk3_notes.appendChild(li_notes);
             addNotes3.value="";
             previous_action="New Notes is just appended.";
-	    	saveData_into_Firebase(previous_action) ;
+	    	saveData_into_Firebase() ;
           };
 function _e_tk4_postNotes(e) {
 	        console.log("inside callback fn '_e_tk4_postNotes' now !!");
@@ -650,7 +637,7 @@ function _e_tk4_postNotes(e) {
             _tk4_notes.appendChild(li_notes);
             addNotes4.value="";
             previous_action="New Notes is just appended.";
-	    	saveData_into_Firebase(previous_action) ;
+	    	saveData_into_Firebase() ;
           };
 function _e_tk5_postNotes(e) {
 	        console.log("inside callback fn '_e_tk5_postNotes' now !!");
@@ -666,7 +653,7 @@ function _e_tk5_postNotes(e) {
             _tk5_notes.appendChild(li_notes);
             addNotes5.value="";
             previous_action="New Notes is just appended.";
-	    	saveData_into_Firebase(previous_action) ;
+	    	saveData_into_Firebase() ;
           };
 
 
