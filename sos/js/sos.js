@@ -518,7 +518,6 @@ function _e_composeTask(e){
 function _e_saveTask(e) {
 	        console.log("inside callback fn '_e_saveTask' now !!");
             var new_msg = msg_template;
-            var uuid ="";
             var listname="";
             var previous_action="";
 			debugger
@@ -533,21 +532,19 @@ function _e_saveTask(e) {
 			new_msg.msg_urgency = _msg_urgency.value;
 			new_msg.msg_levelOfEffort = _msg_levelOfEffort.value;
 			new_msg.priority = _msg_priority.value;
+            debugger
 
             if (form_mode=='new' || form_mode=='dup'){
-			   			new_msg.priority = "0";
 						new_msg.msg_status = "Open";
 			            new_msg.Notes[0].update_msg="Created";
 			            new_msg.Notes[0].update_datetime=gen_timestamp();
-		               console.log("add new task");
+		               console.log("dup task / add new task");
 		               // push into the local_list & database
 		               console.log("curr_todolist_id", curr_todolist_id);
-            		   new_msg.priority = "0";
-            		   new_msg.created_ts = gen_timestamp();
+	            		   new_msg.created_ts = gen_timestamp();
 		               curr_user_database.List[curr_todolist_id].Msg.push(new_msg);
 		               console.log("Task added : you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
                        previous_action = "New task is added successfully (" + new_msg.created_ts + ")"  ;
-                       saveData_into_Firebase(previous_action) ;
 		               debugger
 		              }
             else if (form_mode=='edit'){
@@ -566,11 +563,12 @@ function _e_saveTask(e) {
 			                    curr_user_database.List[curr_todolist_id].Msg[i].msg_status = new_msg.msg_status;
 			                    curr_user_database.List[curr_todolist_id].Msg[i].last_updated_ts = gen_timestamp();
                                 previous_action = "That task is edited & saved successfully (" + new_msg.Notes[0].update_datetime + ")"  ;
-                    			saveData_into_Firebase(previous_action) ;
+                    			debugger
                              } 
 		                 }
 		               console.log("Task is edited");
 		              };
+            saveData_into_Firebase(previous_action) ;
 //            debugger
 //			switch(curr_todolist_id) {
 //				case 0: listname= "Home/Personal   with "; break;
@@ -845,15 +843,6 @@ function _e_tk1_dup_task(e){
             msg.msg_due_date = "";
             debugger
 	        ShowTaskForm(msg);
-	        //_editingMsg.dataset.uuid = gen_UUID();
-			//_msg_title.value         = _tk1_title.innerHTML ;
-			//_msg_details.value       = _tk1_details.innerHTML ;
-			//_msg_task_type.value     = _tk1_type.innerHTML ;
-			//_msg_duedate.value       = _tk1_dueDate.innerHTML ;
-			//_msg_timeneeded.value    = "";  // _tk1_time_remained.innerHTML ;
-			//_msg_importance.value    = _tk1_importance.innerHTML ;
-			//_msg_urgency.value       = _tk1_urgency.innerHTML ;
-			//_msg_levelOfEffort.value = _tk1_LOE.innerHTML ;
 	     };
 
 function _e_tk2_dup_task(e){ 
