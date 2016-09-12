@@ -881,9 +881,32 @@ function _e_tk5_dup_task(e){
 	     };
 
 
+function trashOneTask(uuid) {
+                     console.log("inside the function 'trashOneTask'");
+	                 for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
+                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == uuid &&
+                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
+				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
+				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
+				                    console.log("find the matched MSG and changed its TRASH status !!");
+				                    debugger
+                             } 
+		                 }
+	                 };
 
 
-
+function closeOneTask(uuid) {
+                     console.log("inside the function 'closeOneTask'");
+	                 for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
+                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == uuid &&
+                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
+				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
+				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
+				                    console.log("find the matched MSG and changed its COMPLETE status !!");
+				                    debugger
+                             } 
+		                 }
+	                 };
 
 
 //----------------------------------------------------------------------------------
@@ -920,16 +943,10 @@ function _e_tk1_sub_priority(e){
 	                 };
 function _e_tk1_complete(e){ 
 	                 console.log("inside callback fn '_e_tk1_complete' now !!");
-                     var mag =  getMessageById(_task1.dataset.uuid) ;
-
-		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
-                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _task1.dataset.uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
-                             } 
-		                 }
-		               console.log("This Task is Complete so it is now Closed");
+	                 closeOneTask(_task1.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is Complete so it is now Closed");
+                       previous_action="This Task is Complete so it is now Closed";
+	    	           saveData_into_Firebase() ;
 	                 };
 
 function _e_tk1_add_notes(e){ console.log("inside callback fn '_e_tk1_add_notes' now !!")};
@@ -979,14 +996,10 @@ function _e_tk2_sub_priority(e){
 
 function _e_tk2_complete(e){ 
 	                 console.log("inside callback fn '_e_tk2_complete' now !!");
-		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
-                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _task2.dataset.uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
-                             } 
-		                 }
+	                 closeOneTask(_task2.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
+                       previous_action="This Task is Complete so it is now Closed";
+	    	           saveData_into_Firebase() ;
 	                 };
 
 
@@ -1039,14 +1052,10 @@ function _e_tk3_sub_priority(e){
 
 function _e_tk3_complete(e){ 
 	                 console.log("inside callback fn '_e_tk3_complete' now !!");
-		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
-                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _task3.dataset.uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
-                             } 
-		                 }
+	                 closeOneTask(_task3.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
+                       previous_action="This Task is Complete so it is now Closed";
+	    	           saveData_into_Firebase() ;
 	                 };
 
 
@@ -1099,14 +1108,10 @@ function _e_tk4_sub_priority(e){
 
 function _e_tk4_complete(e){ 
 	                 console.log("inside callback fn '_e_tk4_complete' now !!");
-		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
-                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _task4.dataset.uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
-                             } 
-		                 }
+	                 closeOneTask(_task4.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
+                       previous_action="This Task is Complete so it is now Closed";
+	    	           saveData_into_Firebase() ;
 	                 };
 
 
@@ -1160,14 +1165,10 @@ function _e_tk5_sub_priority(e){
 
 function _e_tk5_complete(e){ 
 	                 console.log("inside callback fn '_e_tk5_complete' now !!");
-		               for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
-                           if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == _task5.dataset.uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
-                             } 
-		                 }
+	                 closeOneTask(_task5.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
+                       previous_action="This Task is Complete so it is now Closed";
+	    	           saveData_into_Firebase() ;
 	                 };
 
 function _e_tk5_add_notes(e){ console.log("inside callback fn '_e_tk5_add_notes' now !!")};

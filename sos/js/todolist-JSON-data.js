@@ -37,6 +37,7 @@ var msg_template =  {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           };
 
 var notes_template =  {"update_msg":"", 
@@ -87,6 +88,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"turns out more difficult than first though, need 2 more hours", 
 		                                 "update_datetime":"2016-09-03 09:29pm"}		                                      
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"5",
@@ -117,6 +119,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"Easier than I thought, cut 2 hours", 
 		                                 "update_datetime":"2016-09-04 07:40am"}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"6",
@@ -149,6 +152,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"need more time... and patience !!", 
 		                                 "update_datetime":"2016-09-05 11:29pm"}		                                      
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"7",
@@ -179,6 +183,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"8",
@@ -209,6 +214,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"9",
@@ -239,6 +245,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"10",
@@ -269,6 +276,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"11",
@@ -299,6 +307,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"12",
@@ -329,6 +338,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"13",
@@ -359,6 +369,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -390,6 +401,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -421,6 +433,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -452,6 +465,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -483,6 +497,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -514,6 +529,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 
@@ -546,6 +562,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -577,6 +594,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"21",
@@ -607,6 +625,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -638,6 +657,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -669,6 +689,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 
 		                           {
@@ -700,6 +721,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           }
 
 
@@ -740,6 +762,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"buy a gift by 5 hours", 
 		                                 "update_datetime":"2016-09-06 07:15am"}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"2",
@@ -768,6 +791,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"may need to reschedule like one week later", 
 		                                 "update_datetime":"2016-09-06 10:48am"}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"3",
@@ -796,6 +820,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"recurring as usual", 
 		                                 "update_datetime":"2016-09-06 01:33pm"}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           }
 		                       ]
 		               },
@@ -833,6 +858,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"turns out more diificult than first though, need 5 more manhours", 
 		                                 "update_datetime":"2016-09-04 11:29am"}		                                      
 		                                 ]
+		                             ,"is_archived":"0"
 		                           },
 		                           {
 		                             "uuid":"9002",
@@ -861,6 +887,7 @@ var initial_ToDoList_JSON = {
 		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
+		                             ,"is_archived":"0"
 		                           }
 		                       ]
 		               }
