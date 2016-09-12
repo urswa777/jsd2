@@ -885,9 +885,8 @@ function trashOneTask(uuid) {
                      console.log("inside the function 'trashOneTask'");
 	                 for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
                            if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == uuid &&
-                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
-				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
-				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
+                           	   curr_user_database.List[curr_todolist_id].Msg[i].is_archived == "1"  ) {
+				                    curr_user_database.List[curr_todolist_id].Msg[i].is_archived = "1";
 				                    console.log("find the matched MSG and changed its TRASH status !!");
 				                    debugger
                              } 
@@ -896,12 +895,18 @@ function trashOneTask(uuid) {
 
 
 function closeOneTask(uuid) {
+	         var k=0;
                      console.log("inside the function 'closeOneTask'");
 	                 for (i=0; i< curr_user_database.List[curr_todolist_id].Msg.length; i++) {
                            if (curr_user_database.List[curr_todolist_id].Msg[i].uuid == uuid &&
                            	   curr_user_database.List[curr_todolist_id].Msg[i].is_completed == "1"  ) {
 				                    curr_user_database.List[curr_todolist_id].Msg[i].is_completed = "1";
 				                    curr_user_database.List[curr_todolist_id].Msg[i].completed_ts = gen_timestamp();
+                                    k = parseInt(curr_user_database.List[curr_todolist_id].Msg[i].priority);
+                                    if (k >=0) {
+                                    	 k = parseInt(curr_user_database.List[curr_todolist_id].Msg[i].priority) - 100;
+                                         curr_user_database.List[curr_todolist_id].Msg[i].priority = k.toString();
+                                    }
 				                    console.log("find the matched MSG and changed its COMPLETE status !!");
 				                    debugger
                              } 
@@ -926,7 +931,14 @@ function _e_tk1_show_details(e){
 	         _task5_drilldown.classList.add("hideDrilldown");
 	         _task5.classList.remove("article_with_notes");
 	    };
-function _e_tk1_trash(e){ console.log("inside callback fn '_e_tk1_trash' now !!")};
+function _e_tk1_trash(e){ 
+	                     console.log("inside callback fn '_e_tk1_trash' now !!")
+	                 trashOneTask(_task1.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is archived");
+                       previous_action="This Task is Archived";
+	    	           saveData_into_Firebase() ;
+	                 };
+
 function _e_tk1_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk1_add_priority' now !!");
 	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id].priority;
@@ -943,6 +955,9 @@ function _e_tk1_sub_priority(e){
 	                 };
 function _e_tk1_complete(e){ 
 	                 console.log("inside callback fn '_e_tk1_complete' now !!");
+                     //------------------------------------------------------------------------------------
+                     //----- add check here, if a task is closed, do not close it again !!! ---------------
+                     //------------------------------------------------------------------------------------
 	                 closeOneTask(_task1.dataset.uuid) ;  /// get the Task title and show in status bar
 	                 console.log("This Task is Complete so it is now Closed");
                        previous_action="This Task is Complete so it is now Closed";
@@ -978,7 +993,14 @@ function _e_tk2_show_details(e){
 	         _task1_drilldown.classList.add("hideDrilldown");
 	         _task1.classList.remove("article_with_notes");
 	    };
-function _e_tk2_trash(e){ console.log("inside callback fn '_e_tk2_trash' now !!")};
+function _e_tk2_trash(e){ 
+         	         console.log("inside callback fn '_e_tk2_trash' now !!");
+	                 trashOneTask(_task2.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is archived");
+                       previous_action="This Task is Archived";
+	    	           saveData_into_Firebase() ;
+	                 };
+
 function _e_tk2_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk2_add_priority' now !!");
 	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+1].priority;
@@ -996,6 +1018,9 @@ function _e_tk2_sub_priority(e){
 
 function _e_tk2_complete(e){ 
 	                 console.log("inside callback fn '_e_tk2_complete' now !!");
+                     //------------------------------------------------------------------------------------
+                     //----- add check here, if a task is closed, do not close it again !!! ---------------
+                     //------------------------------------------------------------------------------------
 	                 closeOneTask(_task2.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
                        previous_action="This Task is Complete so it is now Closed";
@@ -1033,7 +1058,13 @@ function _e_tk3_show_details(e){
 	         _task1_drilldown.classList.add("hideDrilldown");
 	         _task1.classList.remove("article_with_notes");
 	    };
-function _e_tk3_trash(e){ console.log("inside callback fn '_e_tk3_trash' now !!")};
+function _e_tk3_trash(e){ 
+	                 console.log("inside callback fn '_e_tk3_trash' now !!");
+	                 trashOneTask(_task3.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is archived");
+                       previous_action="This Task is Archived";
+	    	           saveData_into_Firebase() ;
+	                 };
 function _e_tk3_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk3_add_priority' now !!");
 	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+2].priority;
@@ -1052,6 +1083,9 @@ function _e_tk3_sub_priority(e){
 
 function _e_tk3_complete(e){ 
 	                 console.log("inside callback fn '_e_tk3_complete' now !!");
+                     //------------------------------------------------------------------------------------
+                     //----- add check here, if a task is closed, do not close it again !!! ---------------
+                     //------------------------------------------------------------------------------------
 	                 closeOneTask(_task3.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
                        previous_action="This Task is Complete so it is now Closed";
@@ -1089,7 +1123,13 @@ function _e_tk4_show_details(e){
 	         _task1_drilldown.classList.add("hideDrilldown");
 	         _task1.classList.remove("article_with_notes");
 	    };
-function _e_tk4_trash(e){ console.log("inside callback fn '_e_tk4_trash' now !!")};
+function _e_tk4_trash(e){ 
+	                 console.log("inside callback fn '_e_tk4_trash' now !!");
+	                 trashOneTask(_task4.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is archived");
+                       previous_action="This Task is Archived";
+	    	           saveData_into_Firebase() ;
+	                 };
 function _e_tk4_add_priority(e){ 
 	                 console.log("inside callback fn '_e_tk4_add_priority' now !!");
 	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+3].priority;
@@ -1108,6 +1148,9 @@ function _e_tk4_sub_priority(e){
 
 function _e_tk4_complete(e){ 
 	                 console.log("inside callback fn '_e_tk4_complete' now !!");
+                     //------------------------------------------------------------------------------------
+                     //----- add check here, if a task is closed, do not close it again !!! ---------------
+                     //------------------------------------------------------------------------------------
 	                 closeOneTask(_task4.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
                        previous_action="This Task is Complete so it is now Closed";
@@ -1146,7 +1189,13 @@ function _e_tk5_show_details(e){
 	         _task1_drilldown.classList.add("hideDrilldown");
 	         _task1.classList.remove("article_with_notes");
 	    };
-function _e_tk5_trash(e){ console.log("inside callback fn '_e_tk5_trash' now !!")};
+function _e_tk5_trash(e){ 
+	                 console.log("inside callback fn '_e_tk5_trash' now !!");
+	                 trashOneTask(_task5.dataset.uuid) ;  /// get the Task title and show in status bar
+	                 console.log("This Task is archived");
+                       previous_action="This Task is Archived";
+	    	           saveData_into_Firebase() ;
+	                 };
 function _e_tk5_add_priority(e){
 	                 console.log("inside callback fn '_e_tk5_add_priority' now !!");
 	                 var x = curr_user_database.List[curr_todolist_id].Msg[curr_firstShow_task_id+4].priority;
@@ -1165,6 +1214,9 @@ function _e_tk5_sub_priority(e){
 
 function _e_tk5_complete(e){ 
 	                 console.log("inside callback fn '_e_tk5_complete' now !!");
+                     //------------------------------------------------------------------------------------
+                     //----- add check here, if a task is closed, do not close it again !!! ---------------
+                     //------------------------------------------------------------------------------------
 	                 closeOneTask(_task5.dataset.uuid) ;  /// get the Task title and show in status bar
 		               console.log("This Task is Complete so it is now Closed");
                        previous_action="This Task is Complete so it is now Closed";
