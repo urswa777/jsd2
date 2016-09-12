@@ -22,7 +22,7 @@ var msg_template =  {
 		                             "msg_freqency":"",
 		                             "is_recurring":"",
 		                             "Love_task":"",
-		                             "priority":"",
+		                             "priority":"0",
 		                             "my_role":"",
 		                             "people_Group_involved":"",
 		                             "event_location":"",
@@ -34,7 +34,7 @@ var msg_template =  {
 		                             "last_updated_ts":"",
 		                             "touch_count":"",
 		                             "Notes": [ 
-		                                {"update_msg":"Created", 
+		                                {"update_msg":"none", 
 		                                 "update_datetime":""}
 		                                 ]
 		                           };
