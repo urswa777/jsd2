@@ -6,6 +6,7 @@ var c_max_task_listed =0;
 var curr_firstShow_task_id =0;
 var curr_todolist_id=0;   //----------- default list is PERSONAL -------------------------------
 var curr_user_database ; //= initial_ToDoList_JSON.User[curr_user_id];
+var set_to_reload = 0;
 //var display_list = local_database.[curr_todolist_id]
 //----------------------------------------------------------------------------------------------
 //--------------- do sorting by Priority here after filtering out the closed task --------------
@@ -73,7 +74,10 @@ function saveData_into_Firebase() {
 			case 2: listname= "Confidential   with ";  break;
 		}
 	_curr_ToDoList_name.innerHTML = listname + curr_user_database.List[curr_todolist_id].Msg.length+ " tasks .....";
-    load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+
+	if (set_to_reload == 1) {
+        load_tasks(curr_user_database, curr_todolist_id, curr_firstShow_task_id);
+    }
     console.log("The new Local database :", curr_user_database);
     if (previous_action != undefined) {
     	 _previous_actions.innerHTML = previous_action ;
@@ -487,9 +491,15 @@ function ShowTaskForm(msg) {
 	_msg_urgency.value       = msg.msg_urgency;
 	_msg_levelOfEffort.value = msg.msg_levelOfEffort ;
     _msg_priority.value      = msg.priority;
-    if (form_mode == 'new' || form_mode == 'dup') {
+    if (form_mode == 'new') {
     	   _save_Task.innerHTML='Add';
          }
+    else if (form_mode == 'dup' ) {
+    	   _save_Task.innerHTML='Add';
+       	   _msg_title.value    = "Re: " + _msg_title.value;
+	       _msg_details.value  = "Re: " + _msg_details.value;
+           _msg_priority.value   = "-10";
+          }
     else if (form_mode == 'edit' ) {
     	   _save_Task.innerHTML='Save Changes';
          }
@@ -567,6 +577,10 @@ function _e_saveTask(e) {
 		                 }
 		               console.log("Task is edited");
 		              };
+            set_to_reload = 1;  
+            //--------------------------------------------------------------------------------------------------
+            // ---- should load this newly/edited/Duplicated added task at the top of the 5 tasks !!! ---------- 
+            //--------------------------------------------------------------------------------------------------
             saveData_into_Firebase() ;
             console.log("Again, task is added & you have " + curr_user_database.List[curr_todolist_id].Msg.length + " tasks now");
           };
@@ -587,6 +601,7 @@ function _e_tk1_postNotes(e) {
             _tk1_notes.appendChild(li_notes);
             addNotes1.value="";
             previous_action="New Notes is just appended.";
+            set_to_reload = 0;
 	    	saveData_into_Firebase() ;
           };
 function _e_tk2_postNotes(e) {
@@ -605,6 +620,7 @@ function _e_tk2_postNotes(e) {
             addNotes2.value="";
             debugger
             previous_action="New Notes is just appended.";
+            set_to_reload = 0;
 	    	saveData_into_Firebase() ;
           };
 function _e_tk3_postNotes(e) {
@@ -621,6 +637,7 @@ function _e_tk3_postNotes(e) {
             _tk3_notes.appendChild(li_notes);
             addNotes3.value="";
             previous_action="New Notes is just appended.";
+            set_to_reload = 0;
 	    	saveData_into_Firebase() ;
           };
 function _e_tk4_postNotes(e) {
@@ -637,6 +654,7 @@ function _e_tk4_postNotes(e) {
             _tk4_notes.appendChild(li_notes);
             addNotes4.value="";
             previous_action="New Notes is just appended.";
+            set_to_reload = 0;
 	    	saveData_into_Firebase() ;
           };
 function _e_tk5_postNotes(e) {
@@ -653,6 +671,7 @@ function _e_tk5_postNotes(e) {
             _tk5_notes.appendChild(li_notes);
             addNotes5.value="";
             previous_action="New Notes is just appended.";
+            set_to_reload = 0;
 	    	saveData_into_Firebase() ;
           };
 
@@ -825,8 +844,8 @@ function _e_tk1_dup_task(e){
 			var article = e.target.closest('article')
 			var msg = getMessageById(article.dataset.uuid);
             msg.uuid = gen_UUID();
-            msg.msg_title = "Re: " + msg.msg_title;
-            msg.msg_details = "Re: " + msg.msg_details;
+            msg.msg_title = msg.msg_title;
+            msg.msg_details = msg.msg_details;
             msg.msg_due_date = "";
             debugger
 	        ShowTaskForm(msg);
@@ -838,8 +857,8 @@ function _e_tk2_dup_task(e){
 			var article = e.target.closest('article')
 			var msg = getMessageById(article.dataset.uuid);
             msg.uuid = gen_UUID();
-            msg.msg_title = "Re: " + msg.msg_title;
-            msg.msg_details = "Re: " + msg.msg_details;
+            msg.msg_title = msg.msg_title;
+            msg.msg_details = msg.msg_details;
             msg.msg_due_date = "";
 	        ShowTaskForm(msg);
 	     };
@@ -850,8 +869,8 @@ function _e_tk3_dup_task(e){
 			var article = e.target.closest('article')
 			var msg = getMessageById(article.dataset.uuid);
             msg.uuid = gen_UUID();
-            msg.msg_title = "Re: " + msg.msg_title;
-            msg.msg_details = "Re: " + msg.msg_details;
+            msg.msg_title = msg.msg_title;
+            msg.msg_details = msg.msg_details;
             msg.msg_due_date = "";
 	        ShowTaskForm(msg);
 	     };
@@ -862,8 +881,8 @@ function _e_tk4_dup_task(e){
 			var article = e.target.closest('article')
 			var msg = getMessageById(article.dataset.uuid);
             msg.uuid = gen_UUID();
-            msg.msg_title = "Re: " + msg.msg_title;
-            msg.msg_details = "Re: " + msg.msg_details;
+            msg.msg_title =  msg.msg_title;
+            msg.msg_details = msg.msg_details;
             msg.msg_due_date = "";
 	        ShowTaskForm(msg);
 	     };
@@ -874,8 +893,8 @@ function _e_tk5_dup_task(e){
 			var article = e.target.closest('article')
 			var msg = getMessageById(article.dataset.uuid);
             msg.uuid = gen_UUID();
-            msg.msg_title = "Re: " + msg.msg_title;
-            msg.msg_details = "Re: " + msg.msg_details;
+            msg.msg_title = msg.msg_title;
+            msg.msg_details = msg.msg_details;
             msg.msg_due_date = "";
 	        ShowTaskForm(msg);
 	     };
