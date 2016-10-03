@@ -1,0 +1,25 @@
+Download Anaconda
+We'll be using  a few open source data science tools.  All of them are included in a single package called Anaconda (which is provided by Continuum).  Please install the free Anaconda software from http://continuum.io/downloads.  There are versions for Mac, Windows and Linux (click the icon to the right of "Choose Your Installer" to view the appropriate download links for your operating system).  Make sure you choose the Python 2.7 version.
+
+
+Open Jupyter (ipython) Notebook
+We’ll be using iPython notebooks for the class.  Please exactly follow the directions below and make sure you’re able to successfully open the test_ipython_notebook.ipynb file.  [NOTE: You can’t open the file directly and you have to launch an iPython Notebook environment].  If you have any difficulties opening the file, let me know. 
+
+1. Download this dropbox folder to your desktop. 
+
+2.  Open a terminal/command prompt:
+- Instructions for Mac Users  (https://www.youtube.com/watch?v=zw7Nd67_aFw)
+- Instructions for PC Users (http://windows.microsoft.com/en-us/windows-vista/open-a-command-prompt-window)
+
+4.  Change directories to your intro_python folder
+- Usually you can enter "cd Desktop" to get to the desktop and then enter "cd Intro\ to\ Python\ Workshop/" to go to your folder (note: type just what is inside the quotes)
+- You might have to do some searching in and out of directories/folders so here are some tips for navigating directories from the terminal
+    - Entering "cd .." will take you to the parent directory
+    - Entering "cd folder" would take you into a directory called "folder"
+    - To view contents of a directory enter "ls" for Mac Users or "dir" for PC Users
+    - If this is completely foreign to you, I suggest spending 30 mins on learning some command line basics (see section above)
+
+5.  When you're inside the intro_python folder, enter "jupyter notebook" (just what is inside the quotes)
+- iPython Notebook window should open in your browser 
+
+6. Open the test_ipython_notebook.ipynb file by clicking on the file name in the browser.  If you’re successful, you’ll see a short message in the file.
