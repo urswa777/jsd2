@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>SOS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/html5bp.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- my CSS -->
+  <link rel="stylesheet" href="css/sos.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+      <section class="container">
+              <img src="images/my_sos_icon.png" style="width:101px;height:101px;align:left" />
+
+              <i class="fa fa-home todolist_personal_on"></i>
+              <i class="fa fa-group todolist_social_off" ></i>
+              <i class="fa fa-user-secret todolist_secret_off"></i>
+<i class="fa fa-minus separator separator1"></i>
+             <i class="fa fa-calendar    viewIcons view_calendar"></i>
+             <i class="fa fa-map-marker  viewIcons view_marker"></i>
+             <i class="fa fa-male        viewIcons view_people"></i>
+<i class="fa fa-minus separator separator2"></i>
+              <i class="fa fa-dashboard"><span class="sysdate"></span></i>
+             <br>
+             <div style="text-align:right">
+              <i class="fa fa-smile-o icons"></i>
+             <span>Your current To-Do-List is <strong class="curr_todolist_name">Personal/Home  </strong></span>
+
+              <i class="fa fa-plus-square icons"></i>
+              <i class="fa fa-sort-desc icons"></i>
+              <i class="fa fa-sort-asc icons"></i>
+              <i class="fa fa-sticky-note-o icons"></i>
+              <i class="fa fa-refresh icons"></i>
+              <i class="fa fa-user-plus icons"></i>
+              <i class="fa fa-gears icons"></i>
+              <i class="fa fa-search icons"></i>
+              <nav>
+                      <!--
+                      <section id="search" style="text-align:right;background-color:red;">
+                                <input type="text" name="name" value="">
+                                <a href="#"><img src="images/search.png" alt="" /></a>
+                      </section>
+                      -->
+                     <ul>
+                      <li><a href="#" class="Pick-Filter">Pick Filter</a>
+                        <ul>
+                            <li><a href="#" class="list_OpenOnly">Open Tasks</a></li>
+                            <li><a href="#" class="list_AllTasks">All Tasks</a></li>
+                            <li><a href="#" class="List_PendingOnly">Pending</a></li>
+                            <li><a href="#" class="List_PastDue">Past Due</a></li>
+                            <li><a href="#" class="List_ClosedOnly">Closed</a></li>
+                            <li><a href="#" class="List_Archived">Archive</a></li>
+                            <li><a href="#" class="List_Touch3Days">Touch lately</a></li>
+                            <li><a href="#" class="List_MyFavorite">My Favorite</a></li>
+                        </ul>
+                      </li>
+                     </ul>
+              </nav>
+            </div>
+
+     <!--      <div class="clearfix"></div>    -->
+      </section>
+  </header>
+
+ 
+<!--------------------------------------------------------------------------------  -->
+
+  <!-- Pop-up screen to show the detail of a single Task -->
+  <!-- <div id="popUp"> -->
+  <div id="popUp" class="loader hidden">
+    <a href="#" class="closePopUp">X</a>
+    <div class="container" id="EditingMsg">
+      <h3>Post a task, reminder or message to myself here</h3>
+          <div class="MB-container">
+  
+            <div class="panel-group">
+              <div class="panel panel-danger">
+  
+                   <div class="panel-heading"></div>
+                   <div class="panel-body">
+                      <form action="" id="message-form">
+                        <div class="form-group">
+                          <label>Title:</label>
+                          <textarea id="msg_title" type="text" class="form-control"></textarea>
+                          <label>Details:</label>
+                          <textarea id="msg_details" type="text" class="form-control"></textarea>
+                          <br>
+<!-- curr_todolist_id=0 -->
+                              <section >
+                                       <strong>To-Do-List :</strong>
+                                       <span id="msg_todolist_name" style="color:#FF0000"></span>
+                              </section>
+                              <section > Task type (e.g. Incident, Request, Maintenance, Routine, Project or Reminder):
+                              <input type="text" name="name" value="" id="msg_task_type">
+                              </section>
+                              <section > Priority (1 - 10 where 10 = Top Priority) :
+                              <input type="text" name="name" value="" id="msg_priority">
+                              </section>
+                              <section > Due Date (Format: 'YYYY-MM-DD'):
+                              <input type="text" name="name" value="" id="msg_duedate">
+                              </section>
+                              <section > Level of Effort (1 - 5 / Easiest to Hardest) :
+                              <input type="text" name="name" value="" id="msg_levelOfEffort">
+                              </section>
+                              <section > Importance  (1 - 5 / Least to Most Important) :
+                              <input type="text" name="name" value="" id="msg_importance">
+                              </section>
+                              <section> Urgency  (1 - 5 / Least to Most Urgent) :
+                              <input type="text" name="name" value="" id="msg_urgency">
+                              </section>
+                              <section > Time needed (Hours):
+                              <input type="text" name="name" value="" id="msg_timeneeded">
+                              </section>
+
+                        </div>
+                        <button class="btn btn-default save_task">Post</button>
+                      </form>
+                   </div>
+                   </div>
+  
+              </div>
+           </div>
+    
+    </div>
+  </div>
+
+<div class="delimiter"></div>
+    <!-- ----------------------------------------------------------------------------------------  -->
+    <!-- ----------------------------------------------------------------------------------------- -->
+
+
+  <!--  List view -->
+  <section id="main" class="container">
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <article class="article task1">
+      <section class="featuredImage">
+        <img class="articlePic1" src="images/inspirational01.jpg" alt="" />
+      </section>
+      <section class="articleContent">
+          <a href="#"><h3 style="color:#e6005c">Task 1 - <span class="task1_title">XXXXX</span></h3></a>
+          <h6>Time remained : <span class="task1_time_remained"></span></h6>
+      </section>
+      <section class="priority impressions">
+                      <span class="tk1_priority">9</span><br>
+                      <i class="fa fa-trash-o pull-right       tk1_trash"></i>
+                      <i class="fa fa-heart-o pull-right       tk1_love_task"></i>
+                      <i class="fa fa-clone pull-right         tk1_dup_task"></i>
+                      <i class="fa fa-pencil-square-o pull-right tk1_edit_task"></i>
+                      <i class="fa fa-send-o pull-right        tk1_send_task"></i>
+                      <i class="fa fa-check  pull-right        tk1_complete"></i>
+                      <i class="fa fa-thumbs-o-up pull-right   tk1_add_priority"></i>
+                      <i class="fa fa-thumbs-o-down pull-right tk1_sub_prioirty"></i>
+                      <i class="fa fa-search-plus pull-right   tk1_show_details"></i>
+
+      </section>
+      <section>
+      </section>
+      <div class="clearfix"></div>
+    </article>
+                <article class="drilldown task1_drilldown hideDrilldown">
+                  <section class="Notes"><a href="#"><strong style="color:#003366" class="closeNotes1">X</strong></a>
+                  </section>
+                  <section class="articleContent Task1Details">
+                        <span>Type: </span><span class="task1_type"></span><br>
+                        <span>Importance: </span><span class="task1_importance"></span><br>
+                        <span>Urgency: </span><span class="task1_urgency"></span><br>
+                        <span>Level of Effort: </span><span class="task1_LOE"></span><br><br>
+                        <span>Task Details: </span><span class="task1_details"></span><br>
+                        <span>Due Date: </span><span class="task1_duedate"></span><br>
+                        <span>Status: </span><span class="task1_status"></span><br>
+                        <span>Notes :</span><br>
+                  </section>
+                  <section class="ListOfNotes">
+                        <ul class="task1_Notes">
+                        </ul>
+                  </section>
+                  <section class="addnotes">New update:
+                        <textarea id="addNotes1" type="text" class="form-control"></textarea>
+                        <button id="postNotes1">Post</button>
+                  </section>
+                  <div class="clearfix"></div>
+                </article>
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <article class="article task2">
+      <section class="featuredImage">
+        <img class="articlePic2" src="images/inspirational02.jpg" alt="" />
+      </section>
+      <section class="articleContent">
+          <a href="#"><h3 style="color:#e60000">Task 2 - <span class="task2_title">XXXXX</span></h3></a>
+          <h6>Time remained : <span class="task2_time_remained"></span></h6>
+      </section>
+      <section class="priority impressions">
+                      <span class="tk2_priority">6</span><br>
+                      <i class="fa fa-trash-o pull-right       tk2_trash"></i>
+                      <i class="fa fa-heart-o pull-right       tk2_love_task"></i>
+                      <i class="fa fa-clone pull-right         tk2_dup_task"></i>
+                      <i class="fa fa-pencil-square-o pull-right tk2_edit_task"></i>
+                      <i class="fa fa-send-o pull-right        tk2_send_task"></i>
+                      <i class="fa fa-check  pull-right        tk2_complete"></i>
+                      <i class="fa fa-thumbs-o-up pull-right   tk2_add_priority"></i>
+                      <i class="fa fa-thumbs-o-down pull-right tk2_sub_prioirty"></i>
+                      <i class="fa fa-search-plus pull-right   tk2_show_details"></i>
+      </section>
+      <section>
+      </section>
+      <div class="clearfix"></div>
+    </article>
+                <article class="drilldown task2_drilldown hideDrilldown">
+                  <section class="Notes"><a href="#"><strong style="color:#003366" class="closeNotes2">X</strong></a>
+                  </section>
+                  <section class="articleContent Task2Details">
+                        <span>Type: </span><span class="task2_type"></span><br>
+                        <span>Importance: </span><span class="task2_importance"></span><br>
+                        <span>Urgency: </span><span class="task2_urgency"></span><br>
+                        <span>Level of Effort: </span><span class="task2_LOE"></span><br><br>
+                        <span>Task Details: </span><span class="task2_details"></span><br>
+                        <span>Due Date: </span><span class="task2_duedate"></span><br>
+                        <span>Status: </span><span class="task2_status"></span><br>
+                        <span>Notes :</span><br>
+                  </section>
+                  <section class="ListOfNotes">
+                        <ul class="task2_Notes">
+                        </ul>
+                  </section>
+                  <section class="addnotes">New update:
+                        <textarea id="addNotes2" type="text" class="form-control"></textarea>
+                        <button id="postNotes2">Post</button>
+                  </section>
+                  <div class="clearfix"></div>
+                </article>
+
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <article class="article task3">
+      <section class="featuredImage">
+        <img class="articlePic3" src="images/inspirational07.jpg" alt="" />
+      </section>
+      <section class="articleContent">
+          <a href="#"><h4>Task 3 - <span class="task3_title">XXXXX</span></h4></a>
+          <h6>Time remained : <span class="task3_time_remained"></span></h6>
+      </section>
+      <section class="priority impressions">
+                      <span class="tk3_priority">5</span>
+                      <br>
+                      <i class="fa fa-trash-o pull-right       tk3_trash"></i>
+                      <i class="fa fa-heart-o pull-right       tk3_love_task"></i>
+                      <i class="fa fa-clone pull-right         tk3_dup_task"></i>
+                      <i class="fa fa-pencil-square-o pull-right tk3_edit_task"></i>
+                      <i class="fa fa-send-o pull-right        tk3_send_task"></i>
+                      <i class="fa fa-check  pull-right        tk3_complete"></i>
+                      <i class="fa fa-thumbs-o-up pull-right   tk3_add_priority"></i>
+                      <i class="fa fa-thumbs-o-down pull-right tk3_sub_prioirty"></i>
+                      <i class="fa fa-search-plus pull-right   tk3_show_details"></i>
+      </section>
+      <section>
+      </section>
+      <div class="clearfix"></div>
+    </article>
+                <article class="drilldown task3_drilldown hideDrilldown">
+                  <section class="Notes"><a href="#"><strong style="color:#003366" class="closeNotes3">X</strong></a>
+                  </section>
+                  <section class="articleContent Task3Details">
+                        <span>Type: </span><span class="task3_type"></span><br>
+                        <span>Importance: </span><span class="task3_importance"></span><br>
+                        <span>Urgency: </span><span class="task3_urgency"></span><br>
+                        <span>Level of Effort: </span><span class="task3_LOE"></span><br><br>
+                        <span>Task Details: </span><span class="task3_details"></span><br>
+                        <span>Due Date: </span><span class="task3_duedate"></span><br>
+                        <span>Status: </span><span class="task3_status"></span><br>
+                        <span>Notes :</span><br>
+                  </section>
+                  <section class="ListOfNotes">
+                        <ul class="task3_Notes">
+                        </ul>
+                  </section>
+                  <section class="addnotes">New update:
+                        <textarea id="addNotes3" type="text" class="form-control"></textarea>
+                        <button id="postNotes3">Post</button>
+                  </section>
+                  <div class="clearfix"></div>
+                </article>
+
+
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <article class="article task4">
+      <section class="featuredImage">
+        <img class="articlePic4" src="images/inspirational04.jpg" alt="" />
+      </section>
+      <section class="articleContent">
+          <a href="#"><h5>Task 4 - <span class="task4_title">XXXXX</span></h5></a>
+          <h6>Time remained : <span class="task4_time_remained"></span></h6>
+      </section>
+      <section class="priority impressions">
+                      <span class="tk4_priority">4</span>
+                      <br>
+                      <i class="fa fa-trash-o pull-right       tk4_trash"></i>
+                      <i class="fa fa-heart-o pull-right       tk4_love_task"></i>
+                      <i class="fa fa-clone pull-right         tk4_dup_task"></i>
+                      <i class="fa fa-pencil-square-o pull-right tk4_edit_task"></i>
+                      <i class="fa fa-send-o pull-right        tk4_send_task"></i>
+                      <i class="fa fa-check  pull-right        tk4_complete"></i>
+                      <i class="fa fa-thumbs-o-up pull-right   tk4_add_priority"></i>
+                      <i class="fa fa-thumbs-o-down pull-right tk4_sub_prioirty"></i>
+                      <i class="fa fa-search-plus pull-right   tk4_show_details"></i>
+      </section>
+      <section>
+      </section>
+      <div class="clearfix"></div>
+    </article>
+              <article class="drilldown task4_drilldown hideDrilldown">
+                <section class="Notes"><a href="#"><strong style="color:#003366" class="closeNotes4">X</strong></a>
+                </section>
+                <section class="articleContent Task4Details">
+                        <span>Type: </span><span class="task4_type"></span><br>
+                        <span>Importance: </span><span class="task4_importance"></span><br>
+                        <span>Urgency: </span><span class="task4_urgency"></span><br>
+                        <span>Level of Effort: </span><span class="task4_LOE"></span><br><br>
+                        <span>Task Details: </span><span class="task4_details"></span><br>
+                        <span>Due Date: </span><span class="task4_duedate"></span><br>
+                        <span>Status: </span><span class="task4_status"></span><br>
+                        <span>Notes :</span><br>
+                  </section>
+                  <section class="ListOfNotes">
+                        <ul class="task4_Notes">
+                        </ul>
+                  </section>
+                  <section class="addnotes">New update:
+                        <textarea id="addNotes4" type="text" class="form-control"></textarea>
+                        <button id="postNotes4">Post</button>
+                  </section>
+                <div class="clearfix"></div>
+              </article>
+
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+    <article class="article task5">
+      <section class="featuredImage">
+        <img class="articlePic5" src="images/inspirational03.jpg" alt="" />
+      </section>
+      <section class="articleContent">
+          <a href="#"><h5>Task 5 - <span class="task5_title">XXXXX</span></h5></a>
+          <h6>Time remained : <span class="task5_time_remained"></span></h6>
+      </section>
+      <section class="priority impressions">
+                      <span class="tk5_priority">0</span>
+                      <br>
+                      <i class="fa fa-trash-o pull-right       tk5_trash"></i>
+                      <i class="fa fa-heart-o pull-right       tk5_love_task"></i>
+                      <i class="fa fa-clone pull-right         tk5_dup_task"></i>
+                      <i class="fa fa-pencil-square-o pull-right tk5_edit_task"></i>
+                      <i class="fa fa-send-o pull-right        tk5_send_task"></i>
+                      <i class="fa fa-check  pull-right        tk5_complete"></i>
+                      <i class="fa fa-thumbs-o-up pull-right   tk5_add_priority"></i>
+                      <i class="fa fa-thumbs-o-down pull-right tk5_sub_prioirty"></i>
+                      <i class="fa fa-search-plus pull-right   tk5_show_details"></i>
+      </section>
+      <section>
+      </section>
+      <div class="clearfix"></div>
+    </article>
+                  <article class="drilldown task5_drilldown hideDrilldown">
+                    <section class="Notes"><a href="#"><strong style="color:#003366" class="closeNotes5">X</strong></a>
+                    </section>
+                    <section class="articleContent Task5Details">
+                        <span>Type: </span><span class="task5_type"></span><br>
+                        <span>Importance: </span><span class="task5_importance"></span><br>
+                        <span>Urgency: </span><span class="task5_urgency"></span><br>
+                        <span>Level of Effort: </span><span class="task5_LOE"></span><br><br>
+                        <span>Task Details: </span><span class="task5_details"></span><br>
+                        <span>Due Date: </span><span class="task5_duedate"></span><br>
+                        <span>Status: </span><span class="task5_status"></span><br>
+                        <span>Notes :</span><br>
+                  </section>
+                  <section class="ListOfNotes">
+                        <ul class="task5_Notes">
+                        </ul>
+                  </section>
+                  <section class="addnotes">New update:
+                        <textarea id="addNotes5" type="text" class="form-control"></textarea>
+                        <button id="postNotes5">Post</button>
+                  </section>
+                    <div class="clearfix"></div>
+                  </article>
+  <div style="height:20px"></div>
+  <div style="background-color:#777777;color:#AAAAAA"><strong style="padding-left:10px">Previous Action :</strong>
+            <span class="previous_actions" style="color:#0000AA"></span>
+  </div>
+
+  <!-- jQuery JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Firebase CDN -->
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+  <!--<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>-->
+  <!-- js -->
+  <script src="js/todolist-JSON-data.js"></script>
+  <script src="js/sos.js"></script>
+
+
+    
+
+</body>
+</html>
